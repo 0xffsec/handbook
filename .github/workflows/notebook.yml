@@ -2,7 +2,8 @@ name: Publish Notebook
 
 on:
   push:
-    branches:[ master ]
+    branches:
+      - master
 
 jobs:
   build:
