@@ -32,4 +32,4 @@ jobs:
       with:
         emptyCommits: false
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gb-pages
+        publish_branch: gh-pages
