@@ -1,0 +1,33 @@
+name: Publish Notebook
+
+on:
+  push:
+    branches:[ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: Checkout
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.68.3'
+
+    - name: Build
+      run: hugo --minify
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        emptyCommits: false
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gb-pages
