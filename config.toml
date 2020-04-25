@@ -1,0 +1,8 @@
+baseURL = "https://0xffsec.com/"
+languageCode = "en-us"
+title = "Notebook"
+theme = "book"
+
+[markup]
+[markup.highlight]
+    style = "dracula"
