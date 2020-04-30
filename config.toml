@@ -1,4 +1,4 @@
-baseURL = "https://0xffsec.com/"
+baseURL = "https://www.0xffsec.com/notebook"
 languageCode = "en-us"
 title = "Notebook"
 theme = "book"
