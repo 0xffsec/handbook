@@ -1,7 +1,6 @@
 ---
 title: "Host Discovery"
 weight: 102
-draft: true
 ---
 # Host Discovery
 
@@ -92,7 +91,7 @@ nmap -PEPM -sn -n 10.0.0.0/24
 
 ### Port Discovery
 
-Another way, and probably the most common, is to probe if a host is up while finding open ports.
+Another commonly used technique is port scanning. It allows you to identify running services, consequently, interesting hosts.
 See [Port Scanning]({{< ref "port-scanning.md" >}}).
 
 ## Reference
