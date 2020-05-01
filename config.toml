@@ -1,8 +1,26 @@
-baseURL = "https://www.0xffsec.com/notebook"
+baseURL = "https://0xffsec.com/notebook"
 languageCode = "en-us"
 title = "Notebook"
 theme = "book"
 
+enableGitInfo = true
+
 [markup]
 [markup.highlight]
     style = "dracula"
+
+[params]
+    BookRepo = "https://github.com/0xffsec/notebook"
+    BookEditPath = 'edit/master/content'
+    BookSection = '/'
+
+[menu]
+[[menu.after]]
+  name = "Github"
+  url = "https://github.com/0xffsec/"
+  weight = 10
+
+[[menu.after]]
+  name = "0xffsec.com"
+  url = "https://0xffsec.com/"
+  weight = 30
