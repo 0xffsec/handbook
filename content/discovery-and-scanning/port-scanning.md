@@ -50,7 +50,7 @@ sudo nmap -sU -sV --version-intensity 0 -n 10.0.0.0/24
 - `-v`: verbose mode.
 - `-sU`: UDP scan.
 - `-sV`: determine service/version info.
-- `-sC`: deter
+- `-sC`: performs a script scan.
 - `-O`: enable OS detection.
 - `-p <port ranges>`: scan specific ports.
 - `--open`: only show open ports.
