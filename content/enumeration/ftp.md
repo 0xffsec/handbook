@@ -59,7 +59,7 @@ ftp> ls -lat
 
 ## FTP Browser Client
 
-{{<hint warning>}}
+{{<hint danger>}}
 Due to its insecure nature, FTP support is being dropped by [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1574475) and [Google Chrome](https://chromestatus.com/feature/6246151319715840).
 {{</hint>}}
 
