@@ -5,19 +5,28 @@ bookToc: false
 
 # Tools
 
+## dirb
+
+DIRB is a Web Content Scanner. It looks for existing (and/or hidden) Web Objects. It basically works by launching a dictionary based attack against a web server and analyzing the response.
+
+[Official Homepage](http://dirb.sourceforge.net/)
+
 ## fping
 
 fping is a program to send `ICMP` echo probes to network hosts, similar to ping, but much better performing when pinging multiple hosts. fping has a very long history: Roland Schemers did publish a first version of it in 1992 and it has established itself since then as a standard tool for network diagnostics and statistics.
+
+[Official Homepage](https://fping.org/)
 
 ## FTP
 
 File Transfer Protocol client.
 
-## THC Hydra
+## gobuster
 
-Hydra is a parallelized login cracker which supports numerous protocols to attack. It is very fast and flexible, and new modules are easy to add. This tool makes it possible for researchers and security consultants to show how easy it would be to gain unauthorized access to a system remotely.
+Gobuster is a tool used to brute-force URIs (directories and files), DNS subdomains and Virtual Host names on target web servers.
 
-[Github Page](https://github.com/vanhauser-thc/thc-hydra)
+[GitHub Page](https://github.com/OJ/gobuster)
+
 
 ## masscan
 
@@ -86,3 +95,10 @@ Command line search tool for [Exploit-DB](https://www.exploit-db.com/) that also
 User interface to TELNET.
 
 [Official Homepage](http://telnet.org/)
+
+## THC Hydra
+
+Hydra is a parallelized login cracker which supports numerous protocols to attack. It is very fast and flexible, and new modules are easy to add. This tool makes it possible for researchers and security consultants to show how easy it would be to gain unauthorized access to a system remotely.
+
+[Github Page](https://github.com/vanhauser-thc/thc-hydra)
+
