@@ -1,5 +1,6 @@
 ---
 title: Tools
+bookToc: false
 ---
 
 # Tools
@@ -7,6 +8,13 @@ title: Tools
 ## fping
 
 fping is a program to send ICMP echo probes to network hosts, similar to ping, but much better performing when pinging multiple hosts. fping has a very long history: Roland Schemers did publish a first version of it in 1992 and it has established itself since then as a standard tool for network diagnostics and statistics.
+
+## masscan
+
+This is an Internet-scale port scanner. It can scan the entire Internet in under 6 minutes, transmitting 10 million packets per second, from a single machine.  
+It's input/output is similar to nmap, the most famous port scanner. When in doubt, try one of those features.
+Internally, it uses asynchronous tranmissions, similar to port scanners like scanrand, unicornscan, and ZMap. It's more flexible, allowing arbitrary port and address ranges.
+[GitHub Page](https://github.com/robertdavidgraham/masscan)
 
 ## nbtscan
 
