@@ -33,6 +33,12 @@ Medusa is intended to be a speedy, massively parallel, modular, login brute-forc
 
 [Official Homepage](http://foofus.net/goons/jmk/medusa/medusa.html)
 
+## MSFConsole
+
+The most popular interface to the Metasploit Framework (MSF). It provides an “all-in-one” centralized console and allows you efficient access to virtually all of the options available in the MSF.
+
+[Official Homepage](https://www.offensive-security.com/metasploit-unleashed/msfconsole/)
+
 ## nbtscan
 
 This is a command-line tool that scans for open `NETBIOS` nameservers on a local or remote TCP/IP network, and this is a first step in finding of open shares. It is based on the functionality of the standard Windows tool `nbtstat`, but it operates on a range of addresses instead of just one. I wrote this tool because the existing tools either didn't do what I wanted or ran only on the Windows platforms: mine runs on just about everything.
@@ -68,6 +74,12 @@ P0f is a tool that utilizes an array of sophisticated, purely passive traffic fi
 Send ICMP `ECHO_REQUEST` packets to network hosts.
 
 [FreeBSD System Manager's Manual](https://www.freebsd.org/cgi/man.cgi?query=ping&sektion=8)
+
+## SearchSploit
+
+Command line search tool for [Exploit-DB](https://www.exploit-db.com/) that also allows you to take a copy of Exploit Database with you, everywhere you go. SearchSploit gives you the power to perform detailed off-line searches through your locally checked-out copy of the repository. This capability is particularly useful for security assessments on segregated or air-gapped networks without Internet access.
+
+[Official Homepage](https://www.exploit-db.com/searchsploit)
 
 ## Telnet
 
