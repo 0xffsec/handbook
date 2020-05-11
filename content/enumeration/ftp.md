@@ -9,23 +9,23 @@ FTP is built on a client-server architecture using separate control and data con
 
 ## Banner Grabbing
 
-#### Telnet
+#### [Telnet]({{< ref "tools#telnet" >}})
 
 ```sh
 telnet 10.0.0.3 21
 ```
 
-#### Netcat
+#### [Netcat]({{< ref "tools#netcat" >}})
 ```sh
 nc -n 10.0.0.3 21
 ```
 
-#### Nmap
+#### [Nmap]({{< ref "tools#nmap" >}})
 ```sh
 nmap -sV -script=banner -p21 -Pn 10.0.0.3
 ```
 
-#### FTP
+#### [FTP]({{< ref "tools#ftp" >}})
 ```sh
 ftp 10.0.0.3
 ```
@@ -70,7 +70,7 @@ If not credentials provided `anonymous:anonymous` is assumed.
 
 As an alternative to profiled passwords, [Daniel Miessler's SecLists](https://github.com/danielmiessler/SecLists) includes a handy list of [FTP default credentials](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt).  
 
-### Hydra
+### [Hydra]({{< ref "tools#thc-hydra" >}})
 
 Using a colon-separated `user:pass` list.
 
@@ -84,7 +84,7 @@ Using login user and passwords list.
 hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f 10.0.0.3 ftp
 ```
 
-{{<details "Used Hydra options">}}
+{{<details "Parameters">}}
 - `-v`: verbose mode.
 - `-C <user:pass file>`: colon-separated "login:pass" format.
 - `-l <user>`: login with `user` name.
@@ -92,7 +92,7 @@ hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f 10.0.0.3 ftp
 - `-f`: exit after the first found user/password pair.
 {{</details>}}
 
-### Medusa
+### [Medusa]({{< ref "tools#medusa" >}})
 
 Medusa's combo files (colon-separated) should be in the format `host:username:password`. If any of the three values are missing, the respective information should be provided either as a global value or as a list in a file.
 
@@ -107,14 +107,12 @@ Using login user and passwords list.
 medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h 10.0.0.3 -M ftp
 ```
 
-{{<details "Used Medusa options">}}
+{{<details "Parameters">}}
 - `-u <user>`: login with `user` name.
 - `-P <passwords file>`: login with password from file.
 - `-h`: target hostname or IP address.
 - `-M`: module to execute.
 {{</details>}}
-
-
 
 
 ## Configuration files
