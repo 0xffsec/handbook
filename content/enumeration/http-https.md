@@ -11,7 +11,7 @@ Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
 ## Directory Enumeration
 
 As a first step, while we browse the web/application, it is a good idea to do some files and directories enumeration, look for **unlinked content**, **temporary directories**, and **backups**.  
-Widely used tools include [dirbuster](https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project), [gobuster](https://github.com/OJ/gobuster), [dirb](https://sourceforge.net/projects/dirb/) and the tools suite [Burp](https://portswigger.net/burp).
+Widely used tools include [dirbuster](https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project), [gobuster](https://github.com/OJ/gobuster), [dirb](https://sourceforge.net/projects/dirb/) and the suite [Burp](https://portswigger.net/burp).
 
 ### Wordlists
 
@@ -32,7 +32,7 @@ Not included in Kali.
 `/usr/share/seclists/Discovery/Web-Content/common.txt`  
 `/usr/share/seclists/Discovery/Web-Content/RobotsDisallowed-Top1000.txt`
 
-### [gobuster]({{< ref "tools#gobuster" >}})
+### gobuster [^gobuster]
 ```sh
 gobuster dir -t 30 -k -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://10.0.0.3/ 
 ```
@@ -44,7 +44,11 @@ gobuster dir -t 30 -k -w /usr/share/wordlists/dirbuster/directory-list-2.3-mediu
 - `-u <URL>`: target URL.
 {{</details>}}
 
-### [dirb]({{< ref "tools#dirb" >}})
+### dirb [^dirb]
 ```sh
 dirb https://10.0.0.3/ /usr/share/seclists/Discovery/Web-Content/common.txt
 ```
+## Reference
+
+[^gobuster]: Reeves, OJ. “GitHub - OJ/Gobuster.” GitHub, https://github.com/OJ/gobuster.
+[^dirb]: Pinuaga, Ramon. “DIRB .” DIRB Homepage, http://dirb.sourceforge.net/.

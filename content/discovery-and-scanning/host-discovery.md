@@ -13,14 +13,14 @@ One of the first steps during the network enumeration is to reduce a set of IPs 
 Passive discovery relies on monitoring network layer traffic to detect network topology, services, and applications. The process does not generate any network traffic.  
 Although is a slow process compared to an active scan and unreliable for service enumeration, as no packets are injected in the network, there is no risk of unintentional service disruption. Giving the advantage of being able to find intermittently offered or protected services that are often missed by active scanning. [^net-scanning-detection-strategies]
 
-#### [netdiscover - ARP]({{< ref "tools#netdiscover" >}})
+#### netdiscover - ARP [^netdiscover]
 
 ```sh
 sudo netdiscover -p
 ```
 - `-p`: passive mode. It does not send anything, but **does only sniff**.
 
-#### [p0f - Fingerprinting]({{< ref "tools#p0f" >}})
+#### p0f - Fingerprinting [^p0f]
 
 ```sh
 sudo p0f -p
@@ -33,7 +33,7 @@ sudo p0f -p
 In contrast, active discovery does inject a variety of packets into the network, making it well suited for open port discovery and fingerprinting. However, these techniques are not without drawbacks. Scans can be invasive, generate too much noise and, in some cases cause service interruptions due to the type of packets that may be sent.
 
 
-#### [netdiscover - ARP]({{< ref "tools#netdiscover" >}})
+#### netdiscover - ARP [^netdiscover]
 
 ```sh
 sudo netdiscover -r 10.0.0.0/24
@@ -41,7 +41,8 @@ sudo netdiscover -r 10.0.0.0/24
 
 - `-r <range>`: scan a given range instead of auto scan.
 
-#### [Nmap]({{< ref "tools#nmap" >}})
+#### Nmap
+
 
 ```sh
 nmap -sn 10.0.0.0/24
@@ -50,7 +51,7 @@ nmap -sn 10.0.0.0/24
 - `-sn`: No port scan AKA **ping scan**.  [^nmap-host-discovery]
     Consists of an ICMP echo request, TCP SYN to port 443, TCP ACK to port 80, and an ICMP timestamp request by default.
 
-#### [nbtscan - NetBIOS]({{< ref "tools#netbios" >}})
+#### nbtscan - NetBIOS [^nbtscan]
 
 ```sh
 sudo nbtscan 10.0.0.0/24
@@ -66,21 +67,21 @@ Refer to [External ICMP Scanning]({{< ref "#icmp-1" >}})
 As defined in [RFC 792](https://tools.ietf.org/html/rfc792), ICMP messages are typically used for diagnostic or control purposes or generated in response to errors in IP operations (as specified in [RFC 1122](https://tools.ietf.org/html/rfc1122)).[^data-communications-and-networking]  
 Although it is possible to use ICMP requests to discover if a host is up or not, it is common to find all these packets being filtered, making it an unreliable method.
 
-#### [ping]({{< ref "tools#ping" >}})
+#### ping
 
 ```sh
 ping -c 1 10.0.0.1
 ```
 - `-c <count>`: stops after `count` replies.
 
-#### [fping]({{< ref "tools#fping" >}})
+#### fping [^fping]
 
 ```sh
 fping -g 10.10.0.0/24
 ```
 - `-g, --generate <target>`: generates target list. `target` can be start and end IP or a CIDR address.
 
-#### [Nmap]({{< ref "tools#nmap" >}})
+#### Nmap
 
 ```sh
 nmap -PEPM -sn -n 10.0.0.0/24
@@ -101,3 +102,7 @@ See [Port Scanning]({{< ref "port-scanning.md" >}}).
 [^nmap-host-discovery]: “Host Discovery | Nmap Network Scanning.” Nmap: The Network Mapper - Free Security Scanner, https://nmap.org/book/man-host-discovery.html.
 [^data-communications-and-networking]: Forouzan, Behrouz A. Data Communications and Networking. Huga Media, 2007, pp. 621–630.
 [^net-scanning-detection-strategies]: Whyte, David. Network Scanning Detection Strategies for Enterprise Networks. Sept. 2008, pp. 12-22 https://pdfs.semanticscholar.org/bb60/dc6cf24ea1f17126511e0998d3c55bdd50f9.pdf.
+[^netdiscover]: “GitHub - Netdiscover-Scanner/Netdiscover: Netdiscover, ARP Scanner (Official Repository).” GitHub, https://github.com/netdiscover-scanner/netdiscover.
+[^p0f]: Zalewski, Michal. “P0f V3.” [Lcamtuf.Coredump.Cx], https://lcamtuf.coredump.cx/p0f3/.
+[^nbtscan]: “NETBIOS Nameserver Scanner.” Steve Friedl’s Home Page, http://www.unixwiz.net/tools/nbtscan.html.
+[^fping]: Schweikert, David. “Fping.” Fping Homepage, https://fping.org/.

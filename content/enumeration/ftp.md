@@ -13,23 +13,23 @@ FTP is built on a client-server architecture using separate control and data con
 
 ## Banner Grabbing
 
-#### [Telnet]({{< ref "tools#telnet" >}})
+#### Telnet
 
 ```sh
 telnet 10.0.0.3 21
 ```
 
-#### [Netcat]({{< ref "tools#netcat" >}})
+#### Netcat
 ```sh
 nc -n 10.0.0.3 21
 ```
 
-#### [Nmap]({{< ref "tools#nmap" >}})
+#### Nmap
 ```sh
 nmap -sV -script=banner -p21 -Pn 10.0.0.3
 ```
 
-#### [FTP]({{< ref "tools#ftp" >}})
+#### FTP
 ```sh
 ftp 10.0.0.3
 ```
@@ -74,7 +74,7 @@ If not credentials provided `anonymous:anonymous` is assumed.
 
 As an alternative to profiled passwords, [Daniel Miessler's SecLists](https://github.com/danielmiessler/SecLists) includes a handy list of [FTP default credentials](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt).  
 
-### [Hydra]({{< ref "tools#thc-hydra" >}})
+### Hydra [^hydra]
 
 Using a colon-separated `user:pass` list.
 
@@ -96,7 +96,7 @@ hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f 10.0.0.3 ftp
 - `-f`: exit after the first found user/password pair.
 {{</details>}}
 
-### [Medusa]({{< ref "tools#medusa" >}})
+### Medusa [^medusa]
 
 Medusa's combo files (colon-separated) should be in the format `host:username:password`. If any of the three values are missing, the respective information should be provided either as a global value or as a list in a file.
 
@@ -149,3 +149,5 @@ wget -m ftp://user:pass@10.0.0.3/
 [^so-ftp-mirroring]: Thibaut Barrère. “Command Line - How to Recursively Download a Folder via FTP on Linux - Stack Overflow.” Stack Overflow, https://stackoverflow.com/a/113900/578050.
 [^0daysec-enum]: “Penetration Testing Methodology” 0DAYsecurity.Com, http://www.0daysecurity.com/penetration-testing/enumeration.html.
 [^w3c-ftp-transfer]: “RFC959: FTP: Data Transfer Functions.” World Wide Web Consortium (W3C), https://www.w3.org/Protocols/rfc959/3_DataTransfer.html.
+[^hydra]: Heuse, Marc. “GitHub - Vanhauser-Thc/Thc-Hydra: Hydra.” GitHub, https://github.com/vanhauser-thc/thc-hydra. Accessed 12 May 2020.
+[^medusa]: “Foofus Networking Services - Medusa.” Foofus.Net | Foofus.Net Advanced Security Services Forum, http://foofus.net/goons/jmk/medusa/medusa.html.
