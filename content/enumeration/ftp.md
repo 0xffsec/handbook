@@ -1,5 +1,6 @@
 ---
 title: "FTP - 21"
+weight: 21
 ---
 # FTP
 
@@ -33,6 +34,10 @@ nmap -sV -script=banner -p21 -Pn 10.0.0.3
 ```sh
 ftp 10.0.0.3
 ```
+
+## FTP Exploits Search
+
+Refer to [Exploits Search]({{< ref "exploits-search">}})
 
 ## Anonymous Login
 
