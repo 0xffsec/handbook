@@ -1,14 +1,12 @@
 ---
 title: HTTP/S - 80 / 443
+description: "HTTP/S (Hypertext Transfer Protocol Secure) Enumeration for Pentesting"
 weight: 80
+
+service: HTTP/S
+service_description: Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
+service_port: 80 / 443
 ---
-# HTTP / HTTPS 
-
-{{<hint info>}}
-Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.  
-**Default Port: 80 / 443**
-{{</hint>}}
-
 ## Directory Enumeration
 
 As a first step, while we browse the web/application, it is a good idea to do some files and directories enumeration, look for **unlinked content**, **temporary directories**, and **backups**.  

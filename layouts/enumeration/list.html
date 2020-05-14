@@ -1,0 +1,30 @@
+{{ define "main" }}
+    <article class="markdown">
+        {{- .Content -}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Port</th>
+                    <th>Service</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Port</th>
+                    <th>Service</th>
+                    <th>Description</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {{ range sort .Paginator.Pages }}
+                <tr>
+                    <td>{{- .Params.service_port -}}</td>
+                    <td><a href="{{ .RelPermalink }}">{{- .Params.service -}}</a></td>
+                    <td>{{- .Params.service_description -}}</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </article>
+{{ end }}

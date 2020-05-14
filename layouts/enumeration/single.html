@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="markdown">
+    <h1>{{- .Params.service -}}</h1>
+    <blockquote class="book-hint warning">
+      {{- .Params.service_description -}}
+      </br>
+      <strong>Default Port: {{ .Params.service_port }}</strong>
+    </blockquote>
+
+    {{- .Content -}}
+</article>
+{{ end }}

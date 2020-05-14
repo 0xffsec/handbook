@@ -1,14 +1,12 @@
 ---
-title: SMB - 139 / 445
+title: "SMB - 139 / 445"
+description: "SMB (Server Message Block) Enumeration for Pentesting"
 weight: 139
+
+service: SMB
+service_description: Server Message Block.
+service_port: 139 / 445
 ---
-# SMB
-
-{{<hint info>}}
-Server Message Block.  
-**Default Port: 139 / 445**
-{{</hint>}}
-
 SMB is a network communication protocol for providing shared access to files, printers, and serial ports between nodes on a network. It also provides an authenticated IPC (inter-process communication) mechanism.[^wiki-smb]
 
 #### Windows SMB Ports and Protocols
