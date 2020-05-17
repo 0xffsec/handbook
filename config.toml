@@ -13,14 +13,3 @@ enableGitInfo = true
     BookRepo = "https://github.com/0xffsec/notebook"
     BookEditPath = 'edit/master/content'
     BookSection = '/'
-
-[menu]
-[[menu.after]]
-  name = "Github"
-  url = "https://github.com/0xffsec/"
-  weight = 10
-
-[[menu.after]]
-  name = "0xffsec.com"
-  url = "https://0xffsec.com/"
-  weight = 30
