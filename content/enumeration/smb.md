@@ -12,8 +12,9 @@ SMB is a network communication protocol for providing shared access to files, pr
 #### Windows SMB Ports and Protocols
 
 {{<hint info>}}
-**TL;DR**  
-**Port 139 serves SMB over NBT** (NetBIOS over TCP/IP) and, **port 445, SMB directly over TCP/IP**.
+**TL;DR**
+- Port 139: SMB over NBT (NetBIOS over TCP/IP).
+- port 445: SMB directly over TCP/IP.
 {{</hint>}}
 
 Originally, in Windows NT, SMB ran on top of NBT (NetBIOS over TCP/IP), which uses ports UDP 137 and 138, and TCP 139. With Windows 2000, was introduced the option to run "NetBIOS-less" SMB directly over TCP/IP, without the extra NBT layer on port 445.  
@@ -62,7 +63,6 @@ smbclient --no-pass -L //10.0.0.3
 - `--no-pass`: remove the password prompt from the client to the user.
 - `-L`: list services available on the server.
 {{</details>}}
-
 
 # Reference
 

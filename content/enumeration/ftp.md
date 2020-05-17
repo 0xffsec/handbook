@@ -47,7 +47,7 @@ Try anonymous login using `anonymous:anonymous` credentials.
 
 ```sh
 ftp 10.0.0.3
-...
+…
 Name (10.0.0.3:kali): anonymous
 331 Please specify the password.
 Password: [anonymous]
@@ -60,7 +60,7 @@ List **all** files in order.
 ftp> ls -lat
 200 PORT command successful. Consider using PASV.
 150 Here comes the directory listing.
-...
+…
 226 Directory send OK.
 ```
 
@@ -132,7 +132,7 @@ ftp.conf
 proftpd.conf
 ```
 
-## Tools and Tips
+## Miscellaneous
 
 ### Binary and ASCII
 
