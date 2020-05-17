@@ -1,5 +1,6 @@
 ---
 title: SSH Legacy Key Exchange
+bookToc: false
 ---
 
 # SSH Legacy Key Exchange Algorithm[^ssh-legacy]
@@ -15,7 +16,7 @@ The server offered `diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sh
 
 More about the Logjam attack in [Imperfect Forward Secrecy:How Diffie-Hellman Fails in Practice](https://weakdh.org/).
 
-### Solution
+## Solution
 
 **If upgrading is not immediately possible** you can re-enable the algorithms either on the command-line:
 
