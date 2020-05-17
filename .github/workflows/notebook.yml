@@ -9,11 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
       with:
         submodules: true
+        
+    - name: Genearte Index Page
+      run: cp ./README.md ./content/_index.md
 
-    - name: Checkout
+    - name: Setup Node
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
