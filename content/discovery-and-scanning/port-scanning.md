@@ -12,7 +12,7 @@ Combining both tools could help you find a balance between speed and accuracy fo
 
 ## Network Sweep
 
-#### masscan [^masscan]
+### masscan [^masscan]
 
 ```sh
 sudo masscan -p 7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157 --rate 50000 --wait 0 --open-only -oG masscan.gnmap 10.0.0.0/24 
@@ -28,25 +28,52 @@ sudo masscan -p 7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,14
 
 ## Host Scan
 
-### TCP
+### TCP Scan
 
-#### Fast 1000 ports scan
+This is a good all-purpose initial scan. Scans the most common 1000 ports with service information (`-sV`), default scripts (`-sC`), and OS detection.
+
+{{<hint info>}}
+Verbose mode (`-v`) not only provides the estimated time for each host, but, it also prints the results as it goes letting you continue with the reconnaissance while scanning.
+{{</hint>}}
+
 ```sh
-sudo nmap -v -sV -sC -O -T4 -n -Pn -oA nmap_scan 10.0.0.10
+sudo nmap -v -sV -sC -O -T4 -n -Pn -oA nmap_scan 10.0.0.3
 ```
 
-#### Fast all ports scan
+Similar scan but scans all ports, from 1 through 65535.
+
 ```sh
-sudo nmap -v -sV -sC -O -T4 -n -Pn -p- -oA nmap_fullscan 10.0.0.10
+sudo nmap -v -sV -sC -O -T4 -n -Pn -p- -oA nmap_fullscan 10.0.0.3
 ```
 
-### UDP
+### UDP Scan
 
-During a UDP scan (`-Su`) `-sV` will send protocol-specific probes, aka _nmap-service-probes_, to every `open|filtered` port. In case of response the state change to `open`. [^nmap-udp]
+During a UDP scan (`-Su`) `-sV` will send protocol-specific probes, also known as _nmap-service-probes_, to every `open|filtered` port. In case of response the state change to `open`. [^nmap-udp]
 
 ```sh
 sudo nmap -sU -sV --version-intensity 0 -n 10.0.0.0/24
 ```
+
+### Enumeration Scan
+
+In addition to the default scripts that run with `-sC` or `--script=default`, NSE (Nmap Scripting Engine), provides [multiple types and categories](https://nmap.org/book/nse-usage.html#nse-script-selection) to select from. 
+
+It is a common practice to combine the list of ports resulting from a network sweep or a fast nmap scan like:
+
+```sh
+nmap -T4 -Pn -n 10.0.0.3
+```
+with a more extensive scan against those ports.
+
+```sh
+sudo nmap -v -sV -O --script="safe and vuln" -T4 -n -Pn -p135,445 -oA nmap_scan 10.0.0.3
+```
+
+The `--script` parameter is extremely flexible and full features, refer to the [documentation](https://nmap.org/book/nse.html) for more about NSE.
+
+{{<hint danger>}}
+Never run scripts from third parties unless you trust the authors or have carefully audited the scripts yourself.
+{{</hint>}}
 
 {{<details "Parameters">}}
 - `-v`: verbose mode.
@@ -62,6 +89,22 @@ sudo nmap -sU -sV --version-intensity 0 -n 10.0.0.0/24
 - `oX <filename>`: output scan in XML format to the given filename.
 - `--version-intensity 0`: try only the probes most likely to be effective.
 {{</details>}}
+
+## Miscellaneous
+
+### List all Nmap scripts categories
+
+```sh
+grep -r categories /usr/share/nmap/scripts/*.nse | grep -oP '".*?"' | sort -u
+```
+
+### List Nmap scripts for a specific category
+
+List scripts under the `default` category.
+
+```sh
+grep -r categories /usr/share/nmap/scripts/*.nse | grep default | cut -d: -f1
+```
 
 ## Reference
 
