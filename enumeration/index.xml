@@ -10,4 +10,4 @@ Jhaddix&amp;rsquo;s content_discovery_all.
 https://gist.github.com/jhaddix/b80ea67d85c13206125806f0828f4d10
 Daniel Miessler&amp;rsquo;s Robots Disallowed and SecLists (Includes the former one).</description></item><item><title>SMB - 139 / 445</title><link>https://0xffsec.com/notebook/enumeration/smb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://0xffsec.com/notebook/enumeration/smb/</guid><description>SMB is a network communication protocol for providing shared access to files, printers, and serial ports between nodes on a network. It also provides an authenticated IPC (inter-process communication) mechanism.1
 Windows SMB Ports and Protocols TL;DR
-Port 139 serves SMB over NBT (NetBIOS over TCP/IP) and, port 445, SMB directly over TCP/IP. Originally, in Windows NT, SMB ran on top of NBT (NetBIOS over TCP/IP), which uses ports UDP 137 and 138, and TCP 139.</description></item></channel></rss>
+Port 139: SMB over NBT (NetBIOS over TCP/IP). port 445: SMB directly over TCP/IP. Originally, in Windows NT, SMB ran on top of NBT (NetBIOS over TCP/IP), which uses ports UDP 137 and 138, and TCP 139.</description></item></channel></rss>
