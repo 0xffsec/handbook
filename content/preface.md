@@ -5,13 +5,19 @@ weight: 1
 # Preface
 ## Conventions
 
+### Default Addresses
+
+- Remote Host IP: _`{{< param rhost >}}`_
+- Remote CIDR Address: _`{{< param rcidr >}}`_
+- Local Port Number: _`{{< param lport >}}`_
+
 ### Typography
 
 _italic_  
 Indicates URLs, email addresses, filenames, and file extensions.
 
 `monospaced`  
-For programming listings, as well as within paragraphs to refer to program elements suck as variables or functions names, databases, data types, environment variables , statements, and keywords.
+For programming listings, as well as within paragraphs to refer to program elements such as variables or functions names, databases, data types, environment variables, statements, and keywords.
 
 __`bold monospaced`__  
 Commands or other text that should be typed literally by the user.

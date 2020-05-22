@@ -33,7 +33,7 @@ Not included in Kali.
 
 ### gobuster [^gobuster]
 ```sh
-gobuster dir -t 30 -k -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://10.0.0.3/ 
+gobuster dir -t 30 -k -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://{{< param rhost >}}/ 
 ```
 {{<details "Parameters">}}
 - `dir`: directory brute-forcing mode.
@@ -45,7 +45,7 @@ gobuster dir -t 30 -k -w /usr/share/wordlists/dirbuster/directory-list-2.3-mediu
 
 ### dirb [^dirb]
 ```sh
-dirb https://10.0.0.3/ /usr/share/seclists/Discovery/Web-Content/common.txt
+dirb https://{{< param rhost >}}/ /usr/share/seclists/Discovery/Web-Content/common.txt
 ```
 ## Reference
 

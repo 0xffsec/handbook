@@ -36,7 +36,7 @@ In contrast, active discovery does inject a variety of packets into the network,
 #### netdiscover - ARP [^netdiscover]
 
 ```sh
-sudo netdiscover -r 10.0.0.0/24
+sudo netdiscover -r {{< param rcidr >}}
 ```
 
 - `-r <range>`: scan a given range instead of auto scan.
@@ -45,7 +45,7 @@ sudo netdiscover -r 10.0.0.0/24
 
 
 ```sh
-nmap -sn 10.0.0.0/24
+nmap -sn {{< param rcidr >}}
 ```
 
 - `-sn`: No port scan AKA **ping scan**.  [^nmap-host-discovery]
@@ -54,7 +54,7 @@ nmap -sn 10.0.0.0/24
 #### nbtscan - NetBIOS [^nbtscan]
 
 ```sh
-sudo nbtscan 10.0.0.0/24
+sudo nbtscan {{< param rcidr >}}
 ```
 
 ### ICMP
@@ -70,21 +70,21 @@ Although it is possible to use ICMP requests to discover if a host is up or not,
 #### ping
 
 ```sh
-ping -c 1 10.0.0.1
+ping -c 1 {{< param rhost >}}
 ```
 - `-c <count>`: stops after `count` replies.
 
 #### fping [^fping]
 
 ```sh
-fping -g 10.10.0.0/24
+fping -g {{< param rcidr >}}
 ```
 - `-g, --generate <target>`: generates target list. `target` can be start and end IP or a CIDR address.
 
 #### Nmap
 
 ```sh
-nmap -PEPM -sn -n 10.0.0.0/24
+nmap -PEPM -sn -n {{< param rcidr >}}
 ```
 {{<details "Parameters">}}
 - `-PE; -PP; -PM`: ICMP echo, timestamp, and netmask request discovery probes.
