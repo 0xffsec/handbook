@@ -9,6 +9,7 @@ weight: 1
 
 - Remote Host IP: _`{{< param rhost >}}`_
 - Remote CIDR Address: _`{{< param rcidr >}}`_
+- Local Host IP: _`{{< param lhost >}}`_
 - Local Port Number: _`{{< param lport >}}`_
 
 ### Typography
