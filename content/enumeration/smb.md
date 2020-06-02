@@ -30,7 +30,7 @@ Refer to [host discovert with nbtscan]({{< ref "host-discovery#nbtscan---netbios
 
 ```sh
 msf> use auxiliary/scanner/smb/smb_version
-msf> set rhost {{< param rhost >}}
+msf> set rhost {{< param "war.rhost" >}}
 msf> run
 ```
 
@@ -57,7 +57,7 @@ Look for available shares using default credentials.
 
 ### smbclient [^smbclient]
 ```sh
-smbclient -N -L //{{< param rhost >}}
+smbclient -N -L //{{< param "war.rhost" >}}
 ```
 {{<details "Parameters">}}
 - `-N`: remove the password prompt from the client to the user.
@@ -68,13 +68,13 @@ smbclient -N -L //{{< param rhost >}}
 
 ### smbclient [^smbclient]
 ```sh
-smbclient -N //{{< param rhost >}}/Share
+smbclient -N //{{< param "war.rhost" >}}/Share
 ```
 
 ## Mount [^mount-smb]
 
 ```sh
-mount -t cifs -o username=user,password=password //{{< param rhost >}}/Share /mnt/share
+mount -t cifs -o username=user,password=password //{{< param "war.rhost" >}}/Share /mnt/share
 ```
 
 ## Null Session Enumeration

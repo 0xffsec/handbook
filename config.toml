@@ -11,12 +11,12 @@ enableGitInfo = true
     style = "dracula"
 
 [params]
-    rhost = "10.0.0.3"
-    rcidr = "10.0.0.0/24"
-
-    lhost = "10.0.0.1"
-    lport = "1234"
-
     BookRepo = "https://github.com/0xffsec/notebook"
     BookEditPath = 'edit/master/content'
     BookSection = '/'
+
+[params.war]
+    rhost = "10.0.0.3"
+    rcidr = "10.0.0.0/24"
+    lhost = "10.0.0.1"
+    lport = "1234"

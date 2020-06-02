@@ -7,10 +7,10 @@ weight: 1
 
 ### Default Addresses
 
-- Remote Host IP: _`{{< param rhost >}}`_
-- Remote CIDR Address: _`{{< param rcidr >}}`_
-- Local Host IP: _`{{< param lhost >}}`_
-- Local Port Number: _`{{< param lport >}}`_
+- Remote Host IP: _`{{< param "war.rhost" >}}`_
+- Remote CIDR Address: _`{{< param "war.rcidr" >}}`_
+- Local Host IP: _`{{< param "war.lhost" >}}`_
+- Local Port Number: _`{{< param "war.lport" >}}`_
 
 ### Typography
 
