@@ -7,6 +7,16 @@ service: HTTP/S
 service_description: Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
 service_port: 80 / 443
 ---
+## Source Code
+
+It is a good habit to take a quick look at the pages' source code, scripts, and console outputs.
+
+To active `View Source`, context-click on the page and select `View Page Source` or with the `Ctrl+U` or `Cmd+U` shortcut.
+
+{{<hint info>}}
+Many browsers also include a powerful suite of tools, also known as devtools, to inspect and interact with the target website.
+{{</hint>}}
+
 ## Directory Enumeration
 
 As a first step, while we browse the web/application, it is a good idea to do some files and directories enumeration, look for **unlinked content**, **temporary directories**, and **backups**.  
