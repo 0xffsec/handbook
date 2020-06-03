@@ -9,13 +9,19 @@ service_port: 80 / 443
 ---
 ## Source Code
 
+### Inspect
+
 It is a good habit to take a quick look at the pages' source code, scripts, and console outputs.
 
 To active `View Source`, context-click on the page and select `View Page Source` or with the `Ctrl+U` or `Cmd+U` shortcut.
 
 {{<hint info>}}
-Many browsers also include a powerful suite of tools, also known as devtools, to inspect and interact with the target website.
+Many browsers include a powerful suite of tools, also known as devtools, to inspect and interact with the target website.
 {{</hint>}}
+
+### Download
+
+If the target uses an open-source app, downloading its codebase will provide helpful information about configuration files, open resources, **default credentials**, etc.
 
 ## Directory Enumeration
 
