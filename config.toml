@@ -1,6 +1,6 @@
 baseURL = "https://0xffsec.com/notebook"
 languageCode = "en-us"
-title = "Notebook"
+title = "0xffsec Penetration Testing Notebook"
 theme = "book"
 
 googleAnalytics = "UA-142676329-2"
