@@ -7,22 +7,6 @@ service: HTTP/S
 service_description: Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
 service_port: 80 / 443
 ---
-## Source Code
-
-### Inspect
-
-It is a good habit to take a quick look at the pages' source code, scripts, and console outputs.
-
-To active `View Source`, context-click on the page and select `View Page Source` or with the `Ctrl+U` or `Cmd+U` shortcut.
-
-{{<hint info>}}
-Many browsers include a powerful suite of tools, also known as devtools, to inspect and interact with the target website.
-{{</hint>}}
-
-### Download
-
-If the target uses an open-source app, downloading its codebase will provide helpful information about configuration files, open resources, **default credentials**, etc.
-
 ## Directory Enumeration
 
 As a first step, while we browse the web/application, it is a good idea to do some files and directories enumeration, look for **unlinked content**, **temporary directories**, and **backups**.  
@@ -63,6 +47,23 @@ gobuster dir -t 30 -k -w /usr/share/wordlists/dirbuster/directory-list-2.3-mediu
 ```sh
 dirb https://{{< param "war.rhost" >}}/ /usr/share/seclists/Discovery/Web-Content/common.txt
 ```
+## Source Code
+
+### Inspect
+
+It is a good habit to take a quick look at the pages' source code, scripts, and console outputs.
+
+To active `View Source`, context-click on the page and select `View Page Source` or with the `Ctrl+U` or `Cmd+U` shortcut.
+
+{{<hint info>}}
+Many browsers include a powerful suite of tools, also known as devtools, to inspect and interact with the target website.
+{{</hint>}}
+
+### Download
+
+If the target uses an open-source app, downloading its codebase will provide helpful information about configuration files, open resources, **default credentials**, etc.
+
+
 ## Reference
 
 [^gobuster]: Reeves, OJ. “GitHub - OJ/Gobuster.” GitHub, https://github.com/OJ/gobuster.
