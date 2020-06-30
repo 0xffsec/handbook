@@ -100,9 +100,6 @@ On the one hand, data written to the named pipe is sent to the remote process, a
 
 Some versions of Windows allow you to authenticate and mount the `IPC$` share without providing a username and password. Such a connection is often called a NULL session, which, despite its limited privileges, could be used to make multiple RPC calls and obtain useful information about the remote system.[^sensepost-ipc]
 
-
-# Reference
-
 [^wiki-smb]: Contributors to Wikimedia projects. “Server Message Block - Wikipedia.” Wikipedia, the Free Encyclopedia, Wikimedia Foundation, Inc., 26 Oct. 2003, https://en.wikipedia.org/wiki/Server_Message_Block.
 [^vidstrom-smb-ports]: “The Use of TCP Ports 139 and 445 in Windows.” Vidstrom Labs, https://vidstromlabs.com/blog/the-use-of-tcp-ports-139-and-445-in-windows/.
 [^metasploit-smb-auxiliary-module]: “Scanner SMB Auxiliary Modules - Metasploit Unleashed.” Infosec Training and Penetration Testing | Offensive Security, https://www.offensive-security.com/metasploit-unleashed/scanner-smb-auxiliary-modules/.

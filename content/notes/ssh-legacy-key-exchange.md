@@ -31,6 +31,4 @@ Host 10.10.10.7
     KexAlgorithms +diffie-hellman-group1-sha1
 ```
 
-# Reference
-
 [^ssh-legacy]: “OpenSSH: Legacy Options.” OpenSSH, https://www.openssh.com/legacy.html.

@@ -106,8 +106,6 @@ List scripts under the `default` category.
 grep -r categories /usr/share/nmap/scripts/*.nse | grep default | cut -d: -f1
 ```
 
-## Reference
-
 [^captmeelo-benchmark]: Capt. Meelo. “Finding the Balance Between Speed & Accuracy During an Internet-Wide Port Scanning - Hack.Learn.Share.” Hack.Learn.Share, 29 July 2019, https://captmeelo.com/pentest/2019/07/29/port-scanning.html.
 [^highon-portscanning]: “Penetration Testing Tools Cheat Sheet.” HighOn.Coffee • Security Research • Penetration Testing Blog, https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/#nmap-commands.
 [^nmap-udp]: “UDP Scan (-SU) | Nmap Network Scanning.” Nmap: The Network Mapper - Free Security Scanner, https://nmap.org/book/scan-methods-udp-scan.html.

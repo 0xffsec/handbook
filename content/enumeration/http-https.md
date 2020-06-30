@@ -63,8 +63,5 @@ Many browsers include a powerful suite of tools, also known as devtools, to insp
 
 If the target uses an open-source app, downloading its codebase will provide helpful information about configuration files, open resources, **default credentials**, etc.
 
-
-## Reference
-
 [^gobuster]: Reeves, OJ. “GitHub - OJ/Gobuster.” GitHub, https://github.com/OJ/gobuster.
 [^dirb]: Pinuaga, Ramon. “DIRB .” DIRB Homepage, http://dirb.sourceforge.net/.

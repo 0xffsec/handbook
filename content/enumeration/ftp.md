@@ -23,9 +23,9 @@ telnet {{< param "war.rhost" >}} 21
 nc -n {{< param "war.rhost" >}} 21
 ```
 
-#### Nmap
+#### [banner](https://nmap.org/nsedoc/scripts/banner.html) NSE Script
 ```sh
-nmap -sV -script=banner -p21 -Pn {{< param "war.rhost" >}}
+nmap -sV -script banner -p21 -Pn {{< param "war.rhost" >}}
 ```
 
 #### FTP
@@ -145,8 +145,6 @@ Recursively download FTP folder content.[^so-ftp-mirroring]
 ```sh
 wget -m ftp://user:pass@{{< param "war.rhost" >}}/
 ```
-
-# Reference
 
 [^wiki-ftp]: Contributors to Wikimedia projects. “File Transfer Protocol - Wikipedia.” Wikipedia, the Free Encyclopedia, Wikimedia Foundation, Inc., 24 May 2002, https://en.wikipedia.org/wiki/File_Transfer_Protocol.
 [^so-ftp-mirroring]: Thibaut Barrère. “Command Line - How to Recursively Download a Folder via FTP on Linux - Stack Overflow.” Stack Overflow, https://stackoverflow.com/a/113900/578050.

@@ -38,6 +38,4 @@ The [Java-Decompiler Project](https://java-decompiler.github.io/), [Procyon](htt
 procyon foo.class
 ```
 
-# References
-
 [^jar-spec]: “JAR File Specification.” JAVA SE Documentation, https://docs.oracle.com/javase/6/docs/technotes/guides/jar/jar.html#JARIndex.

@@ -97,8 +97,6 @@ nmap -PEPM -sn -n {{< param "war.rcidr" >}}
 Another commonly used technique is port scanning. It allows you to identify running services, consequently, interesting hosts.
 See [Port Scanning]({{< ref "port-scanning.md" >}}).
 
-## Reference
-
 [^nmap-host-discovery]: “Host Discovery | Nmap Network Scanning.” Nmap: The Network Mapper - Free Security Scanner, https://nmap.org/book/man-host-discovery.html.
 [^data-communications-and-networking]: Forouzan, Behrouz A. Data Communications and Networking. Huga Media, 2007, pp. 621–630.
 [^net-scanning-detection-strategies]: Whyte, David. Network Scanning Detection Strategies for Enterprise Networks. Sept. 2008, pp. 12-22 https://pdfs.semanticscholar.org/bb60/dc6cf24ea1f17126511e0998d3c55bdd50f9.pdf.
