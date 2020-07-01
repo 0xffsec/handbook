@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="markdown">
+{{- .Content -}}
+
+{{ range sort .Pages }}
+<article class="markdown">
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+</article>
+{{ end }}
+
+</section>
+{{ end }}
