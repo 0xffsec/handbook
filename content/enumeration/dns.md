@@ -51,7 +51,7 @@ dig axfr @{{< param "war.rhost" >}} domain
 {{</details>}}
 
 {{<hint info>}}
-Is worth trying to initiate a zone transfer without a domain.
+It is worth trying to initiate a zone transfer without a domain.
 {{</hint>}}
 
 ## Configuration files
