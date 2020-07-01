@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         submodules: true
-        
+
     - name: Genearte Index Page
       run: cp ./README.md ./content/_index.md
 

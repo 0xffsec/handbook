@@ -1,10 +1,4 @@
-<h1 align="center" style="padding-bottom:2rem;">
-  <a href="https://0xffsec.com/notebook">
-      <img src="https://0xffsec.com/images/logo.svg" alt="0xffsec Notebook" width="200">
-  </a>
-  <br>
-  Penetration Testing Notebook
-</h1>
+# Penetration Testing Notebook
 
 ![Publish Notebook](https://github.com/0xffsec/notebook/workflows/Publish%20Notebook/badge.svg)
 
