@@ -16,37 +16,49 @@ Widely used tools include [dirbuster](https://www.owasp.org/index.php/Category:O
 
 Included in [Kali's wordlists package](https://tools.kali.org/password-attacks/wordlists).
 
-- dirbuster's medium 2.3.  
-`/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt`
-- dirb common.  
-`/usr/share/wordlists/dirb/common.txt`
-- dirb big.  
-`/usr/share/wordlists/dirb/common.txt`
+- James Fisher's 2.3 medium ( 1.9M - 220560 lines )
+
+    `/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt`
+
+- James Fisher's 2.3 small ( 709K - 87664 lines )
+
+    `/usr/share/wordlists/dirbuster/directory-list-2.3-small.txt`
+
+- dirb common ( 36K - 4614 lines )
+
+    `/usr/share/wordlists/dirb/common.txt`
+
+- dirb big ( 180K - 20469 lines )
+
+    `/usr/share/wordlists/dirb/big.txt`
 
 Not included in Kali.
-- [Jhaddix's](https://twitter.com/Jhaddix) `content_discovery_all`.  
-<https://gist.github.com/jhaddix/b80ea67d85c13206125806f0828f4d10>
+- [Jhaddix's](https://twitter.com/Jhaddix) `content_discovery_all` ( 5.9M - 373535 lines )
 
-- [Daniel Miessler's](https://twitter.com/danielmiessler) [Robots Disallowed](https://github.com/danielmiessler/RobotsDisallowed) and [SecLists](https://github.com/danielmiessler/SecLists/) (Includes the former one).  
-`/usr/share/seclists/Discovery/Web-Content/common.txt`  
-`/usr/share/seclists/Discovery/Web-Content/RobotsDisallowed-Top1000.txt`
+    <https://gist.github.com/jhaddix/b80ea67d85c13206125806f0828f4d10>
+
+- Daniel Miessler's [Robots Disallowed](https://github.com/danielmiessler/RobotsDisallowed) and [SecLists](https://github.com/danielmiessler/SecLists/) (Includes the former one).
+
+    [https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content]()
 
 ### gobuster [^gobuster]
+
 ```sh
-gobuster dir -t 30 -k -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://{{< param "war.rhost" >}}/ 
+gobuster dir -t 30 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://{{< param "war.rhost" >}}/
 ```
 {{<details "Parameters">}}
 - `dir`: directory brute-forcing mode.
 - `-t <n>`: number of concurrent threads (default 10).
-- `-k`: skip SSL certificate verification.
 - `-w <wordlist>`: path to the wordlist.
 - `-u <URL>`: target URL.
 {{</details>}}
 
-### dirb [^dirb]
-```sh
-dirb https://{{< param "war.rhost" >}}/ /usr/share/seclists/Discovery/Web-Content/common.txt
-```
+{{<hint info>}}
+- Iterate over the results.
+- Include status code 403 (Forbidden Error) and brutefoce these directories.
+- Add more file extensions to search for; In `gobuster`: `-x sh,pl`.
+{{</hint>}}
+
 ## Source Code
 
 ### Inspect
