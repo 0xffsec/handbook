@@ -1,6 +1,6 @@
-# Penetration Testing Notebook
+# Penetration Testing Book
 
-![Publish Notebook](https://github.com/0xffsec/notebook/workflows/Publish%20Notebook/badge.svg)
+![Publish Book](https://github.com/0xffsec/book/workflows/Publish%20Book/badge.svg)
 
 A collection of notes about penetration testing and offensive security.
 
