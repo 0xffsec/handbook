@@ -4,12 +4,8 @@ It associates different information with domain names assigned to each of the pa
 Banner Grabbing DNS does not provide an information banner per se but BIND DNS exposes its version by default.</description></item><item><title>HTTP/S - 80 / 443</title><link>https://0xffsec.com/notebook/enumeration/http-https/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://0xffsec.com/notebook/enumeration/http-https/</guid><description>Directory Enumeration As a first step, while we browse the web/application, it is a good idea to do some files and directories enumeration, look for unlinked content, temporary directories, and backups.
 Widely used tools include dirbuster, gobuster, dirb and the suite Burp.
 Wordlists Included in Kali&amp;rsquo;s wordlists package.
-dirbuster&amp;rsquo;s medium 2.3.
-/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt dirb common.
-/usr/share/wordlists/dirb/common.txt dirb big.
-/usr/share/wordlists/dirb/common.txt Not included in Kali.
-Jhaddix&amp;rsquo;s content_discovery_all.
-https://gist.github.com/jhaddix/b80ea67d85c13206125806f0828f4d10
-Daniel Miessler&amp;rsquo;s Robots Disallowed and SecLists (Includes the former one).</description></item><item><title>SMB - 139 / 445</title><link>https://0xffsec.com/notebook/enumeration/smb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://0xffsec.com/notebook/enumeration/smb/</guid><description>SMB is a network communication protocol for providing shared access to files, printers, and serial ports between nodes on a network. It also provides an authenticated IPC (inter-process communication) mechanism.1
+James Fisher&amp;rsquo;s 2.3 medium ( 1.9M - 220560 lines )
+/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+James Fisher&amp;rsquo;s 2.3 small ( 709K - 87664 lines )</description></item><item><title>SMB - 139 / 445</title><link>https://0xffsec.com/notebook/enumeration/smb/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://0xffsec.com/notebook/enumeration/smb/</guid><description>SMB is a network communication protocol for providing shared access to files, printers, and serial ports between nodes on a network. It also provides an authenticated IPC (inter-process communication) mechanism.1
 Windows SMB Ports and Protocols TL;DR
 Port 139: SMB over NBT (NetBIOS over TCP/IP). port 445: SMB directly over TCP/IP. Originally, in Windows NT, SMB ran on top of NBT (NetBIOS over TCP/IP), which uses ports UDP 137 and 138, and TCP 139.</description></item></channel></rss>
