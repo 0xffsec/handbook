@@ -1,4 +1,4 @@
-name: Publish Notebook
+name: Publish Book
 
 on:
   push:
