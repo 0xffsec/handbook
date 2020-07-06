@@ -10,6 +10,14 @@ service_port: 53
 The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers, services, and other resources connected to a network.  
 It associates different information with domain names assigned to each of the participating entities. Most prominently, it translates more easily memorized domain names to the numerical IP addresses needed for identifying computer services and devices with the underlying network protocols.  [^wiki-dns]
 
+## TCP and UDP
+
+By default, DNS uses UDP on port 53 to serve requests. When the size of the request, or the response, exceeds the single packet size of 512 bytes, the query is re-sent using TCP. Multiple records responses, IPv6 responses, big TXT records, DNSSEC responses, and **zone transfers** are some examples of these requests.
+
+{{<hint warning>}}
+When DNS is running on TCP, it is worth checking if [zone trasfer]({{< ref "#zone-transfer" >}}) is enabled.
+{{</hint>}}
+
 ## Banner Grabbing
 
 DNS does not provide an information banner _per se_ but BIND DNS exposes its version by default. [^dns-banner-grabbing]
