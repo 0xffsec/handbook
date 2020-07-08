@@ -18,5 +18,6 @@ enableGitInfo = true
 [params.war]
     rhost = "10.0.0.3"
     rcidr = "10.0.0.0/24"
+    rdomain = "https://example.com"
     lhost = "10.0.0.1"
     lport = "1234"
