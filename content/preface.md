@@ -9,8 +9,10 @@ weight: 1
 
 - Remote Host IP: _`{{< param "war.rhost" >}}`_
 - Remote CIDR Address: _`{{< param "war.rcidr" >}}`_
+- Remote Domain Name: _`{{< param "war.rdomain" >}}`_
 - Local Host IP: _`{{< param "war.lhost" >}}`_
 - Local Port Number: _`{{< param "war.lport" >}}`_
+- Local Domain Name: _`{{< param "war.ldomain" >}}`_
 
 ### Typography
 
