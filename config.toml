@@ -8,7 +8,7 @@ enableGitInfo = true
 
 [markup]
 [markup.highlight]
-    style = "dracula"
+    style = "native"
 
 [params]
     BookRepo = "https://github.com/0xffsec/book"
