@@ -5,7 +5,7 @@ weight: 25
 
 service: SMTP
 service_description:
-service_port: 25 / 465 / 587
+service_port: 25
 ---
 # SMTP
 
