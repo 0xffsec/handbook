@@ -5,7 +5,7 @@ weight: 25
 
 service: SMTP
 service_description: Simple Mails Transfer Protocol
-service_port: 25
+service_port: 25 / 465 / 587
 ---
 SMTP is a communication protocol
 for email transmission.
@@ -23,7 +23,8 @@ based on the destination server,
 not individual users
 to which it is addressed.
 Other protocols,
-such as the Post Office Protocol (POP) and the Internet Message Access Protocol (IMAP)
+such as the [Post Office Protocol (POP)]({{< ref "pop">}})
+and the [Internet Message Access Protocol (IMAP)]({{< ref "imap" >}})
 are specifically designed for use by individual users
 retrieving messages and managing mailboxes.
 [^rfc-5321]
