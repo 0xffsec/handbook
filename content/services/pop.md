@@ -62,7 +62,7 @@ nmap -p 110,995 --script pop3-capabilities {{< param "war.rhost" >}}
 
 See [SMTP NTLM Information Disclosure]({{< ref "smtp#ntlm-information-disclosure" >}})
 
-#### [imap-ntlm-info](https://nmap.org/nsedoc/scripts/imap-ntlm-info.html) NSE Script
+#### [pop3-ntlm-info](https://nmap.org/nsedoc/scripts/pop3-ntlm-info.html) NSE Script
 
 ```sh
 nmap -p 110,995 --script pop3-ntlm-info {{< param "war.rhost" >}}
@@ -71,8 +71,6 @@ nmap -p 110,995 --script pop3-ntlm-info {{< param "war.rhost" >}}
 ## POP Exploits Search
 
 Refer to [Exploits Search]({{< ref "exploits-search">}})
-
-## Configuration files
 
 [^openssl]: OpenSSL Foundation, Inc. “/Docs/Manmaster/Man1/Openssl.Html.” OpenSSL.Org, https://www.openssl.org/docs/manmaster/man1/openssl.html.
 [^pop3-wiki]: Contributors to Wikimedia projects. “Post Office Protocol - Wikipedia.” Wikipedia, the Free Encyclopedia, Wikimedia Foundation, Inc., 9 Sept. 2001, https://en.wikipedia.org/wiki/Post_Office_Protocol.
