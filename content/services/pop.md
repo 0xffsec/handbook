@@ -2,11 +2,17 @@
 title: "POP - 110 / 995"
 description: "POP (Post Office Protocol) Enumeration for Pentesting"
 weight: 110
-
-service: POP
-service_description: Post Office Protocol
-service_port: 110 / 995
 ---
+# POP
+
+{{<hint info>}}
+Post Office Protocol.
+
+**Default Ports**
+- POP3: 110
+- POP3S (POP3 over TLS or SSL): 995
+{{</hint>}}
+
 POP is an application-layer protocol
 used by email clients
 to retrieve messages from a mail server.

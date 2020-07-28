@@ -2,12 +2,16 @@
 title: "FTP - 21"
 description: "FTP (File Transfer Protocol) Enumeration for Pentesting"
 weight: 21
-
-service: FTP
-service_description: File Transfer Protocol.
-service_port: 21
 ---
-FTP is a standard network protocol used for the transfer of files between a client and a server on a computer network.  
+# FTP
+
+{{<hint info>}}
+File Transfer Protocol.
+
+**Default Port:** 21
+{{</hint>}}
+
+FTP is a standard network protocol used for the transfer of files between a client and a server on a computer network.
 FTP is built on a client-server architecture using separate control and data connections between the client and the server. FTP authenticates users with a clear-text sign-in protocol, normally in the form of a username and password, but can connect anonymously if the server is configured to allow it. [^wiki-ftp]
 
 ## Banner Grabbing
@@ -70,12 +74,12 @@ ftp> ls -lat
 Due to its insecure nature, FTP support is being dropped by [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1574475) and [Google Chrome](https://chromestatus.com/feature/6246151319715840).
 {{</hint>}}
 
-Try accessing `ftp://user:pass@{{< param "war.rhost" >}}` from your browser.  
+Try accessing `ftp://user:pass@{{< param "war.rhost" >}}` from your browser.
 If not credentials provided `anonymous:anonymous` is assumed.
 
 ## Brute Forcing
 
-As an alternative to profiled passwords, [Daniel Miessler's SecLists](https://github.com/danielmiessler/SecLists) includes a handy list of [FTP default credentials](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt).  
+As an alternative to profiled passwords, [Daniel Miessler's SecLists](https://github.com/danielmiessler/SecLists) includes a handy list of [FTP default credentials](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt).
 
 ### Hydra [^hydra]
 
