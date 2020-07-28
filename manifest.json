@@ -1,0 +1,15 @@
+{
+  "name": "0xffsec Penetration Testing Book",
+  "short_name": "0xffsec Penetration Testing Book",
+  "start_url": "/book/",
+  "scope": "/book/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/book/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}
