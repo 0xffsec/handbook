@@ -15,6 +15,7 @@ manage multiple email clients,
 therefore clients generally
 leave messages on the server
 until the user explicitly deletes them.
+[^imap-wiki]
 
 ## Banner Grabbing
 
@@ -60,3 +61,5 @@ nmap -p 143,993 --script imap-ntlm-info {{< param "war.rhost" >}}
 ## IMAP Exploits Search
 
 Refer to [Exploits Search]({{< ref "exploits-search">}})
+
+[^imap-wiki]: Contributors to Wikimedia projects. “Internet Message Access Protocol - Wikipedia.” Wikipedia, the Free Encyclopedia, Wikimedia Foundation, Inc., 7 Sept. 2001, https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol.
