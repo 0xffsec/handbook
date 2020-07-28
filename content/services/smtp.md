@@ -64,13 +64,13 @@ openssl s_client -starttls smtp -crlf -connect {{< param "war.rhost" >}}:587
 #### [smtp-commands](https://nmap.org/nsedoc/scripts/smtp-commands.html) NSE Script
 
 ```sh
-nmap -p25 --script smtp-commands {{< param "war.rhost" >}}
+nmap -p 25,465,587 --script smtp-commands {{< param "war.rhost" >}}
 ```
 
 #### [smtp-enum-users](https://nmap.org/nsedoc/scripts/smtp-enum-users.html) NSE Script
 
 ```sh
-nmap -p25 --script smtp-enum-users {{< param "war.rhost" >}}
+nmap -p 25,465,587 --script smtp-enum-users {{< param "war.rhost" >}}
 ```
 
 ## NTLM Information Disclosure
