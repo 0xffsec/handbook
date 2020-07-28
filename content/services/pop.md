@@ -62,7 +62,7 @@ nmap -p 110,995 --script pop3-capabilities {{< param "war.rhost" >}}
 
 See [SMTP NTLM Information Disclosure]({{< ref "smtp#ntlm-information-disclosure" >}})
 
-#### [pop3-ntlm-info](https://nmap.org/nsedoc/scripts/pop3-ntlm-info.html) NSE Script
+#### [imap-ntlm-info](https://nmap.org/nsedoc/scripts/imap-ntlm-info.html) NSE Script
 
 ```sh
 nmap -p 110,995 --script pop3-ntlm-info {{< param "war.rhost" >}}

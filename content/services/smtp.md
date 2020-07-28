@@ -103,7 +103,7 @@ NTLM supported
 #### [smtp-ntlm-info](https://nmap.org/nsedoc/scripts/smtp-ntlm-info.html) NSE Script
 
 ```sh
-nmap -p587 --script smtp-ntlm-info --script-args smtp-ntlm-info.domain={{< param "war.rdomain" >}} {{< param "war.rhost" >}}
+nmap -p 587 --script smtp-ntlm-info --script-args smtp-ntlm-info.domain={{< param "war.rdomain" >}} {{< param "war.rhost" >}}
 ```
 
 ## SMTP Exploits Search
