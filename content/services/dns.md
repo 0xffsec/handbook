@@ -2,12 +2,16 @@
 title: "DNS - 53"
 description: "DNS (Domain Name Systems) Enumeration for Pentesting"
 weight: 53
-
-service: DNS
-service_description: Domain Name Systems.
-service_port: 53
 ---
-The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers, services, and other resources connected to a network.  
+# DNS
+
+{{<hint info>}}
+Domain Name Systems.
+
+**Default Port:** 53
+{{</hint>}}
+
+The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers, services, and other resources connected to a network.
 It associates different information with domain names assigned to each of the participating entities. Most prominently, it translates more easily memorized domain names to the numerical IP addresses needed for identifying computer services and devices with the underlying network protocols.  [^wiki-dns]
 
 ## TCP and UDP

@@ -2,11 +2,18 @@
 title: "IMAP - 143,993"
 description: "IMAP (Internet Message Access Protocol) Enumeration for Pentesting"
 weight: 143
-
-service: IMAP
-service_description: Internet Message Access Protocol
-service_port: 143 / 993
 ---
+# IMAP
+
+{{<hint info>}}
+Internet Message Access Protocol.
+
+**Default Ports**
+- IMAP: 143
+- IMAPS (IMAP over SSL): 993
+
+{{</hint>}}
+
 IMAP is an application-layer protocol
 used by email clients
 to retrieve messages from a mail server.

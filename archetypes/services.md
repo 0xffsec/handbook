@@ -2,11 +2,15 @@
 title: "{{ replace .Name "-" " " | upper }}"
 description: "{{ replace .Name "-" " " | upper }} Enumeration for Pentesting"
 weight:
-
-service: "{{ replace .Name "-" " " | upper }}"
-service_description:
-service_port:
 ---
+# {{ replace .Name "-" " " | upper }}
+
+{{<hint info>}}
+Full Name.
+
+**Default Port/s**
+{{</hint>}}
+
 Service Description
 
 ## Banner Grabbing

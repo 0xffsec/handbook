@@ -4,9 +4,20 @@ description: "SMTP (Simple Mail Transfer Protocol) Enumeration for Pentesting"
 weight: 25
 
 service: SMTP
-service_description: Simple Mails Transfer Protocol
+service_description:
 service_port: 25 / 465 / 587
 ---
+# SMTP
+
+{{<hint info>}}
+Simple Mails Transfer Protocol.
+
+**Default Ports**
+- SMTP Relay (server-server communication): 25
+- SMTP Message Submission (client-server communcation): 578
+- SMTPS (Deprecated): 465
+{{</hint>}}
+
 SMTP is a communication protocol
 for email transmission.
 It is commonly used to

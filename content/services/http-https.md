@@ -2,14 +2,20 @@
 title: HTTP/S - 80 / 443
 description: "HTTP/S (Hypertext Transfer Protocol Secure) Enumeration for Pentesting"
 weight: 80
-
-service: HTTP/S
-service_description: Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
-service_port: 80 / 443
 ---
+# HTTP/S
+
+{{<hint info>}}
+Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
+
+**Default Ports**
+- HTTP: 80
+- HTTPS (HTTP over TLS or SSL): 443
+{{</hint>}}
+
 ## Directory Enumeration
 
-As a first step, while we browse the web/application, it is a good idea to do some files and directories enumeration, look for **unlinked content**, **temporary directories**, and **backups**.  
+As a first step, while we browse the web/application, it is a good idea to do some files and directories enumeration, look for **unlinked content**, **temporary directories**, and **backups**.
 Widely used tools include [dirbuster](https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project), [gobuster](https://github.com/OJ/gobuster), [dirb](https://sourceforge.net/projects/dirb/) and the suite [Burp](https://portswigger.net/burp).
 
 ### Wordlists
