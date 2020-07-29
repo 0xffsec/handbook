@@ -13,7 +13,9 @@ Post Office Protocol.
 - POP3S (POP3 over TLS or SSL): 995
 {{</hint>}}
 
-POP is an application-layer protocol
+POP,
+or POP3 (POP version 3),
+is an application-layer protocol
 used by email clients
 to retrieve messages from a mail server.
 It provides access via IP to mailboxes
@@ -54,16 +56,6 @@ openssl s_client -crlf -connect {{< param "war.rhost" >}}:995
 - `-crlf`:  translate a line feed from the terminal into `CR+LF`.
 {{</details>}}
 
-## POP3 Capabilities
-
-POP3 capabilities are defined in [RFC2449](https://tools.ietf.org/html/rfc2449#section-6). The `CAPA` command allows a client to ask a server what commands it supports and possibly any site-specific policy.
-
-#### [pop3-capabilities](https://nmap.org/nsedoc/scripts/pop3-capabilities.html) NSE Script
-
-```sh
-nmap -p 110,995 --script pop3-capabilities {{< param "war.rhost" >}}
-```
-
 ## NTLM Information Disclosure
 
 See [SMTP NTLM Information Disclosure]({{< ref "smtp#ntlm-information-disclosure" >}})
@@ -74,7 +66,35 @@ See [SMTP NTLM Information Disclosure]({{< ref "smtp#ntlm-information-disclosure
 nmap -p 110,995 --script pop3-ntlm-info {{< param "war.rhost" >}}
 ```
 
-## POP Exploits Search
+## Capabilities
+
+POP3 capabilities are defined in [RFC2449](https://tools.ietf.org/html/rfc2449#section-6). The `CAPA` command allows a client to ask a server what commands it supports and possibly any site-specific policy.
+
+#### [pop3-capabilities](https://nmap.org/nsedoc/scripts/pop3-capabilities.html) NSE Script
+
+```sh
+nmap -p 110,995 --script pop3-capabilities {{< param "war.rhost" >}}
+```
+
+## Commands
+
+```txt
+USER    Username or mailbox.
+PASS    Server/mailbox-specific password.
+STAT    Number of messages in the mailbox.
+LIST    [ message# ] Messages summary.
+RETR    [ message# ] Retrieve selected message.
+DELE    [ message# ] Delete selected message.
+RSET    Reset the session. Undelete deleted messages.
+NOOP    No-op. Keeps connection open.
+QUIT    End session.
+```
+
+{{<hint info>}}
+Server responses will start either with a successful (`+OK`) or failed status `-ERR`.
+{{</hint>}}
+
+## POP3 Exploits Search
 
 Refer to [Exploits Search]({{< ref "exploits-search">}})
 
