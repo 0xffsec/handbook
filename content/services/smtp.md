@@ -117,6 +117,24 @@ NTLM supported
 nmap -p 587 --script smtp-ntlm-info --script-args smtp-ntlm-info.domain={{< param "war.rdomain" >}} {{< param "war.rhost" >}}
 ```
 
+## Commands
+
+```txt
+HELO        Identify to the SMTP server.
+EHLO        Alternative HELO for Extended SMTP protocol.
+MAIL FROM:  Sender's email address.
+RCPT TO:    Recipient's email address.
+DATA        Initiate message content transfer. Command is terminated with a line containing only a .
+RSET        Reset the session. Connection will not be closed.
+VRFY        Verify username or mailbox.
+NOOP        No-op. Keeps connection open.
+QUIT        Ends session.
+```
+
+{{<hint info>}}
+Sessions must start with HELO and end with QUIT.
+{{</hint>}}
+
 ## SMTP Exploits Search
 
 Refer to [Exploits Search]({{< ref "exploits-search">}})
