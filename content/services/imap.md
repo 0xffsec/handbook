@@ -1,5 +1,5 @@
 ---
-title: "IMAP - 143,993"
+title: "IMAP - 143 / 993"
 description: "IMAP (Internet Message Access Protocol) Enumeration for Pentesting"
 weight: 143
 ---
