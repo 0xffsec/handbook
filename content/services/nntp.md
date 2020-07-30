@@ -1,7 +1,7 @@
 ---
 title: "NNTP - 119 / 433 / 563"
 description: "NNTP Enumeration for Pentesting"
-weight:
+weight: 119
 ---
 # NNTP
 
