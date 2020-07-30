@@ -2,10 +2,6 @@
 title: "SMTP - 25 / 465 / 587"
 description: "SMTP (Simple Mail Transfer Protocol) Enumeration for Pentesting"
 weight: 25
-
-service: SMTP
-service_description:
-service_port: 25
 ---
 # SMTP
 
