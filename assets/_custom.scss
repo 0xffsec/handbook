@@ -1,0 +1,8 @@
+.footnotes{
+    color: $gray-800;
+    font-size: $font-size-12;
+    padding-top: $padding-8;
+
+    ol{ padding-top: $padding-8; }
+    :target{ background: $gray-200; }
+}
