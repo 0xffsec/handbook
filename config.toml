@@ -22,3 +22,4 @@ enableGitInfo = true
     ldomain = "example.evil"
     lhost = "10.0.0.1"
     lport = "1234"
+    tfile = "filename.ext"
