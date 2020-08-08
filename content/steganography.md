@@ -148,7 +148,7 @@ the content of music audio files.
 ## Further Reading
 
 - [How to Hide Secret Messages in Music Files](https://www.iicybersecurity.com/audio-steganography.html)
-
+- [Detecting Steganography Content on the Internet](http://niels.xtdnet.nl/papers/detecting.pdf)
 
 [^steganography-wiki]: “Steganography - Wikipedia.” Wikipedia, the Free Encyclopedia, Wikimedia Foundation, Inc., 31 Oct. 2001, https://en.wikipedia.org/wiki/Steganography.
 [^steghide]: Hetzl, Stefan. “Manual.” Steghide, http://steghide.sourceforge.net/documentation/manpage.php.
