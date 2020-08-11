@@ -30,7 +30,9 @@ Commands are usually executed with the privileges of the vulnerable application.
 ```
 
 {{<hint warning>}}
-Also try prepending a flag or parameter.
+Also try:
+- Prepending a flag or parameter.
+- Removing spaces (`<input>;ls`).
 {{</hint>}}
 
 ### Chaining Operators
