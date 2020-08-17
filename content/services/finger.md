@@ -31,6 +31,16 @@ echo "root" | nc -n {{< param "war.rhost" >}} 79
 
 ## Enumeration
 
+### Tools
+
+- [PentestMonkey - finger-user-enum](http://pentestmonkey.net/tools/user-enumeration/finger-user-enum)
+
+### Fast Enum
+
+```sh
+for q in 'root' 'admin' 'user' '0' "'a b c d e f g h'" '|/bin/id';do echo "FINGER: $q"; finger "$q@{{< param "war.rhost" >}}"; echo -e "\n";done
+```
+
 #### Finger [^finger]
 
 List logged users.
@@ -55,7 +65,7 @@ Try other words as: `admin`, `account` or `project`.
 - `-l`: Multi-line format. Displays all the information.
 {{</details>}}
 
-## Finger Zero [^cve-1999-0197]
+### Finger Zero [^cve-1999-0197]
 
 `fingerd` may respond to `finger 0@<host>`
 with information on some user accounts.
@@ -64,7 +74,7 @@ with information on some user accounts.
 finger 0@{{< param "war.rhost" >}}
 ```
 
-## Finger 'a b c d e f g h' [^cve-2001-1503]
+### Finger 'a b c d e f g h' [^cve-2001-1503]
 
 `fingerd` may respond to `'a b c d e f g h'@<host>`
 with information on all accounts.
