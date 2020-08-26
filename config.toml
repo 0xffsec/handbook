@@ -1,6 +1,6 @@
-baseURL = "https://0xffsec.com/book"
+baseURL = "https://0xffsec.com/handbook"
 languageCode = "en-us"
-title = "0xffsec Penetration Testing Book"
+title = "0xffsec Penetration Testing Handbook"
 theme = "book"
 
 googleAnalytics = "UA-142676329-2"
@@ -11,7 +11,7 @@ enableGitInfo = true
     style = "native"
 
 [params]
-    BookRepo = "https://github.com/0xffsec/book"
+    BookRepo = "https://github.com/0xffsec/handbook"
     BookEditPath = 'edit/master/content'
     BookSection = '/'
 

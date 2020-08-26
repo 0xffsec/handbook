@@ -26,7 +26,7 @@ any document format allowing scripting.
 
 ## Methodology
 
-{{< figure src="/book/images/csrf-cheatsheet.png" alt="CSRF Methodology" title="CSRF Methodology. Source: PayloadsAllTheThings." >}}
+{{< figure src="/handbook/images/csrf-cheatsheet.png" alt="CSRF Methodology" title="CSRF Methodology. Source: PayloadsAllTheThings." >}}
 
 ## Validation Bypass
 
