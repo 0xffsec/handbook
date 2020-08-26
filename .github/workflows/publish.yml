@@ -15,7 +15,7 @@ jobs:
         submodules: true
 
     - name: Genearte Index Page
-      run: cp ./README.md ./content/_index.md
+      run: cat ./README.md >> ./content/_index.md
 
     - name: Setup Node
       uses: actions/setup-node@v1
