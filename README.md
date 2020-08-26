@@ -1,4 +1,11 @@
-# Penetration Testing Book
+<p align="center">
+    <a href="https://0xffsec.com/handbook">
+        <img src="https://0xffsec.com/handbook/images/logo.png" alt="0xffsec" width="200">
+    </a>
+</p>
+<h1 align="center">
+    0xffsec Pentesting Handbook
+</h1>
 
 ![Publish Book](https://github.com/0xffsec/book/workflows/Publish%20Book/badge.svg)
 
@@ -12,6 +19,22 @@ talks,
 and other resources
 and will be updated
 as new information is discovered.
+
+## Contributing
+
+Contributions are welcome,
+and they are greatly appreciated!
+Every little bit helps,
+and credit will always be given.
+
+You can contribute in many ways:
+
+- Submit feedback.
+- Update and/or create new content.
+- Report and fix bugs.
+
+Look through [GitHub Issues](https://github.com/0xffsec/handbook/issues)
+for active issues.
 
 ## Disclaimer
 
