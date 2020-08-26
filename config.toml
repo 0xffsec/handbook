@@ -5,10 +5,15 @@ theme = "book"
 
 googleAnalytics = "UA-142676329-2"
 enableGitInfo = true
+enableEmoji = true
+enableRobotsTXT = true
 
 [markup]
 [markup.highlight]
     style = "native"
+[markup.goldmark]
+    [markup.goldmark.renderer]
+        unsafe = true
 
 [params]
     BookRepo = "https://github.com/0xffsec/handbook"
