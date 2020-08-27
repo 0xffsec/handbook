@@ -2,6 +2,7 @@ baseURL = "https://0xffsec.com/handbook"
 languageCode = "en-us"
 title = "0xffsec Penetration Testing Handbook"
 theme = "book"
+canonifyURLs = true
 
 googleAnalytics = "UA-142676329-2"
 enableGitInfo = true
