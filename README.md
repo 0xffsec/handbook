@@ -8,6 +8,8 @@
 </h1>
 
 ![Publish Book](https://github.com/0xffsec/book/workflows/Publish%20Book/badge.svg)
+![GitHub](https://img.shields.io/github/license/0xffsec/handbook)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/0xffsec/handbook)
 
 These notes serve as a living document
 for penetration testing
