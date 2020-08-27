@@ -6,3 +6,16 @@
     ol{ padding-top: $padding-8; }
     :target{ background: $gray-200; }
 }
+
+h2.book-brand{
+    text-align: center;
+
+    img{
+        width: 100px;
+        height: inherit;
+    }
+
+    span{
+        display: block;
+    }
+}

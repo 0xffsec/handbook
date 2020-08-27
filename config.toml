@@ -1,6 +1,6 @@
 baseURL = "https://0xffsec.com/handbook"
 languageCode = "en-us"
-title = "0xffsec Penetration Testing Handbook"
+title = "0xffsec Pentesting Handbook"
 theme = "book"
 canonifyURLs = true
 
@@ -17,6 +17,7 @@ enableRobotsTXT = true
         unsafe = true
 
 [params]
+    BookLogo = '/images/logo.png'
     BookRepo = "https://github.com/0xffsec/handbook"
     BookEditPath = 'edit/master/content'
     BookSection = '/'
