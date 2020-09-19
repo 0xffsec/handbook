@@ -4,14 +4,34 @@ weight: 102
 ---
 # Host Discovery
 
-One of the first steps during the network enumeration is to reduce a set of IPs into a list of active or interesting hosts. Depending on if you are inside the network or scanning remotely, how much noise you can make, and your discovery requirements, different tools, and options are available.
+One of the first steps
+during the network enumeration
+is to reduce a set of IPs
+into a list of active or interesting hosts.
+Depending on if you are inside the network
+or scanning remotely,
+how much noise you can make,
+and your discovery requirements,
+different tools,
+and options are available.
 
 ## Internal
 
 ### Passive
 
-Passive discovery relies on monitoring network layer traffic to detect network topology, services, and applications. The process does not generate any network traffic.  
-Although is a slow process compared to an active scan and unreliable for service enumeration, as no packets are injected in the network, there is no risk of unintentional service disruption. Giving the advantage of being able to find intermittently offered or protected services that are often missed by active scanning. [^net-scanning-detection-strategies]
+Passive discovery relies on
+monitoring network layer traffic
+to detect network topology,
+services,
+and applications.
+
+As no packets are injected into the network,
+there is no risk of unintentional service disruption.
+It is also suitable for
+finding intermittently offered
+or protected services
+often missed by active scanning.
+[^net-scanning-detection-strategies]
 
 #### netdiscover - ARP [^netdiscover]
 
@@ -25,13 +45,31 @@ sudo netdiscover -p
 ```sh
 sudo p0f -p
 ```
-- `-p`: promiscuous mode; by default, it listens only to packet addressed or routed through.  
+- `-p`: promiscuous mode; by default, it listens only to packet addressed or routed through.
         **On IP-enabled interfaces can be detected remotely**.
+
+#### bettercap [^bettercap-recon]
+```txt
+net.recon on
+net.show.meta true
+net.show
+```
 
 ### Active
 
-In contrast, active discovery does inject a variety of packets into the network, making it well suited for open port discovery and fingerprinting. However, these techniques are not without drawbacks. Scans can be invasive, generate too much noise and, in some cases cause service interruptions due to the type of packets that may be sent.
+In contrast,
+active discovery does inject
+a variety of packets into the network.
 
+It is well suited for open port discovery
+and fingerprinting.
+However,
+these techniques are not without drawbacks.
+Scans can be invasive,
+generate too much noise,
+and in some cases,
+cause service interruptions
+due to the type of packets sent.
 
 #### netdiscover - ARP [^netdiscover]
 
@@ -57,6 +95,13 @@ nmap -sn {{< param "war.rcidr" >}}
 sudo nbtscan {{< param "war.rcidr" >}}
 ```
 
+#### bettercap [^bettercap-probe]
+```sh
+net.probe on
+net.show.meta true
+net.show
+```
+
 ### ICMP
 Refer to [External ICMP Scanning]({{< ref "#icmp-1" >}})
 
@@ -64,7 +109,7 @@ Refer to [External ICMP Scanning]({{< ref "#icmp-1" >}})
 
 ### ICMP
 
-As defined in [RFC 792](https://tools.ietf.org/html/rfc792), ICMP messages are typically used for diagnostic or control purposes or generated in response to errors in IP operations (as specified in [RFC 1122](https://tools.ietf.org/html/rfc1122)).[^data-communications-and-networking]  
+As defined in [RFC 792](https://tools.ietf.org/html/rfc792), ICMP messages are typically used for diagnostic or control purposes or generated in response to errors in IP operations (as specified in [RFC 1122](https://tools.ietf.org/html/rfc1122)).[^data-communications-and-networking]
 Although it is possible to use ICMP requests to discover if a host is up or not, it is common to find all these packets being filtered, making it an unreliable method.
 
 #### ping
@@ -104,3 +149,5 @@ See [Port Scanning]({{< ref "port-scanning.md" >}}).
 [^p0f]: Zalewski, Michal. “P0f V3.” [Lcamtuf.Coredump.Cx], https://lcamtuf.coredump.cx/p0f3/.
 [^nbtscan]: “NETBIOS Nameserver Scanner.” Steve Friedl’s Home Page, http://www.unixwiz.net/tools/nbtscan.html.
 [^fping]: Schweikert, David. “Fping.” Fping Homepage, https://fping.org/.
+[^bettercap-recon]: “Bettercap:: Net.Recon.” Bettercap, https://www.bettercap.org/modules/ethernet/net.recon/.
+[^bettercap-probe]: “Bettercap:: Net.Probe.” Bettercap, https://www.bettercap.org/modules/ethernet/net.probe/.
