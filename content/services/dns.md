@@ -42,7 +42,7 @@ dig version.bind CHAOS TXT @{{< param "war.rhost" >}}
 nmap -sV --script dns-nsid -p53 -Pn {{< param "war.rhost" >}}
 ```
 
-## FTP Exploits Search
+## DNS Exploits Search
 
 Refer to [Exploits Search]({{< ref "exploits-search">}})
 
