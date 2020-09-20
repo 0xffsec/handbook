@@ -3,13 +3,12 @@
         <img src="https://0xffsec.com/handbook/images/logo.png" alt="0xffsec" width="200">
     </a>
 </p>
-<h1 align="center">
-    0xffsec Pentesting Handbook
-</h1>
-
-![Publish Book](https://github.com/0xffsec/book/workflows/Publish%20Book/badge.svg)
-![GitHub](https://img.shields.io/github/license/0xffsec/handbook)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/0xffsec/handbook)
+<h1 align="center">0xffsec Pentesting Handbook</h1>
+<p align="center">
+    <a href="http://0xffsec.com/handbook"><img src="https://img.shields.io/badge/website-url-success" alt="0xffsec Website"></a>
+    <img src="https://github.com/0xffsec/book/workflows/Publish%20Book/badge.svg" alt="Publish Book">
+    <img alt="License" src="https://img.shields.io/github/license/0xffsec/handbook">
+</p>
 
 These notes serve as a living document
 for penetration testing
@@ -32,8 +31,8 @@ and credit will always be given.
 You can contribute in many ways:
 
 - Submit feedback.
-- Update and/or create new content.
-- Report and fix bugs.
+- Report or fix bugs.
+- Update and/or docs.
 
 Look through [GitHub Issues](https://github.com/0xffsec/handbook/issues)
 for active issues.
