@@ -161,6 +161,25 @@ medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param "war.rhost" >}} -
 - `-M`: module to execute.
 {{</details>}}
 
+### SMB
+
+#### Hydra [^hydra]
+```sh
+hydra -v -t1 -l Administrator -P /usr/share/wordlists/rockyou.txt.gz -f {{< param "war.rhost" >}} smb
+```
+{{<details "Parameters">}}
+- `-v`: verbose mode.
+- `-t <tasks>`: run `<tasks>` number of connects in parallel. Default: 16.
+- `-l <user>`: login with `user` name.
+- `-P <passwords file>`: login with passwords from file.
+- `-f`: exit after the first found user/password pair.
+{{</details>}}
+
+#### [smb-brute](https://nmap.org/nsedoc/scripts/smb-brute.html) NSE Script.
+```sh
+sudo nmap --script smb-brute -p U:137,T:139 {{< param "war.rhost" >}}
+```
+
 ## Web Applications
 
 ### HTTP Basic Auth

@@ -201,6 +201,10 @@ smbclient //{{< param "war.rhost" >}}/Share "" -N -Tc backup.tar users/docs
 - `c`: Create a tar backup archive on the local system.
 {{</details>}}
 
+## Brute Forcing
+
+Refer to [SMB Brute Forcing]({{< ref "brute-forcing#smb">}})
+
 ## SMB Exploits Search
 
 Refer to [Exploits Search]({{< ref "exploits-search">}})
