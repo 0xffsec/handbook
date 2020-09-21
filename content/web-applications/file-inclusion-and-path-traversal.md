@@ -104,11 +104,11 @@ or using absolute file paths,
 may allow bypassing poorly implemented input filtering.
 [^swissky-dt]
 
-|       | URL       | Double URL    | UTF-8 Unicode                     | 16 bits Unicode   |
-| :-    | :-        | :-            | :-                                |:-                 |
-| `.`   |  `%2e`    | `%252e`       |  `%c0%2e` `%e0%40%ae` `%c0%ae`    |`%u002e`           |
-| `/`   |  `%2f`    | `%252f`       |  `%c0%2f` `%e0%80%af` `%c0%af`    |`%u2215`           |
-| `\`   |  `%2c`    | `%252c`       |  `%c0%5c` `%c0%80%5c`             |`%u2216`           |
+|     | URL   | Double URL | UTF-8 Unicode                 | 16 bits Unicode |
+|-----|-------|------------|-------------------------------|-----------------|
+| `.` | `%2e` | `%252e`    | `%c0%2e` `%e0%40%ae` `%c0%ae` | `%u002e`        |
+| `/` | `%2f` | `%252f`    | `%c0%2f` `%e0%80%af` `%c0%af` | `%u2215`        |
+| `\` | `%2c` | `%252c`    | `%c0%5c` `%c0%80%5c`          | `%u2216`        |
 
 #### Encoded `../`
 ```text
