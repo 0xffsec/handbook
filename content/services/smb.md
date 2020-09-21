@@ -107,7 +107,13 @@ smbclient -N //{{< param "war.rhost" >}}/Share
 - `-L`: list services available on the server.
 {{</details>}}
 
-## Null Session Enumeration
+## RPC Enumeration
+
+{{<hint warning>}}
+`rpcclient`, `impacket`, and more, under [RPC Enumeration]({{< ref "msrpc#enumeration" >}}).
+{{</hint>}}
+
+## Null Session
 
 ### Windows Administrative Shares
 
@@ -172,6 +178,8 @@ In Linux
 [enum4linux]({{< ref "#enum4linux-enum4linux" >}}) utility
 can be used to dump data
 from these service
+
+Refer to [MSRPC]({{< ref "msrpc" >}}) for more about RPC.
 
 ## Mount Shares [^mount-smb]
 
