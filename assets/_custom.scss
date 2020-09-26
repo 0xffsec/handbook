@@ -1,10 +1,12 @@
 .footnotes{
-    color: $gray-800;
+    color: #343a40;
     font-size: $font-size-12;
     padding-top: $padding-8;
 
     ol{ padding-top: $padding-8; }
-    :target{ background: $gray-200; }
+    :target{
+      border: thin dotted var(--gray-500);
+    }
 }
 
 h2.book-brand{
