@@ -29,7 +29,7 @@ are exposed via RPC.
 The Microsoft RPC mechanism
 uses other IPC mechanisms,
 such as named pipes,
-NetBIOS,
+[NetBIOS]({{< ref "netbios" >}})
 or Winsock,
 to establish communications
 between the client and the server.

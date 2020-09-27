@@ -9,7 +9,7 @@ weight: 139
 Server Message Block.
 
 **Default Ports**
-- SMB over NetBIOS (NetBIOS over TCP/IP): 139
+- SMB over NBT ([NetBIOS]({{< ref "netbios" >}}) over TCP/IP): 139
 - SMB over TCP/IP: 445
 {{</hint>}}
 
@@ -17,8 +17,24 @@ SMB is a network communication protocol for providing shared access to files, pr
 
 #### Windows SMB Ports and Protocols
 
-Originally, in Windows NT, SMB ran on top of NBT (NetBIOS over TCP/IP), which uses ports UDP 137 and 138, and TCP 139. With Windows 2000, was introduced the option to run "NetBIOS-less" SMB, directly over TCP/IP, without the extra NBT layer on port 445.
-Older versions of Windows (with NBT enabled) will try to connect to both port 139 and 445 simultaneously, while in newer versions, port 139 is a fall-back port, as clients will try to connect to port 445 by default.[^vidstrom-smb-ports]
+Originally,
+in Windows NT,
+SMB ran on top of NBT (NetBIOS over TCP/IP),
+which uses ports UDP 137 and 138,
+and TCP 139.
+With Windows 2000,
+was introduced what Microsoft calls "direct hosting",
+the option to run "NetBIOS-less" SMB,
+directly over TCP/445.
+
+Older versions of Windows
+(with NBT enabled)
+will try to connect to both port 139
+and 445 simultaneously,
+while in newer versions,
+port 139 is a fall-back port,
+as clients will try to connect to port 445
+by default.[^vidstrom-smb-ports]
 
 ## SMB Host Discovery
 
