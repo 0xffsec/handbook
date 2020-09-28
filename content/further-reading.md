@@ -14,3 +14,4 @@ draft: true
 ## Links
 
 - [The Conscience of a Hacker](http://phrack.org/issues/7/3.html)
+- [OWASP Testing Checklist](https://wiki.owasp.org/index.php/Testing_Checklist)
