@@ -29,4 +29,5 @@ enableRobotsTXT = true
     ldomain = "example.evil"
     lhost = "10.0.0.1"
     lport = "1234"
+    liface = "wlan0"
     tfile = "filename.ext"
