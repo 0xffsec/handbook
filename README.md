@@ -21,6 +21,10 @@ and other resources
 and will be updated
 as new information is discovered.
 
+If you find this useful,
+please give it a [star :star:](https://0xffsec.com/handbook/)
+to show your support.
+
 ## Contributing
 
 Contributions are welcome,
