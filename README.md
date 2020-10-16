@@ -3,7 +3,11 @@
         <img src="https://0xffsec.com/handbook/images/logo.png" alt="0xffsec" width="200">
     </a>
 </p>
-<h1 align="center">0xffsec Pentesting Handbook</h1>
+<h1 align="center">
+0xffsec Handbook
+<br/>
+<small>The Penteste's Guide</small>
+</h1>
 <p align="center">
     <a href="http://0xffsec.com/handbook"><img src="https://img.shields.io/badge/website-url-success" alt="0xffsec Website"></a>
     <img src="https://github.com/0xffsec/book/workflows/Publish%20Book/badge.svg" alt="Publish Book">
