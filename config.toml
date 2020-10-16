@@ -9,6 +9,8 @@ enableGitInfo = true
 enableEmoji = true
 enableRobotsTXT = true
 
+titleCaseStyle = "Go"
+
 [markup]
 [markup.highlight]
     style = "native"
