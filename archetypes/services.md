@@ -1,6 +1,6 @@
 ---
-title: "{{ replace .Name "-" " " | upper }}"
-description: "{{ replace .Name "-" " " | upper }} Enumeration for Pentesting"
+menu: "{{ replace .Name "-" " " | upper }}"
+title: "{{ replace .Name "-" " " | upper }} Service Enumeration"
 weight:
 ---
 # {{ replace .Name "-" " " | upper }}

@@ -1,5 +1,6 @@
 ---
-title: CSRF - Cross-Site Request Forgery
+menu: CSRF
+title: CSRF (Cross-Site Request Forgery) - Web Applications Pentesting
 ---
 
 #  Cross-Site Request Forgery

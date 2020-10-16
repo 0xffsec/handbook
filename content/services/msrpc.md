@@ -1,6 +1,6 @@
 ---
-title: "MSRPC - 135 / 593"
-description: "MSRPC (Microsoft Remote Procedure Call) Enumeration for Pentesting"
+menu: "MSRPC - 135 / 593"
+title: "MSRPC (Microsoft Remote Procedure Call) Service Enumeration"
 weight: 135
 ---
 # MSRPC

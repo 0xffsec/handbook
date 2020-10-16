@@ -1,11 +1,12 @@
 ---
-title: "Services"
+menu: "Service Enumeration"
+title: "Service Enumeration and Pentesting"
 weight: 201
 bookToc: false
 bookCollapseSection: true
 ---
 
-# Service Enumeration
+# Service Enumeration and Pentesting
 
 | Ports           | Service               | Description                       |
 |-----------------|-----------------------|-----------------------------------|

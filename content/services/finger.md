@@ -1,6 +1,6 @@
 ---
-title: "Finger - 79"
-description: "Name/Finger Enumeration for Pentesting"
+menu: "Finger - 79"
+title: "Name/Finger Service Enumeration"
 weight: 79
 ---
 # Finger

@@ -1,6 +1,6 @@
 ---
-title: "IMAP - 143 / 993"
-description: "IMAP (Internet Message Access Protocol) Enumeration for Pentesting"
+menu: "IMAP - 143 / 993"
+title: "IMAP (Internet Message Access Protocol) Service Enumeration"
 weight: 143
 ---
 # IMAP

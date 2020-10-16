@@ -1,9 +1,10 @@
 ---
-title: How to Open JAR files
+menu: JAR Files
+title: JAR File - What It Is & How to Open One
 bookToc: false
 ---
 
-# How to Open JAR Files
+# JAR File - What It Is & How to Open One
 
 A JAR (**J**ava **AR**chive) file is a package file format, based on the ZIP file format, used to aggregate many Java class files, metadata and resources (text, images, etc.) into one file for distribution.[^jar-spec]
 
@@ -28,8 +29,8 @@ jar -xf foo.jar
 
 ## Decompile Class Files
 
-Java class files are compiled files containing Java bytecode that can be executed by a Java Virtual Machine (JVM). To decompile and view the source code in plain text any Java decompiler can be used.  
-[JAD](https://varaneckas.com/jad/) was the go-to for many years but only supports Java 1.4 or below. 
+Java class files are compiled files containing Java bytecode that can be executed by a Java Virtual Machine (JVM). To decompile and view the source code in plain text any Java decompiler can be used.
+[JAD](https://varaneckas.com/jad/) was the go-to for many years but only supports Java 1.4 or below.
 The [Java-Decompiler Project](https://java-decompiler.github.io/), [Procyon](https://bitbucket.org/mstrobel/procyon/wiki/Java%20Decompiler), and online tools like [DevToolZone's Java Decompiler](https://devtoolzone.com/decompiler/java) are good alternatives.
 
 ### procyon

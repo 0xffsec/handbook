@@ -1,6 +1,6 @@
 ---
-title: File Inclusion
-keywords: file inclusion, local file inclusion, remote file inclusion, path traversal, directory traversal, dot dot slash, directory climbing, backtracking
+menu: LFI / RFI and Path Traversal
+title: File Inclusion and Path Traversal - Web Applications Pentesting
 ---
 
 # File Inclusion and Path Traversal

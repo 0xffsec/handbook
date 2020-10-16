@@ -1,5 +1,6 @@
 ---
-title: CGI
+menu: CGI
+title: CGI - Web Applications Pentesting
 ---
 
 # Common Gateway Interface

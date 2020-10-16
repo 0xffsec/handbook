@@ -1,6 +1,6 @@
 ---
-title: "SMTP - 25 / 465 / 587"
-description: "SMTP (Simple Mail Transfer Protocol) Enumeration for Pentesting"
+menu: "SMTP - 25 / 465 / 587"
+title: "SMTP (Simple Mail Transfer Protocol) Service Enumeration"
 weight: 25
 ---
 # SMTP

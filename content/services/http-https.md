@@ -1,6 +1,6 @@
 ---
-title: HTTP/S - 80 / 443
-description: "HTTP/S (Hypertext Transfer Protocol Secure) Enumeration for Pentesting"
+menu: HTTP/S - 80 / 443
+title: "HTTP/S (Hypertext Transfer Protocol Secure) Service Enumeration"
 weight: 80
 ---
 # HTTP/S

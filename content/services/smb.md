@@ -1,6 +1,6 @@
 ---
-title: "SMB - 139 / 445"
-description: "SMB (Server Message Block) Enumeration for Pentesting"
+menu: "SMB - 139 / 445"
+title: "SMB (Server Message Block) Service Enumeration"
 weight: 139
 ---
 # SMB

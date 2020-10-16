@@ -1,6 +1,6 @@
 ---
-title: "POP - 110 / 995"
-description: "POP (Post Office Protocol) Enumeration for Pentesting"
+menu: "POP - 110 / 995"
+title: "POP (Post Office Protocol) Service Enumeration"
 weight: 110
 ---
 # POP

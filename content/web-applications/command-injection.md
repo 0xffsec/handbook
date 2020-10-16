@@ -1,5 +1,6 @@
 ---
-title: Command Injection
+menu: Command Injection
+title: Command Injection - Web Applications Pentesting
 ---
 
 # Command Injection

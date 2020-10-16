@@ -1,6 +1,6 @@
 ---
-title: "NNTP - 119 / 433 / 563"
-description: "NNTP Enumeration for Pentesting"
+menu: "NNTP - 119 / 433 / 563"
+title: "NNTP (Network News Transfer Protocol) Service Enumeration"
 weight: 119
 ---
 # NNTP

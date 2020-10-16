@@ -1,9 +1,10 @@
 ---
-title: Restricted Shells
+menu: Escape Restricted Shells
+title: How to Escape from Restricted Shells
 weight: 403
 ---
 
-# Restricted Shells
+# Escape from Restricted Shells
 
 Restricted shells
 limit the default available capabilities

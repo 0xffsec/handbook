@@ -1,6 +1,6 @@
 ---
-title: "FTP - 21"
-description: "FTP (File Transfer Protocol) Enumeration for Pentesting"
+menu: "FTP - 21"
+title: "FTP (File Transfer Protocol) Service Enumeration"
 weight: 21
 ---
 # FTP

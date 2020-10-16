@@ -1,6 +1,6 @@
 ---
-title: "DNS - 53"
-description: "DNS (Domain Name Systems) Enumeration for Pentesting"
+menu: "DNS - 53"
+title: "DNS (Domain Name Systems) Service Enumeration"
 weight: 53
 ---
 # DNS

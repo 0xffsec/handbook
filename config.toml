@@ -1,6 +1,6 @@
 baseURL = "https://0xffsec.com/handbook"
 languageCode = "en-us"
-title = "0xffsec Pentesting Handbook"
+title = "0xffsec Handbook"
 theme = "book"
 canonifyURLs = true
 

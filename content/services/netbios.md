@@ -1,6 +1,6 @@
 ---
-title: "NetBIOS - 137 / 138 / 139"
-description: "NetBIOS (Network Basic Input/Output System) Enumeration for Pentesting"
+menu: "NetBIOS - 137 / 138 / 139"
+title: "NetBIOS (Network Basic Input/Output System) Service Enumeration"
 weight: 137
 ---
 # NetBIOS
