@@ -23,6 +23,8 @@ titleCaseStyle = "Go"
     url = "https://github.com/0xffsec/handbook"
 
 [params]
+    images = ["/handbook/images/banner.png"]
+
     BookLogo = '/images/logo.png'
     BookRepo = "https://github.com/0xffsec/handbook"
     BookEditPath = 'edit/master/content'
