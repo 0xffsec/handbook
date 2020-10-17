@@ -6,7 +6,7 @@
 <h1 align="center">
 0xffsec Handbook
 <br/>
-<small>The Penteste's Guide</small>
+<small>The Pentester's Guide</small>
 </h1>
 <p align="center">
     <a href="http://0xffsec.com/handbook"><img src="https://img.shields.io/badge/website-url-success" alt="0xffsec Website"></a>
