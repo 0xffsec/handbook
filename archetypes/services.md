@@ -19,4 +19,5 @@ Service Description
 
 Refer to [Exploits Search]({{< ref "exploits-search">}})
 
+## Default Credentials
 ## Configuration files
