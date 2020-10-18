@@ -6,6 +6,22 @@ draft: true
 
 # Further Reading
 
+## Practice and Learn
+
+- [Hack The Box :: Penetration Testing Labs](https://www.hackthebox.eu/)
+- [TryHackMe | Learn Cybersecurity](https://tryhackme.com/)
+- [PentesterLab:  Learn Web Penetration Testing: The Right Way](https://pentesterlab.com/)
+- [VulnHub | Vulnerable By Design](https://www.vulnhub.com/)
+- [CTF 101](https://ctf101.org/)
+- [picoCTF](https://picoctf.com/)
+- [CTFtime.org / All about CTF (Capture The Flag)](https://ctftime.org/)
+- [CTFlearn - CTF Practice / CTF Problems / Challenges](https://ctflearn.com/)
+- [pwnable.tw](https://pwnable.tw/)
+- [pwn.college](https://pwn.college/)
+- [CryptoHack - A fun platform for learning cryptography](https://cryptohack.org/)
+- [Embedded Security CTF](https://microcorruption.com/login)
+
+
 ## Books
 
 - [The Hacker Playbook Series](https://securepla.net/hacker-playbook/)
@@ -13,6 +29,7 @@ draft: true
 
 ## Links
 
-- [The Conscience of a Hacker](http://phrack.org/issues/7/3.html)
+- [HighOn.Coffee | Penetration Testing Tools Cheat Sheet](https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/#python-tty-shell-trick)
 - [OWASP Testing Checklist](https://wiki.owasp.org/index.php/Testing_Checklist)
 - [What-Happens-When](https://github.com/alex/what-happens-when#parse-url)
+- [The Conscience of a Hacker](http://phrack.org/issues/7/3.html)
