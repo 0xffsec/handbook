@@ -27,7 +27,8 @@ as new information is discovered.
 
 If you find this useful,
 please give it a [star :star:](https://github.com/0xffsec/handbook)
-to show your support.
+to show your support.\
+Feel free to contact me on Github [@maxrodrigo](https://github.com/maxrodrigo) or email me at [contact@maxrodrigo.com](mailto:contact@maxrodrigo.com)
 
 ## Contributing
 
@@ -39,11 +40,12 @@ and credit will always be given.
 You can contribute in many ways:
 
 - Submit feedback.
+- Update or add pages.
 - Report or fix bugs.
-- Update and/or docs.
+- IRL with a coffee or using the [sponsor button](https://github.com/sponsors/maxrodrigo).
 
 Look through [GitHub Issues](https://github.com/0xffsec/handbook/issues)
-for active issues.
+or create a PR.
 
 ## Disclaimer
 
