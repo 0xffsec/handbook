@@ -101,11 +101,11 @@ allow anonymous ([Null Sessions]({{< ref "smb#null-session">}})) access to SMB,
 so these interfaces
 can be queried in this way.
 
-{{<hint info>}}
+{{<note>}}
 If null session access
 is not permitted,
 a valid username and password must be provided.
-{{</hint>}}
+{{</note>}}
 
 #### rpcclient [^rpcclient]
 ```sh

@@ -43,9 +43,9 @@ Refer to [Exploits Search]({{< ref "exploits-search">}})
 
 ## Anonymous Login
 
-{{<hint info>}}
+{{<note>}}
 During the [port scanning]({{< ref "port-scanning" >}}) phase Nmap's script scan (`-sC`), can be enabled to check for [FTP Bounce](https://nmap.org/nsedoc/scripts/ftp-bounce.html) and [Anonymous Login](https://nmap.org/nsedoc/scripts/ftp-anon.html).
-{{</hint>}}
+{{</note>}}
 
 Try anonymous login using `anonymous:anonymous` credentials.
 
@@ -70,9 +70,9 @@ ftp> ls -lat
 
 ## FTP Browser Client
 
-{{<hint danger>}}
+{{<note>}}
 Due to its insecure nature, FTP support is being dropped by [Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=1574475) and [Google Chrome](https://chromestatus.com/feature/6246151319715840).
-{{</hint>}}
+{{</note>}}
 
 Try accessing `ftp://user:pass@{{< param "war.rhost" >}}` from your browser.
 If not credentials provided `anonymous:anonymous` is assumed.
@@ -81,9 +81,9 @@ If not credentials provided `anonymous:anonymous` is assumed.
 
 Refer to [FTP Brute Forcing]({{< ref "brute-forcing#ftp">}})
 
-{{<hint info>}}
+{{<note>}}
 [SecLists](https://github.com/danielmiessler/SecLists) includes a handy list of [FTP default credentials](https://github.com/danielmiessler/SecLists/blob/master/Passwords/Default-Credentials/ftp-betterdefaultpasslist.txt).
-{{</hint>}}
+{{</note>}}
 
 ## Configuration files
 

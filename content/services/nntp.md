@@ -67,9 +67,9 @@ the article header and body separately,
 or even single header lines from a range of articles.
 [^oreilly-nntp]
 
-{{<hint info>}}
+{{<note>}}
 NNTP commands responses always end with a period (`.`) on a line by itself.
-{{</hint>}}
+{{</note>}}
 
 ```txt
 CAPABILITIES            List server capabilities.

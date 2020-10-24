@@ -15,9 +15,9 @@ Shellshock ([CVE-2014-6271](https://nvd.nist.gov/vuln/detail/CVE-2014-6271)) is 
 
 GNU Bourne Again Shell, or Bash, is an interpreter that allows users to send commands on Unix and Linux systems, typically by connecting over SSH or Telnet but it can also operate as a parser for CGI scripts.
 
-{{<hint info>}}
+{{<note>}}
 In addition to CGI-based web servers, it also affects OpenSSH servers, DHCP clients, Qmail servers and restricted shells of the IBM Hardware Management Console (IBM HMC)
-{{</hint>}}
+{{</note>}}
 
 The vulnerability occurs when the variables sent to the server, are passed and interpreted by Bash. This variable involves a specially crafted environment variable containing an exported function definition, followed by arbitrary commands. Bash incorrectly executes the trailing commands when it imports the function.
 

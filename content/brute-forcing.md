@@ -24,10 +24,10 @@ until the correct key is found.
 - [CIRT.net Password DB](https://www.cirt.net/passwords)
 - [Default Router Passwords List](https://192-168-1-1ip.mobi/default-router-passwords-list/)
 
-{{<hint info>}}
+{{<note>}}
 [SecLists](https://github.com/danielmiessler/SecLists) and [WordList Compendium](https://github.com/Dormidera/WordList-Compendium)
 also include default passwords lists.
-{{</hint>}}
+{{</note>}}
 
 ## Wordlists
 
@@ -105,12 +105,12 @@ john --wordlist=wordlist.txt --rules --stdout
 - `--stdout`: Output candidate passwords.
 {{</details>}}
 
-{{<hint info>}}
+{{<note>}}
 Custom rules can be appended
 to John's configuration file `john.conf`.
 
 See: [KoreLogic's Word Mangling Rule](https://gist.github.com/maxrodrigo/b9ec4e4578a9f6968470381214f1a340)
-{{</hint>}}
+{{</note>}}
 
 ## Services
 

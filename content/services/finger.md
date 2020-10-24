@@ -57,9 +57,9 @@ Enumerate users containing `user`.
 finger -l user@{{< param "war.rhost" >}}
 ```
 
-{{<hint info>}}
+{{<note>}}
 Try other words as: `admin`, `account` or `project`.
-{{</hint>}}
+{{</note>}}
 
 {{<details "Parameters">}}
 - `-l`: Multi-line format. Displays all the information.

@@ -18,17 +18,17 @@ It associates different information with domain names assigned to each of the pa
 
 By default, DNS uses UDP on port 53 to serve requests. When the size of the request, or the response, exceeds the single packet size of 512 bytes, the query is re-sent using TCP. Multiple records responses, IPv6 responses, big TXT records, DNSSEC responses, and **zone transfers** are some examples of these requests.
 
-{{<hint warning>}}
+{{<note>}}
 When DNS is running on TCP, it is worth checking if [zone trasfer]({{< ref "#zone-transfer" >}}) is enabled.
-{{</hint>}}
+{{</note>}}
 
 ## Banner Grabbing
 
 DNS does not provide an information banner _per se_ but BIND DNS exposes its version by default. [^dns-banner-grabbing]
 
-{{<hint info>}}
+{{<note>}}
 The `version.bind` directive is stored under the `options` section in the `/etc/named.conf` configuration file.
-{{</hint>}}
+{{</note>}}
 
 #### dig
 
@@ -62,9 +62,9 @@ dig axfr @{{< param "war.rhost" >}} domain
 - `domain`: name of the resource record that is to be looked up.
 {{</details>}}
 
-{{<hint info>}}
+{{<note>}}
 It is worth trying to initiate a zone transfer without a domain.
-{{</hint>}}
+{{</note>}}
 
 ## Configuration files
 

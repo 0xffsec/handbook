@@ -39,11 +39,11 @@ try echoing `$0` and `$PATH`
 separately.
 [^0-nixcraft]
 
-{{<hint info>}}
+{{<note>}}
 `$0` returns the name of the running process.
 If used inside of a shell
 it will return the name of the shell.
-{{</hint>}}
+{{</note>}}
 
 List the `PATH` content
 to see which commands are available.
@@ -76,12 +76,12 @@ where you can execute commands from,
 inside,
 or outside your `PATH`.
 
-{{<hint info>}}
+{{<note>}}
 If you're able
 to copy a file into `PATH`,
 then you'll be able
 to bypass the forward-slash restriction.
-{{</hint>}}
+{{</note>}}
 
 Other ways to copy files,
 or get access to them,

@@ -16,9 +16,9 @@ passes unsafe user-supplied data
 to a system shell.
 [^command-injection-owasp]
 
-{{<hint info>}}
+{{<note>}}
 Commands are usually executed with the privileges of the vulnerable application.
-{{</hint>}}
+{{</note>}}
 
 ## Command Chaining
 
@@ -30,11 +30,11 @@ Commands are usually executed with the privileges of the vulnerable application.
 <input>|| ls
 ```
 
-{{<hint warning>}}
+{{<note>}}
 Also try:
 - Prepending a flag or parameter.
 - Removing spaces (`<input>;ls`).
-{{</hint>}}
+{{</note>}}
 
 ### Chaining Operators
 

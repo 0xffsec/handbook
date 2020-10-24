@@ -90,9 +90,9 @@ NOOP    No-op. Keeps connection open.
 QUIT    End session.
 ```
 
-{{<hint info>}}
+{{<note>}}
 Server responses will start either with a successful (`+OK`) or failed status `-ERR`.
-{{</hint>}}
+{{</note>}}
 
 ## POP3 Exploits Search
 

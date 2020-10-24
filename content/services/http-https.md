@@ -56,12 +56,12 @@ Not included in Kali.
 
     [https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content]()
 
-{{<hint info>}}
+{{<note>}}
 For more wordlists
 refer to [Wordlists]({{< ref "brute-forcing#wordlists">}})
 and [Wordlist Generaion]({{< ref "brute-forcing#wordlist-generation">}}).
 under [Brute-Forcing]({{< ref "brute-forcing" >}}).
-{{</hint>}}
+{{</note>}}
 
 ### gobuster [^gobuster]
 
@@ -75,11 +75,11 @@ gobuster dir -t 30 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.t
 - `-u <URL>`: target URL.
 {{</details>}}
 
-{{<hint info>}}
+{{<note>}}
 - Iterate over the results.
 - Include status code 403 (Forbidden Error) and brutefoce these directories.
 - Add more file extensions to search for; In `gobuster`: `-x sh,pl`.
-{{</hint>}}
+{{</note>}}
 
 ## Source Code
 
@@ -89,9 +89,9 @@ It is a good habit to take a quick look at the pages' source code, scripts, and 
 
 To active `View Source`, context-click on the page and select `View Page Source` or with the `Ctrl+U` or `Cmd+U` shortcut.
 
-{{<hint info>}}
+{{<note>}}
 Many browsers include a powerful suite of tools, also known as devtools, to inspect and interact with the target website.
-{{</hint>}}
+{{</note>}}
 
 ### Download
 

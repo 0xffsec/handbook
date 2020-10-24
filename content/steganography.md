@@ -14,10 +14,10 @@ image,
 or file
 [^steganography-wiki]
 
-{{<hint warning>}}
+{{<note>}}
 Steganography is used to hide
 the occurrence of communication.
-{{</hint>}}
+{{</note>}}
 
 ## General
 

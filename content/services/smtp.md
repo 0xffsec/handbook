@@ -127,9 +127,9 @@ NOOP        No-op. Keeps connection open.
 QUIT        Ends session.
 ```
 
-{{<hint info>}}
+{{<note>}}
 Sessions must start with HELO and end with QUIT.
-{{</hint>}}
+{{</note>}}
 
 ## SMTP Exploits Search
 

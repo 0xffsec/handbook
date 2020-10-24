@@ -16,9 +16,9 @@ Looking for acquisitions may expand the available assets **if they are in scope*
 - [Google](https://www.google.com)
 - [Wikipedia](https://www.wikipedia.com)
 
-{{<hint warning>}}
+{{<note>}}
 Look for newer acquisitions and verify it they are still valid
-{{</hint>}}
+{{</note>}}
 
 ## ASN Enumeration
 
@@ -35,10 +35,10 @@ assigns ASNs to entities within its designated area
 from the block assigned by IANA.
 [^rfc-1930]
 
-{{<hint info>}}
+{{<note>}}
 These ASN’s will help us picture
 the entity’s IT infrastructure.
-{{</hint>}}
+{{</note>}}
 
 ### Online Tools
 
@@ -55,12 +55,12 @@ Or thought the regional registries services:
 - Latin America: [LACNIC - Internet Addresses Registry for Latin America and the Caribbean](https://www.lacnic.net/)
 - North America: [ARIN - American Registry for Internet Numbers](https://www.arin.net/about/welcome/region/)
 
-{{<hint warning>}}
+{{<note>}}
 Because of the advent of cloud infrastructure,
 ASNs may not provide a complete picture of a network.
 Assets could also exist on cloud environments like
 [AWS](https://aws.amazon.com/), [GCP](https://cloud.google.com/), and [Azure](https://azure.microsoft.com/en-us/).
-{{</hint>}}
+{{</note>}}
 
 ### Automated Tools
 
@@ -151,9 +151,9 @@ Try filter by
 organization: `org:<org-name>`
 or hostname: `hostname: <domain>`.
 
-{{<hint info>}}
+{{<note>}}
 Shodan usually offers a $5 lifetime membership during Black Friday.
-{{</hint>}}
+{{</note>}}
 
 [^rfc-1930]: “RFC 1930 - Guidelines for Creation, Selection, and Registration of an Autonomous System (AS).” IETF Tools, https://tools.ietf.org/html/rfc1930#section-3.
 [^rfc-1834]: “RFC 1834 - Whois and Network Information Lookup Service, Whois++.” IETF Tools, https://tools.ietf.org/html/rfc1834.

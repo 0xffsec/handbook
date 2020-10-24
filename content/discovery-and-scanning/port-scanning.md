@@ -4,10 +4,10 @@ weight: 103
 ---
 # Port Scanning
 
-Let's continue narrowing down our attack vector. It is time now to grab your host or list of hosts and scan for open ports and running services.  
-Port scanners can be categorized between **synchronous or connection-oriented** and **asynchronous or connectionless**.  
-Synchronous scanners, like [Nmap](https://nmap.org/), wait for a host response (until the timeout period expires) to determine if the port it's alive. This translates to slower scans, especially on big network ranges, but an accurate port discovery in comparison with connectionless scanners.  
-Asynchronous scanners like [scanrad](http://www.vulnerabilityassessment.co.uk/scanrand.htm), [zmap](https://github.com/zmap/zmap), or [masscan](https://github.com/robertdavidgraham/masscan), on the other hand, don't wait for a host response as they create separate threads for each port. This allows a high-speed scan, but less accurate since they cannot detect dropped packets.  
+Let's continue narrowing down our attack vector. It is time now to grab your host or list of hosts and scan for open ports and running services.
+Port scanners can be categorized between **synchronous or connection-oriented** and **asynchronous or connectionless**.
+Synchronous scanners, like [Nmap](https://nmap.org/), wait for a host response (until the timeout period expires) to determine if the port it's alive. This translates to slower scans, especially on big network ranges, but an accurate port discovery in comparison with connectionless scanners.
+Asynchronous scanners like [scanrad](http://www.vulnerabilityassessment.co.uk/scanrand.htm), [zmap](https://github.com/zmap/zmap), or [masscan](https://github.com/robertdavidgraham/masscan), on the other hand, don't wait for a host response as they create separate threads for each port. This allows a high-speed scan, but less accurate since they cannot detect dropped packets.
 Combining both tools could help you find a balance between speed and accuracy for each engagement. [^captmeelo-benchmark]
 
 ## Network Sweep
@@ -15,7 +15,7 @@ Combining both tools could help you find a balance between speed and accuracy fo
 ### masscan [^masscan]
 
 ```sh
-sudo masscan -p 7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157 --rate 50000 --wait 0 --open-only -oG masscan.gnmap {{< param "war.rcidr" >}} 
+sudo masscan -p 7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157 --rate 50000 --wait 0 --open-only -oG masscan.gnmap {{< param "war.rcidr" >}}
 ```
 
 {{<details "Parameters">}}
@@ -32,9 +32,9 @@ sudo masscan -p 7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,14
 
 This is a good all-purpose initial scan. Scans the most common 1000 ports with service information (`-sV`), default scripts (`-sC`), and OS detection.
 
-{{<hint info>}}
+{{<note>}}
 Verbose mode (`-v`) not only provides the estimated time for each host, but, it also prints the results as it goes letting you continue with the reconnaissance while scanning.
-{{</hint>}}
+{{</note>}}
 
 ```sh
 sudo nmap -v -sV -sC -O -T4 -n -Pn -oA nmap_scan {{< param "war.rhost" >}}
@@ -56,7 +56,7 @@ sudo nmap -sU -sV --version-intensity 0 -n {{< param "war.rcidr" >}}
 
 ### Enumeration Scan
 
-In addition to the default scripts that run with `-sC` or `--script=default`, NSE (Nmap Scripting Engine), provides [multiple types and categories](https://nmap.org/book/nse-usage.html#nse-script-selection) to select from. 
+In addition to the default scripts that run with `-sC` or `--script=default`, NSE (Nmap Scripting Engine), provides [multiple types and categories](https://nmap.org/book/nse-usage.html#nse-script-selection) to select from.
 
 It is a common practice to combine the list of ports resulting from a network sweep or a fast nmap scan like:
 
@@ -71,9 +71,9 @@ sudo nmap -v -sV -O --script="safe and vuln" -T4 -n -Pn -p135,445 -oA nmap_scan 
 
 The `--script` parameter is extremely flexible and full features, refer to the [documentation](https://nmap.org/book/nse.html) for more about NSE.
 
-{{<hint danger>}}
+{{<note>}}
 Never run scripts from third parties unless you trust the authors or have carefully audited the scripts yourself.
-{{</hint>}}
+{{</note>}}
 
 {{<details "Parameters">}}
 - `-v`: verbose mode.

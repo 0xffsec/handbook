@@ -19,11 +19,11 @@ the trust that a site has
 in a user's browser.
 [^csrf-cgisecurity]
 
-{{<hint warning>}}
+{{<note>}}
 CSRF is not limited to web applications.
 An attacker could embed scripting into
 any document format allowing scripting.
-{{</hint>}}
+{{</note>}}
 
 ## Methodology
 
@@ -57,7 +57,7 @@ only under predefined methods.
 For example,
 try changing from `POST` to `GET`.
 
-{{<hint warning>}}
+{{<note>}}
 There are cases
 where the method is defined by a parameter
 or a custom header such as:
@@ -65,7 +65,7 @@ or a custom header such as:
 - X-HTTP-Method
 - X-HTTP-Method-Override
 - X-Method-Override
-{{</hint>}}
+{{</note>}}
 
 ### Content Type
 
@@ -195,12 +195,12 @@ xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 xhr.send('{"username":0xffsec}');
 ```
 
-{{<hint info>}}
+{{<note>}}
 AS mention [before](#content-type), try with different content types:
 
 - `xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");`
 - `xhr.setRequestHeader("Content-Type", "multipart/form-data");`
-{{</hint>}}
+{{</note>}}
 
 ### Get Token from iFrame
 

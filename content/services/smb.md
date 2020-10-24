@@ -65,10 +65,10 @@ Backup and Management software requires dedicated user accounts on the server or
 
 ## Enumeration
 
-{{<hint warning>}}
+{{<note>}}
 If `Protocol negotiation failed: NT_STATUS_IO_TIMEOUT` is returned,
 refer to [SMB Protocol Negotiation Failed]({{< ref "smb-protocol-negotiation-failed" >}})
-{{</hint>}}
+{{</note>}}
 
 #### enum4linux [^enum4linux]
 
@@ -93,7 +93,7 @@ enum4linux -a -u "<username>" -p "<passwd>" {{< param "war.rhost" >}}
 nmap --script "safe or smb-enum-*" -p 139,445 {{< param "war.rhost" >}}
 ```
 
-{{<hint info>}}
+{{<note>}}
 NSE SMB enumeration scripts:
 - `smb-enum-domains`
 - `smb-enum-groups`
@@ -102,7 +102,7 @@ NSE SMB enumeration scripts:
 - `smb-enum-sessions`
 - `smb-enum-shares`
 - `smb-enum-users`
-{{</hint>}}
+{{</note>}}
 
 #### smbclient [^smbclient]
 
@@ -125,9 +125,9 @@ smbclient -N //{{< param "war.rhost" >}}/Share
 
 ## RPC Enumeration
 
-{{<hint warning>}}
+{{<note>}}
 `rpcclient`, `impacket`, and more, under [RPC Enumeration]({{< ref "msrpc#enumeration" >}}).
-{{</hint>}}
+{{</note>}}
 
 ## Null Session
 
@@ -135,9 +135,9 @@ smbclient -N //{{< param "war.rhost" >}}/Share
 
 Administrative shares are hidden shares that provide administrators the ability to remotely manage hosts. **They are automatically created and enabled by default**.
 
-{{<hint info>}}
+{{<note>}}
 It is worth clarifying these shares are not hidden but removed from views just by appending a dollar sign (`$`) to the share name. Ultimately, the share will be part of the result if listing from a Unix-based system or by using: `net share` and `net view /all`.
-{{</hint>}}
+{{</note>}}
 
 Various shares are exposed to clients via SMB, as follows:
 - `C$`: C Drive on the remote machine.
@@ -177,7 +177,7 @@ could be used to make multiple RPC calls
 and obtain useful information
 about the remote system.[^sensepost-ipc]
 
-{{<hint warning>}}
+{{<note>}}
 RPC endpoints exposed via IPC$
 include the Server service,
 Task Scheduler,
@@ -188,7 +188,7 @@ you can use these
 to enumerate user and system details,
 access the registry,
 and execute commands
-{{</hint>}}
+{{</note>}}
 
 In Linux
 [enum4linux]({{< ref "#enum4linux-enum4linux" >}}) utility

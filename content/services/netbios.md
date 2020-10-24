@@ -29,10 +29,10 @@ NetBIOS provides three distinct services:
 - Datagram Distribution Service (NetBIOS-DGM) for connectionless communication.
 - Session Service (NetBIOS-SSN) for connection-oriented communication.
 
-{{<hint warning>}}
+{{<note>}}
 [SMB]({{< ref "smb" >}}) runs **on top** of the Session Service and Datagram Service.
 It is not an integral part of NetBIOS.
-{{</hint>}}
+{{</note>}}
 
 #### Name Service
 
@@ -101,9 +101,9 @@ nmblookup -A {{< param "war.rhost" >}}
 nbtscan {{< param "war.rhost" >}}
 ```
 
-{{<hint warning>}}
+{{<note>}}
 Continue NetBIOS enumeration with [SMB]({{< ref "smb" >}}).
-{{</hint>}}
+{{</note>}}
 
 ## NetBIOS Exploits Search
 

