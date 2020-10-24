@@ -1,3 +1,7 @@
+audio, canvas, iframe, img, svg, video {
+    vertical-align: middle;
+}
+
 .footnotes{
     color: #343a40;
     font-size: $font-size-12;
@@ -5,7 +9,7 @@
 
     ol{ padding-top: $padding-8; }
     :target{
-      border: thin dotted var(--gray-500);
+        border: thin dotted var(--gray-500);
     }
 }
 
@@ -32,8 +36,24 @@ h2.book-brand{
         margin: 1.5rem 0 2rem 1rem;
 
         li{
-            list-style: square;
             padding-left: 0.5rem;
         }
+    }
+    ul li {
+        list-style: url("data:image/svg+xml;utf8,<svg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 2C0 0.895431 0.895431 0 2 0H6C7.10457 0 8 0.895431 8 2V6C8 7.10457 7.10457 8 6 8H2C0.895431 8 0 7.10457 0 6V2Z' fill='#000'/></svg>");
+    }
+}
+
+.book-note {
+    display: grid;
+    grid-template-columns: 4rem auto;
+    border: 1px solid var(--gray-500);
+    padding-right: 1rem;
+    font-size: $font-size-14;
+    align-items: center;
+
+    .book-note-icon {
+        fill: #FFE01B;
+        justify-self: center;
     }
 }
