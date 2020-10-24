@@ -21,3 +21,19 @@ h2.book-brand{
         display: block;
     }
 }
+
+.markdown {
+    h2 {
+        margin-top: 5rem;
+    }
+
+    ul, ol {
+        padding: 0;
+        margin: 1.5rem 0 2rem 1rem;
+
+        li{
+            list-style: square;
+            padding-left: 0.5rem;
+        }
+    }
+}
