@@ -28,7 +28,7 @@ h2.book-brand{
 
 .markdown {
     h2 {
-        margin-top: 5rem;
+        margin-top: 4rem;
     }
 
     ul, ol {
@@ -56,4 +56,11 @@ h2.book-brand{
         fill: #FFE01B;
         justify-self: center;
     }
+}
+
+.book-highlight {
+    background-color:var(--gray-100);
+    border-radius: $border-radius;
+    padding: 1rem;
+    font-size: $font-size-14;
 }
