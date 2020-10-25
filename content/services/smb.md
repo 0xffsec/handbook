@@ -5,13 +5,13 @@ weight: 139
 ---
 # SMB
 
-{{<hint info>}}
+{{<highlight>}}
 Server Message Block.
 
 **Default Ports**
 - SMB over NBT ([NetBIOS]({{< ref "netbios" >}}) over TCP/IP): 139
 - SMB over TCP/IP: 445
-{{</hint>}}
+{{</highlight>}}
 
 SMB is a network communication protocol for providing shared access to files, printers, and serial ports between nodes on a network. It also provides an authenticated IPC (inter-process communication) mechanism.[^wiki-smb]
 

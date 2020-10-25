@@ -5,11 +5,11 @@ weight: 79
 ---
 # Finger
 
-{{<hint info>}}
+{{<highlight>}}
 Finger user information protocol.
 
 **Default Port**: 79
-{{</hint>}}
+{{</highlight>}}
 
 The Finger User Information Protocol ([RFC 1288](https://tools.ietf.org/html/rfc1288)),
 is a simple protocol that provides

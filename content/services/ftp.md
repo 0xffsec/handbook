@@ -5,11 +5,11 @@ weight: 21
 ---
 # FTP
 
-{{<hint info>}}
+{{<highlight>}}
 File Transfer Protocol.
 
 **Default Port:** 21
-{{</hint>}}
+{{</highlight>}}
 
 FTP is a standard network protocol used for the transfer of files between a client and a server on a computer network.
 FTP is built on a client-server architecture using separate control and data connections between the client and the server. FTP authenticates users with a clear-text sign-in protocol, normally in the form of a username and password, but can connect anonymously if the server is configured to allow it. [^wiki-ftp]

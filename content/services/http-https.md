@@ -5,13 +5,13 @@ weight: 80
 ---
 # HTTP/S
 
-{{<hint info>}}
+{{<highlight>}}
 Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
 
 **Default Ports**
 - HTTP: 80
 - HTTPS (HTTP over TLS or SSL): 443
-{{</hint>}}
+{{</highlight>}}
 
 ## Directory Enumeration
 

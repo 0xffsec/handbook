@@ -5,14 +5,14 @@ weight: 119
 ---
 # NNTP
 
-{{<hint info>}}
+{{<highlight>}}
 Network News Transfer Protocol.
 
 **Default Ports**
 - NNTP: 119
 - NNTPS (NNTPS over TLS): 563
 - NNSP (server-server bulk transfer): 433
-{{</hint>}}
+{{</highlight>}}
 
 NNTP is an application-layer protocol
 used for transporting [Usenet](https://en.wikipedia.org/wiki/Usenet) news articles

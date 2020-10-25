@@ -5,14 +5,14 @@ weight: 143
 ---
 # IMAP
 
-{{<hint info>}}
+{{<highlight>}}
 Internet Message Access Protocol.
 
 **Default Ports**
 - IMAP: 143
 - IMAPS (IMAP over SSL): 993
 
-{{</hint>}}
+{{</highlight>}}
 
 IMAP is an application-layer protocol
 used by email clients

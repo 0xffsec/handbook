@@ -5,13 +5,13 @@ weight: 110
 ---
 # POP
 
-{{<hint info>}}
+{{<highlight>}}
 Post Office Protocol.
 
 **Default Ports**
 - POP3: 110
 - POP3S (POP3 over TLS or SSL): 995
-{{</hint>}}
+{{</highlight>}}
 
 POP,
 or POP3 (POP version 3),

@@ -5,13 +5,13 @@ weight: 135
 ---
 # MSRPC
 
-{{<hint info>}}
+{{<highlight>}}
 Microsoft Remote Procedure Call.
 
 **Default Ports**:
 - RPC Endpoint Mapper: 135
 - HTTP: 593
-{{</hint>}}
+{{</highlight>}}
 
 MSRPC is an interprocess communication (IPC) mechanism
 that allows client/server software communcation.

@@ -5,11 +5,11 @@ weight: 53
 ---
 # DNS
 
-{{<hint info>}}
+{{<highlight>}}
 Domain Name Systems.
 
 **Default Port:** 53
-{{</hint>}}
+{{</highlight>}}
 
 The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers, services, and other resources connected to a network.
 It associates different information with domain names assigned to each of the participating entities. Most prominently, it translates more easily memorized domain names to the numerical IP addresses needed for identifying computer services and devices with the underlying network protocols.  [^wiki-dns]

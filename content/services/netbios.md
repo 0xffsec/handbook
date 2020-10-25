@@ -5,14 +5,14 @@ weight: 137
 ---
 # NetBIOS
 
-{{<hint info>}}
+{{<highlight>}}
 Network Basic Input/Output System.
 
 **Default Port/s**:
 - NetBIOS Name Service: UDP/137
 - NetBIOS Datagram Service: UDP/138
 - NetBIOS Session Service: TCP/139
-{{</hint>}}
+{{</highlight>}}
 
 NetBIOS is a non-routable service
 that allows applications and computers

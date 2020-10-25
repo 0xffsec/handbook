@@ -5,14 +5,14 @@ weight: 25
 ---
 # SMTP
 
-{{<hint info>}}
+{{<highlight>}}
 Simple Mails Transfer Protocol.
 
 **Default Ports**
 - SMTP Relay (server-server communication): 25
 - SMTP Message Submission (client-server communcation): 578
 - SMTPS (Deprecated): 465
-{{</hint>}}
+{{</highlight>}}
 
 SMTP is a communication protocol
 for email transmission.
