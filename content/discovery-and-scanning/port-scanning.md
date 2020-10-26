@@ -6,31 +6,46 @@ weight: 103
 
 ## At a Glance
 
-Port scanners can be categorized between
-**synchronous or connection-oriented** and **asynchronous or connectionless**.
-Synchronous scanners,
-like [Nmap](https://nmap.org/),
-wait for a host response
-to determine if the port it's alive.
-This translates to slower scans,
-especially on big network ranges,
-but an accurate port discovery
-in comparison with connectionless scanners.
+Port scanning helps you
+gather additional information about the target
+by interacting with it.
+It will give you
+a better understanding of
+how different systems interact with each other
+and host-specific details
+such as operating systems and available services.
 
-Asynchronous scanners,
+## Port Scanners
+
+Port scanners can be classified as
+**synchronous** and **asynchronous**.
+
+Synchronous or connection-oriented scanners,
+like [Nmap](https://nmap.org/),
+wait for the host response
+to determine if the port is alive.
+On the other hand,
+asynchronous or connectionless scanners,
 like [scanrad](http://www.vulnerabilityassessment.co.uk/scanrand.htm),
 [zmap](https://github.com/zmap/zmap),
 or [masscan](https://github.com/robertdavidgraham/masscan),
-on the other hand,
-don't wait for a host response
+do not wait for a host response
 as they create separate threads for each port.
-This allows a high-speed scan,
+
+Synchronous scanners tend to be slower,
+especially on large network ranges,
+but accurate for port discovery.
+While asynchronous scanners are faster
 but less accurate
 since they cannot detect dropped packets.
+[^captmeelo-benchmark]
 
-Combining both tools
-could help you find a balance
-between speed and accuracy. [^captmeelo-benchmark]
+## Methodology
+
+1. Network Tracing - Infer the network topology.
+1. [Network Sweep](#network-sweep) - Obtain a list of potential targets.
+1. Thorough [Hosts Scan](#host-scan) - Enumerate OSs and services on the targets.
+1. Vulnerability scans  - Enumerate vulnerabilities on the targets' services.
 
 ## Network Sweep
 
@@ -127,6 +142,10 @@ List scripts under the `default` category.
 ```sh
 grep -r categories /usr/share/nmap/scripts/*.nse | grep default | cut -d: -f1
 ```
+
+## Further Reading
+
+- [Finding the Balance Between Speed & Accuracy During an Internet-wide Port Scanning](https://captmeelo.com/pentest/2019/07/29/port-scanning.html)
 
 [^captmeelo-benchmark]: Capt. Meelo. “Finding the Balance Between Speed & Accuracy During an Internet-Wide Port Scanning - Hack.Learn.Share.” Hack.Learn.Share, 29 July 2019, https://captmeelo.com/pentest/2019/07/29/port-scanning.html.
 [^highon-portscanning]: “Penetration Testing Tools Cheat Sheet.” HighOn.Coffee • Security Research • Penetration Testing Blog, https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/#nmap-commands.
