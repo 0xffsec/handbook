@@ -1,7 +1,6 @@
 ---
 title: Further Reading
 weight: 800
-draft: true
 ---
 
 # Further Reading
@@ -26,6 +25,15 @@ draft: true
 
 - [The Hacker Playbook Series](https://securepla.net/hacker-playbook/)
 - [Hacking- The Art of Exploitation](https://nostarch.com/hacking2.htm)
+
+## YouTube Channels
+
+- [Adrian Crenshaw](https://www.youtube.com/user/irongeek)
+- [IppSec](https://www.youtube.com/ippsec)
+- [MalwareAnalysisForHedgehogs](https://www.youtube.com/MalwareAnalysisForHedgehogs)
+- [Red Team Village](https://www.youtube.com/RedTeamVillage/)
+- [Ben Eater](https://www.youtube.com/BenEater/)
+- [Open Security Training](https://www.youtube.com/OpenSecurityTraining)
 
 ## Links
 
