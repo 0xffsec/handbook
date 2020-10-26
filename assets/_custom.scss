@@ -1,67 +1,71 @@
+body * {
+  scrollbar-width: thin;
+}
+
 audio, canvas, iframe, img, svg, video {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .footnotes{
-    color: #343a40;
-    font-size: $font-size-12;
-    padding-top: $padding-8;
+  color: #343a40;
+  font-size: $font-size-12;
+  padding-top: $padding-8;
 
-    ol{ padding-top: $padding-8; }
-    :target{
-        border: thin dotted var(--gray-500);
-    }
+  ol{ padding-top: $padding-8; }
+  :target{
+    border: thin dotted var(--gray-500);
+  }
 }
 
 h2.book-brand{
-    text-align: center;
+  text-align: center;
 
-    img{
-        width: 100px;
-        height: inherit;
-    }
+  img{
+    width: 100px;
+    height: inherit;
+  }
 
-    span{
-        padding-top: 1rem;
-        display: block;
-    }
+  span{
+    padding-top: 1rem;
+    display: block;
+  }
 }
 
 .markdown {
-    h2 {
-        margin-top: 4rem;
-    }
+  h2 {
+    margin-top: 4rem;
+  }
 
-    ul, ol {
-        padding: 0;
-        margin: 1.5rem 0 2rem 1rem;
+  ul, ol {
+    padding: 0;
+    margin: 1.5rem 0 2rem 1rem;
 
-        li{
-            padding-left: 0.5rem;
-        }
+    li{
+      padding-left: 0.5rem;
     }
-    ul li {
-        list-style: url("data:image/svg+xml;utf8,<svg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 2C0 0.895431 0.895431 0 2 0H6C7.10457 0 8 0.895431 8 2V6C8 7.10457 7.10457 8 6 8H2C0.895431 8 0 7.10457 0 6V2Z' fill='#000'/></svg>");
-    }
+  }
+  ul li {
+    list-style: url("data:image/svg+xml;utf8,<svg width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 2C0 0.895431 0.895431 0 2 0H6C7.10457 0 8 0.895431 8 2V6C8 7.10457 7.10457 8 6 8H2C0.895431 8 0 7.10457 0 6V2Z' fill='#000'/></svg>");
+  }
 }
 
 .book-note {
-    display: grid;
-    grid-template-columns: 4rem auto;
-    border: 1px solid var(--gray-500);
-    padding-right: 1rem;
-    font-size: $font-size-14;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 4rem auto;
+  border: 1px solid var(--gray-500);
+  padding-right: 1rem;
+  font-size: $font-size-14;
+  align-items: center;
 
-    .book-note-icon {
-        fill: #FFE01B;
-        justify-self: center;
-    }
+  .book-note-icon {
+    fill: #FFE01B;
+    justify-self: center;
+  }
 }
 
 .book-highlight {
-    background-color:var(--gray-100);
-    border-radius: $border-radius;
-    padding: 1rem;
-    font-size: $font-size-14;
+  background-color:var(--gray-100);
+  border-radius: $border-radius;
+  padding: 1rem;
+  font-size: $font-size-14;
 }
