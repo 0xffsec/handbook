@@ -3,11 +3,11 @@ menu: "SMB - 139 / 445"
 title: "SMB (Server Message Block) Service Enumeration"
 weight: 139
 ---
-# SMB
+# SMB (Server Message Block)
+
+## At a Glance
 
 {{<highlight>}}
-Server Message Block.
-
 **Default Ports**
 - SMB over NBT ([NetBIOS]({{< ref "netbios" >}}) over TCP/IP): 139
 - SMB over TCP/IP: 445

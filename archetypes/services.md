@@ -5,11 +5,11 @@ weight:
 ---
 # {{ replace .Name "-" " " | upper }}
 
-{{<hint info>}}
-Full Name.
+## At a Glance
 
+{{<highlight>}}
 **Default Port/s**
-{{</hint>}}
+{{</highlight>}}
 
 Service Description
 

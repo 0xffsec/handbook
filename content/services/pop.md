@@ -3,11 +3,11 @@ menu: "POP - 110 / 995"
 title: "POP (Post Office Protocol) Service Enumeration"
 weight: 110
 ---
-# POP
+# POP (Post Office Protocol)
+
+## At a Glance
 
 {{<highlight>}}
-Post Office Protocol.
-
 **Default Ports**
 - POP3: 110
 - POP3S (POP3 over TLS or SSL): 995

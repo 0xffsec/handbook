@@ -1,13 +1,13 @@
 ---
 menu: "Finger - 79"
-title: "Name/Finger Service Enumeration"
+title: "Name/Finger (User Information Protocol) Service Enumeration"
 weight: 79
 ---
-# Finger
+# Finger (User Information Protocol)
+
+## At a Glance
 
 {{<highlight>}}
-Finger user information protocol.
-
 **Default Port**: 79
 {{</highlight>}}
 

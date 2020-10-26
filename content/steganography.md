@@ -5,6 +5,8 @@ weight: 202
 
 # Steganography
 
+## At a Glance
+
 Steganography is the art and science
 of hiding a message,
 image,

@@ -5,6 +5,8 @@ title: CSRF (Cross-Site Request Forgery) - Web Applications Pentesting
 
 #  Cross-Site Request Forgery
 
+## At a Glance
+
 Cross-Site Request Forgery (CSRF) is an attack
 that forces an end user
 into submitting a malicious request

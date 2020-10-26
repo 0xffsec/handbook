@@ -6,6 +6,8 @@ weight: 403
 
 # Escape from Restricted Shells
 
+## At a Glance
+
 Restricted shells
 limit the default available capabilities
 of a regular shell

@@ -3,11 +3,11 @@ menu: "NetBIOS - 137 / 138 / 139"
 title: "NetBIOS (Network Basic Input/Output System) Service Enumeration"
 weight: 137
 ---
-# NetBIOS
+# NetBIOS (Network Basic Input/Output System)
+
+## At a Glance
 
 {{<highlight>}}
-Network Basic Input/Output System.
-
 **Default Port/s**:
 - NetBIOS Name Service: UDP/137
 - NetBIOS Datagram Service: UDP/138

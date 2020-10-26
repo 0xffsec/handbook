@@ -3,11 +3,11 @@ menu: "NNTP - 119 / 433 / 563"
 title: "NNTP (Network News Transfer Protocol) Service Enumeration"
 weight: 119
 ---
-# NNTP
+# NNTP (Network News Transfer Protocol)
+
+## At a Glance
 
 {{<highlight>}}
-Network News Transfer Protocol.
-
 **Default Ports**
 - NNTP: 119
 - NNTPS (NNTPS over TLS): 563

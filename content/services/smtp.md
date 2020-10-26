@@ -3,11 +3,11 @@ menu: "SMTP - 25 / 465 / 587"
 title: "SMTP (Simple Mail Transfer Protocol) Service Enumeration"
 weight: 25
 ---
-# SMTP
+# SMTP (Simple Mail Transfer Protocol)
+
+## At a Glance
 
 {{<highlight>}}
-Simple Mails Transfer Protocol.
-
 **Default Ports**
 - SMTP Relay (server-server communication): 25
 - SMTP Message Submission (client-server communcation): 578

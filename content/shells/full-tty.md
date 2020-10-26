@@ -6,6 +6,8 @@ weight: 402
 
 # Upgrade to Fully Interactive TTYs
 
+## At a Glance
+
 More often than not, reverse, or bind shells are shells with limited interactive capabilities. Meaning no job control, no auto-completion, no `STDERR` output, and, most important, poor signal handling and limited commands support. To fully leverage the shell it is convenient to upgrade to an interactive TTY with extended features.
 
 {{<note>}}

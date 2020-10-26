@@ -4,11 +4,33 @@ weight: 103
 ---
 # Port Scanning
 
-Let's continue narrowing down our attack vector. It is time now to grab your host or list of hosts and scan for open ports and running services.
-Port scanners can be categorized between **synchronous or connection-oriented** and **asynchronous or connectionless**.
-Synchronous scanners, like [Nmap](https://nmap.org/), wait for a host response (until the timeout period expires) to determine if the port it's alive. This translates to slower scans, especially on big network ranges, but an accurate port discovery in comparison with connectionless scanners.
-Asynchronous scanners like [scanrad](http://www.vulnerabilityassessment.co.uk/scanrand.htm), [zmap](https://github.com/zmap/zmap), or [masscan](https://github.com/robertdavidgraham/masscan), on the other hand, don't wait for a host response as they create separate threads for each port. This allows a high-speed scan, but less accurate since they cannot detect dropped packets.
-Combining both tools could help you find a balance between speed and accuracy for each engagement. [^captmeelo-benchmark]
+## At a Glance
+
+Port scanners can be categorized between
+**synchronous or connection-oriented** and **asynchronous or connectionless**.
+Synchronous scanners,
+like [Nmap](https://nmap.org/),
+wait for a host response
+to determine if the port it's alive.
+This translates to slower scans,
+especially on big network ranges,
+but an accurate port discovery
+in comparison with connectionless scanners.
+
+Asynchronous scanners,
+like [scanrad](http://www.vulnerabilityassessment.co.uk/scanrand.htm),
+[zmap](https://github.com/zmap/zmap),
+or [masscan](https://github.com/robertdavidgraham/masscan),
+on the other hand,
+don't wait for a host response
+as they create separate threads for each port.
+This allows a high-speed scan,
+but less accurate
+since they cannot detect dropped packets.
+
+Combining both tools
+could help you find a balance
+between speed and accuracy. [^captmeelo-benchmark]
 
 ## Network Sweep
 

@@ -5,6 +5,8 @@ weight: 201
 
 # Brute Forcing
 
+## At a Glance
+
 A brute-forcing attack consists of
 systematically enumerating
 all possible candidates for the solution

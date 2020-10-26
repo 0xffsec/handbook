@@ -5,6 +5,8 @@ title: File Inclusion and Path Traversal - Web Applications Pentesting
 
 # File Inclusion and Path Traversal
 
+## At a Glance
+
 #### File Inclusion
 
 File inclusion is the method for applications,

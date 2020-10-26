@@ -3,11 +3,11 @@ menu: "MSRPC - 135 / 593"
 title: "MSRPC (Microsoft Remote Procedure Call) Service Enumeration"
 weight: 135
 ---
-# MSRPC
+# MSRPC (Microsoft Remote Procedure Call)
+
+## At a Glance
 
 {{<highlight>}}
-Microsoft Remote Procedure Call.
-
 **Default Ports**:
 - RPC Endpoint Mapper: 135
 - HTTP: 593

@@ -4,6 +4,8 @@ weight: 402
 ---
 # Reverse Shells
 
+## At a Glance
+
 After the exploitation of a remote code execution (RCE) vulnerability, the next step will be to interact with the compromised target.
 Reverse shells, as opposed to bind shells, initiate the connection from the remote host to the local host. They are especially handy and, sometimes the only way, to get remote access across a NAT or firewall.
 

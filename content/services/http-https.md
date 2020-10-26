@@ -3,11 +3,11 @@ menu: HTTP/S - 80 / 443
 title: "HTTP/S (Hypertext Transfer Protocol Secure) Service Enumeration"
 weight: 80
 ---
-# HTTP/S
+# HTTP/S (Hypertext Transfer Protocol / Secure)
+
+## At a Glance
 
 {{<highlight>}}
-Hypertext Transfer Protocol and Hypertext Transfer Protocol Secure.
-
 **Default Ports**
 - HTTP: 80
 - HTTPS (HTTP over TLS or SSL): 443

@@ -5,6 +5,8 @@ title: CGI - Web Applications Pentesting
 
 # Common Gateway Interface
 
+## At a Glance
+
 Common Gateway Interface (CGI) is an interface specification for web servers to execute command-line interface (CLI) programs. These programs also known as CGI scripts or simply CGIs, are commonly executed at the time a request is made and return dynamically generated HTML content.
 
 Most servers expect CGI scripts to reside in a special directory, usually called `cgi-bin`, to handle the requests correctly and execute the program instead of returning the file content.  [^oreilly-cgi]

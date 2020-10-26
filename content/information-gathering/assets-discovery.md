@@ -6,6 +6,8 @@ description: The reconnaissance, or information gathering, stage plays a major r
 
 # Assets Discovery
 
+## At a Glance
+
 Assets Discovery helps you identify new targets within the scope. These new seeds, or domains, will broader the attack surface and provide a better understanding of the target and its infrastructure.
 
 ## Acquisitions

@@ -4,6 +4,8 @@ weight: 102
 ---
 # Host Discovery
 
+## At a Glance
+
 One of the first steps
 during the network enumeration
 is to reduce a set of IPs

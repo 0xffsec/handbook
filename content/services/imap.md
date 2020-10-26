@@ -3,15 +3,14 @@ menu: "IMAP - 143 / 993"
 title: "IMAP (Internet Message Access Protocol) Service Enumeration"
 weight: 143
 ---
-# IMAP
+# IMAP (Internet Message Access Protocol)
+
+## At a Glance
 
 {{<highlight>}}
-Internet Message Access Protocol.
-
 **Default Ports**
 - IMAP: 143
 - IMAPS (IMAP over SSL): 993
-
 {{</highlight>}}
 
 IMAP is an application-layer protocol

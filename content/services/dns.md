@@ -3,11 +3,11 @@ menu: "DNS - 53"
 title: "DNS (Domain Name Systems) Service Enumeration"
 weight: 53
 ---
-# DNS
+# DNS (Domain Name Systems)
+
+## At a Glance
 
 {{<highlight>}}
-Domain Name Systems.
-
 **Default Port:** 53
 {{</highlight>}}
 

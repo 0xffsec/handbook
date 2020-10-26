@@ -3,11 +3,11 @@ menu: "FTP - 21"
 title: "FTP (File Transfer Protocol) Service Enumeration"
 weight: 21
 ---
-# FTP
+# FTP (File Transfer Protocol)
+
+## At a Glance
 
 {{<highlight>}}
-File Transfer Protocol.
-
 **Default Port:** 21
 {{</highlight>}}
 

@@ -6,6 +6,8 @@ weight: 600
 
 # Exfiltration
 
+## At a Glance
+
 Data exfiltration,
 also called data extrusion or data exportation,
 is the unauthorized transfer of data
