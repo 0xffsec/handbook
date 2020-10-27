@@ -133,9 +133,11 @@ like Google Analytics or Google Adsense.
 - [Source Code Search Engine](https://publicwww.com/)
 - [SpyOnWeb](https://spyonweb.com/)
 
-## Google-Fu
+## Google Dorking
 
-Google for company's:
+Search for
+any company-wide
+distinctive text like:
 
 - Copyright text
 - Terms of service text
@@ -144,6 +146,15 @@ Google for company's:
 ```txt
 "© 2006-2020 Company, Corp." -site:*.domain.com inurl:company
 ```
+
+{{<note>}}
+Other search engines,
+like [Bing](https://www.bing.com) and [DuckDuckGo](http://www.duckduckgo.com),
+offer similar advanced search operators:
+- [Bing Advanced Search Keywords](https://help.bing.microsoft.com/#apex/bing/en-us/10001/-1)
+- [DuckDuckGo Search Syntax](https://help.duckduckgo.com/duckduckgo-help-pages/results/syntax/)
+- [Google Advanced Search Operators](https://docs.google.com/document/d/1ydVaJJeL1EYbWtlfj9TPfBTE5IBADkQfZrQaBZxqXGs/edit)
+{{</note>}}
 
 ## Shodan
 
