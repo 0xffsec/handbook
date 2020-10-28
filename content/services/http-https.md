@@ -15,9 +15,7 @@ weight: 80
 
 ## Directory Enumeration
 
-As a first step,
-it is a good idea
-to enumerate files and directories.
+Enumerate files and directories.
 Look for **unlinked content**,
 **temporary directories**,
 and **backups**.
@@ -25,42 +23,27 @@ Widely used tools include
 [dirbuster](https://www.owasp.org/index.php/Category:OWASP_DirBuster_Project),
 [gobuster](https://github.com/OJ/gobuster),
 [dirb](https://sourceforge.net/projects/dirb/),
-and the suite [Burp](https://portswigger.net/burp).
+and [Burp Suite](https://portswigger.net/burp).
 
 ### Wordlists
 
-Included in [Kali's wordlists package](https://tools.kali.org/password-attacks/wordlists).
+Included in [Kali's wordlists package](https://tools.kali.org/password-attacks/wordlists)
+under `/usr/share/wordlists`.
 
-- James Fisher's 2.3 medium ( 1.9M - 220560 lines )
+- `/dirbuster/directory-list-2.3-medium.txt` ( 1.9M - 220560 lines )
+- `/dirbuster/directory-list-2.3-small.txt` ( 709K - 87664 lines )
+- `/dirb/common.txt` ( 36K - 4614 lines )
+- `/dirb/big.txt` ( 180K - 20469 lines )
 
-    `/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt`
+Other lists.
 
-- James Fisher's 2.3 small ( 709K - 87664 lines )
-
-    `/usr/share/wordlists/dirbuster/directory-list-2.3-small.txt`
-
-- dirb common ( 36K - 4614 lines )
-
-    `/usr/share/wordlists/dirb/common.txt`
-
-- dirb big ( 180K - 20469 lines )
-
-    `/usr/share/wordlists/dirb/big.txt`
-
-Not included in Kali.
-- [Jhaddix's](https://twitter.com/Jhaddix) `content_discovery_all` ( 5.9M - 373535 lines )
-
-    <https://gist.github.com/jhaddix/b80ea67d85c13206125806f0828f4d10>
-
-- Daniel Miessler's [Robots Disallowed](https://github.com/danielmiessler/RobotsDisallowed) and [SecLists](https://github.com/danielmiessler/SecLists/) (Includes the former one).
-
-    [https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content]()
+- Jhaddix's [`content_discovery_all.txt`](https://gist.github.com/jhaddix/b80ea67d85c13206125806f0828f4d10) ( 5.9M - 373535 lines )
+- Daniel Miessler's [Web Content Discovery](https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content).
 
 {{<note>}}
 For more wordlists
 refer to [Wordlists]({{< ref "brute-forcing#wordlists">}})
 and [Wordlist Generaion]({{< ref "brute-forcing#wordlist-generation">}}).
-under [Brute-Forcing]({{< ref "brute-forcing" >}}).
 {{</note>}}
 
 ### gobuster [^gobuster]
