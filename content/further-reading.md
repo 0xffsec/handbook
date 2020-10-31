@@ -48,6 +48,7 @@ weight: 800
 - [MalwareAnalysisForHedgehogs](https://www.youtube.com/MalwareAnalysisForHedgehogs)
 - [Open Security Training](https://www.youtube.com/OpenSecurityTraining)
 - [Red Team Village](https://www.youtube.com/RedTeamVillage/)
+- [Researcher Tips and Tricks from JackkTutorials](https://www.youtube.com/playlist?list=PLIK9nm3mu-S4SuIUZ6LKh98QGT4fz59Sj)
 
 ## Links
 
