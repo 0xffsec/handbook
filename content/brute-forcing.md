@@ -20,6 +20,12 @@ checking all possible keys
 until the correct key is found.
 [^brute-force-wiki]
 
+{{<note>}}
+The success and efficiency of a brute-force attack
+rely mostly on the wordlist.
+Use a highly-reputed one.
+{{</note>}}
+
 ## Default Credentials
 
 - [DefaultPassword](https://default-password.info/)
