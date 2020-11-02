@@ -13,6 +13,39 @@ weight: 80
 - HTTPS (HTTP over TLS or SSL): 443
 {{</highlight>}}
 
+HTTP is an application-level protocol
+for distributed hypermedia information systems.
+It is the standard protocol that defines
+how messages are formatted
+and sent across the web.
+
+HTTPS (Hypertext Transfer Protocol Secure) is an extension of HTTP.
+In HTTPS, the communication protocol is encrypted using Transport Layer Security (TLS) or,
+formerly,
+Secure Sockets Layer (SSL).
+Therefore,
+the protocol is also referred to
+as HTTP over TLS or HTTP over SSL.
+
+## Banner Grabbing
+
+HTTP
+
+#### Netcat
+```sh
+nc {{< param "war.rdomain" >}} 80
+```
+
+HTTPS
+
+#### openssl [^openssl]
+```sh
+openssl s_client -connect {{< param "war.rdomain" >}}:443
+```
+{{<details "Parameters">}}
+- `s_client`:  SSL/TLS client program.
+{{</details>}}
+
 ## Directory Enumeration
 
 Enumerate files and directories.
@@ -82,3 +115,4 @@ If the target uses an open-source app, downloading its codebase will provide hel
 
 [^gobuster]: Reeves, OJ. “GitHub - OJ/Gobuster.” GitHub, https://github.com/OJ/gobuster.
 [^dirb]: Pinuaga, Ramon. “DIRB .” DIRB Homepage, http://dirb.sourceforge.net/.
+[^openssl]: OpenSSL Foundation, Inc. “/Docs/Manmaster/Man1/Openssl.Html.” OpenSSL.Org, https://www.openssl.org/docs/manmaster/man1/openssl.html.
