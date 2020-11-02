@@ -69,3 +69,4 @@ nmap -p 143,993 --script imap-ntlm-info {{< param "war.rhost" >}}
 Refer to [Exploits Search]({{< ref "exploits-search">}})
 
 [^imap-wiki]: Contributors to Wikimedia projects. “Internet Message Access Protocol - Wikipedia.” Wikipedia, the Free Encyclopedia, Wikimedia Foundation, Inc., 7 Sept. 2001, https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol.
+[^openssl]: OpenSSL Foundation, Inc. “/Docs/Manmaster/Man1/Openssl.Html.” OpenSSL.Org, https://www.openssl.org/docs/manmaster/man1/openssl.html.
