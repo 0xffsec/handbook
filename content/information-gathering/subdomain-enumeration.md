@@ -295,7 +295,7 @@ they are `X-Content-Security-Policy` and `X-Webkit-CSP`
 
 #### curl
 ```sh
-curl -I -s -L https://www.maxrodrigo.com | grep -iE 'Content-Security|CSP
+curl -I -s -L https://www.maxrodrigo.com | grep -iE 'Content-Security|CSP'
 ```
 {{<details "Parameters">}}
 - `-I`: Fetch the headers only.
