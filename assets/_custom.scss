@@ -6,6 +6,14 @@ audio, canvas, iframe, img, svg, video {
   vertical-align: middle;
 }
 
+ul#book-search-results{
+  li:last-child{
+    border-bottom: thin solid var(--gray-500);
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .footnotes{
   color: #343a40;
   font-size: $font-size-12;
