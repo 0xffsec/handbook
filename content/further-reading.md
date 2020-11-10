@@ -5,40 +5,71 @@ weight: 800
 
 # Further Reading
 
-## Practice and Learn
-
-- [247/CTF](https://247ctf.com/)
-- [CTF 101](https://ctf101.org/)
-- [CTFlearn](https://ctflearn.com/)
-- [CTFtime](https://ctftime.org/)
-- [CryptoHack](https://cryptohack.org/)
-- [Embedded Security CTF](https://microcorruption.com/)
-- [Hack The Box](https://www.hackthebox.eu/)
-- [PentesterLab](https://pentesterlab.com/)
-- [TryHackMe](https://tryhackme.com/)
-- [VulnHub](https://www.vulnhub.com/)
-- [picoCTF](https://picoctf.com/)
-- [pwn.college](https://pwn.college/)
-- [pwnable.tw](https://pwnable.tw/)
-
-## Bug Bounty Programs
-
-- [Bugcrowd](https://bugcrowd.com/)
-- [Facebook](https://www.facebook.com/whitehat)
-- [Github](https://bounty.github.com/)
-- [Google](https://www.google.com/about/appsecurity/reward-program/)
-- [HP](http://hp.com/go/printersthatprotect)
-- [HackerOne](https://www.hackerone.com/)
-- [Intel](https://www.intel.com/content/www/us/en/security-center/default.html)
-- [Microsoft](https://www.microsoft.com/en-us/msrc/bounty?rtc=1)
-- [Mozilla](https://www.mozilla.org/en-US/security/bug-bounty/)
-- [Zerodium](http://zerodium.com/program.html)
-
-
 ## Books
 
 - [The Hacker Playbook Series](https://securepla.net/hacker-playbook/)
 - [Hacking- The Art of Exploitation](https://nostarch.com/hacking2.htm)
+
+
+## Online Pentesting Platforms
+
+- https://www.hackthebox.eu/ - Hack The Box
+- https://www.vulnhub.com/ - VulnHub
+- https://www.hackthissite.org/ - HackThisSite
+- https://tryhackme.com/ - TryHackMe
+- https://cryptohack.org/ - CryptoHack
+- https://pentesterlab.com/ - PentesterLab
+- https://portswigger.net/web-security - PortSwigger Web Security Academy
+- https://ctflearn.com/ - CTFlearn
+- https://picoctf.com/ - picoCTF
+- https://pwn.college/ - pwn.college
+- https://pwnable.tw/ - pwnable.tw
+- https://247ctf.com/ - 247/CTF
+- https://ctf101.org/ - CTF 101
+- https://ctftime.org/ - CTFtime
+- https://microcorruption.com/ - Embedded Security CTF
+
+## Vulnerable Apps
+
+- https://github.com/digininja/DVWA - Damn Vulnerable Web Application
+- https://github.com/snoopysecurity/dvws - Damn Vulnerable Web Services
+- https://github.com/vavkamil/dvwp - Damn Vulnerable WordPress
+- https://github.com/stamparm/DSVW - Damn Small Vulnerable Web
+- https://sourceforge.net/projects/bwapp/files/bWAPP/ - Buggy Web Application
+- https://owasp.org/www-project-juice-shop/ - OWASP JuiceShop
+- https://github.com/webpwnized/mutillidae - OWASP Mutillidae II
+- https://github.com/WebGoat/WebGoat - WebGoat
+- https://github.com/RhinoSecurityLabs/cloudgoat - CloudGoat
+- https://github.com/madhuakula/kubernetes-goat - Kubernetes Goat
+- https://github.com/owasp/nodegoat - NodeGoat
+- https://github.com/OWASP/railsgoat - RailsGoat
+
+## Bug Bounty Platforms
+
+- https://www.yeswehack.com/ - YesWeHack
+- https://www.intigriti.com - Intigriti
+- https://bugcrowd.com/ - Bugcrowd
+- https://www.hackerone.com/ - HackerOne
+- https://cobalt.io/ - Cobalt
+- https://www.bountysource.com/ - BountySource
+- https://hackenproof.com/ - HackenProof
+- https://cs.detectify.com/ - Detectify
+- https://bugbounty.jp/ - BugBounty.jp
+- https://safehats.com/ - SafeHats
+- https://hacktrophy.com/ - HackTrophy
+- https://www.cesppa.com/ - Cesppa
+- https://www.antihack.me/ - AntiHack
+
+## Bug Bounty Programs
+
+- https://bounty.github.com/ - Github
+- https://www.google.com/about/appsecurity/reward-program/ - Google
+- http://hp.com/go/printersthatprotect - HP
+- https://www.intel.com/content/www/us/en/security-center/default.html - Intel
+- https://www.facebook.com/whitehat - Facebook
+- https://www.microsoft.com/en-us/msrc/bounty?rtc=1 - Microsoft
+- https://www.mozilla.org/en-US/security/bug-bounty/ - Mozilla
+- http://zerodium.com/program.html - Zerodium
 
 ## YouTube Channels
 
@@ -49,10 +80,3 @@ weight: 800
 - [Open Security Training](https://www.youtube.com/OpenSecurityTraining)
 - [Red Team Village](https://www.youtube.com/RedTeamVillage/)
 - [Researcher Tips and Tricks from JackkTutorials](https://www.youtube.com/playlist?list=PLIK9nm3mu-S4SuIUZ6LKh98QGT4fz59Sj)
-
-## Links
-
-- [HighOn.Coffee | Penetration Testing Tools Cheat Sheet](https://highon.coffee/blog/penetration-testing-tools-cheat-sheet/#python-tty-shell-trick)
-- [OWASP Testing Checklist](https://wiki.owasp.org/index.php/Testing_Checklist)
-- [The Conscience of a Hacker](http://phrack.org/issues/7/3.html)
-- [What-Happens-When](https://github.com/alex/what-happens-when#parse-url)
