@@ -39,6 +39,31 @@ of the same organization.
 
 ## Tools
 
+#### BBOT [^bbot]
+
+- Includes DNS brute-forcing with massdns + smart mutations
+- Automatic (recursive) PTR,A,AAAA,MX,TXT,NS,SOA,SRV,CNAME lookups
+- Returns a summary of ASNs at the end of the scan
+
+```sh
+# subdomains
+bbot -t tesla.com -f subdomain-enum
+
+# subdomains (passive only)
+bbot -t tesla.com -f subdomain-enum -rf passive
+
+# subdomains + port scan + web screenshots
+bbot -t tesla.com -f subdomain-enum -m naabu gowitness -n my_scan -o .
+```
+{{<details "Parameters">}}
+- API keys go in ~/.config/bbot/secrets.yaml
+- `-f subdomain-enum`: Enable subdomain enumeration
+- `-rf passive`: Only enable passive modules
+- `-m`: Enable individual modules
+- `-n`: Name your scan (default: random name)
+- `-o`: Choose your output directory
+{{</details>}}
+
 #### Amass [^amass]
 ```sh
 amass enum -passive -d {{< param "war.rdomain" >}} -o results.txt
@@ -320,3 +345,4 @@ curl -I -s -L https://www.maxrodrigo.com | grep -iE 'Content-Security|CSP'
 [^dnsrecon]: darkoperator. “GitHub - Darkoperator/Dnsrecon: DNS Enumeration Script.” GitHub, https://github.com/darkoperator/dnsrecon.
 [^sublist3r]: aboul3la. “GitHub - Aboul3la/Sublist3r: Fast Subdomains Enumeration Tool for Penetration Testers.” GitHub, https://github.com/aboul3la/Sublist3r.
 [^amass]: “GitHub - OWASP/Amass: In-Depth Attack Surface Mapping and Asset Discovery.” GitHub, https://github.com/OWASP/Amass.
+[^bbot]: “GitHub - blacklanternsecurity/bbot: OSINT automation for hackers.” GitHub, https://github.com/blacklanternsecurity/bbot.
