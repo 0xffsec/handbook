@@ -40,11 +40,6 @@ of the same organization.
 ## Tools
 
 #### BBOT [^bbot]
-
-- Includes DNS brute-forcing with massdns + smart mutations
-- Automatic (recursive) PTR,A,AAAA,MX,TXT,NS,SOA,SRV,CNAME lookups
-- Returns a summary of ASNs at the end of the scan
-
 ```sh
 # subdomains
 bbot -t tesla.com -f subdomain-enum
@@ -56,12 +51,13 @@ bbot -t tesla.com -f subdomain-enum -rf passive
 bbot -t tesla.com -f subdomain-enum -m naabu gowitness -n my_scan -o .
 ```
 {{<details "Parameters">}}
-- API keys go in ~/.config/bbot/secrets.yaml
-- `-f subdomain-enum`: Enable subdomain enumeration
-- `-rf passive`: Only enable passive modules
-- `-m`: Enable individual modules
-- `-n`: Name your scan (default: random name)
-- `-o`: Choose your output directory
+- `-t`: Target domain(s).
+- `-f`: Enable modules with these flags.
+- `-rf passive`: Only enable passive modules.
+- `-m`: Enable individual modules.
+- `-n`: Name your scan (default: random name).
+- `-o`: Choose your output directory.
+- API keys go in ~/.config/bbot/secrets.yaml.
 {{</details>}}
 
 #### Amass [^amass]
@@ -191,6 +187,18 @@ Useful Wordlists:
 - Jhaddix's [all.txt](https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056)
 - Daniel Miessler's [DNS Discovery](https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS).
 - [Commonspeak2](https://github.com/assetnote/commonspeak2-wordlists)
+
+#### BBOT [^bbot]
+Note: BBOT's massdns module uses smart mutations based on previously found subdomains
+```sh
+bbot -t tesla.com -m massdns -c modules.massdns.wordlist=./all.txt modules.massdns.max_resolvers=1000
+```
+{{<details "Parameters">}}
+- `-t`: Target domain(s).
+- `-f`: Enables modules with these flags.
+- `-c modules.massdns.wordlist`: Massdns custom wordlist (can be either local file or URL) (default: `subdomains-top1million-5000.txt`)
+- `-c modules.massdns.max_resolvers`: Massdns resolvers (default: 500)
+{{</details>}}
 
 #### Amass [^amass]
 ```sh
