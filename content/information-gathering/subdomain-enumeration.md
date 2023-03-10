@@ -189,7 +189,7 @@ Useful Wordlists:
 - [Commonspeak2](https://github.com/assetnote/commonspeak2-wordlists)
 
 #### BBOT [^bbot]
-Note: BBOT's massdns module uses smart mutations based on previously found subdomains
+Note: BBOT's massdns module automatically pulls an [up-to-date list of the latest public resolvers](https://github.com/blacklanternsecurity/public-dns-servers). It also brute-forces recursively based on mutations from the subdomains it finds. Run with `-f subdomain-enum` for best results.
 ```sh
 bbot -t tesla.com -m massdns -c modules.massdns.wordlist=./all.txt modules.massdns.max_resolvers=1000
 ```
