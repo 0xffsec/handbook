@@ -39,6 +39,27 @@ of the same organization.
 
 ## Tools
 
+#### BBOT [^bbot]
+```sh
+# subdomains
+bbot -t tesla.com -f subdomain-enum
+
+# subdomains (passive only)
+bbot -t tesla.com -f subdomain-enum -rf passive
+
+# subdomains + port scan + web screenshots
+bbot -t tesla.com -f subdomain-enum -m naabu gowitness -n my_scan -o .
+```
+{{<details "Parameters">}}
+- `-t`: Target domain(s).
+- `-f`: Enable modules with these flags.
+- `-rf passive`: Only enable passive modules.
+- `-m`: Enable individual modules.
+- `-n`: Name your scan (default: random name).
+- `-o`: Choose your output directory.
+- API keys go in ~/.config/bbot/secrets.yaml.
+{{</details>}}
+
 #### Amass [^amass]
 ```sh
 amass enum -passive -d {{< param "war.rdomain" >}} -o results.txt
@@ -166,6 +187,18 @@ Useful Wordlists:
 - Jhaddix's [all.txt](https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056)
 - Daniel Miessler's [DNS Discovery](https://github.com/danielmiessler/SecLists/tree/master/Discovery/DNS).
 - [Commonspeak2](https://github.com/assetnote/commonspeak2-wordlists)
+
+#### BBOT [^bbot]
+Note: BBOT's massdns module automatically pulls an [up-to-date list of the latest public resolvers](https://github.com/blacklanternsecurity/public-dns-servers). It also brute-forces recursively based on mutations from the subdomains it finds. Run with `-f subdomain-enum` for best results.
+```sh
+bbot -t tesla.com -m massdns -c modules.massdns.wordlist=./all.txt modules.massdns.max_resolvers=1000
+```
+{{<details "Parameters">}}
+- `-t`: Target domain(s).
+- `-f`: Enables modules with these flags.
+- `-c modules.massdns.wordlist`: Massdns custom wordlist (can be either local file or URL) (default: `subdomains-top1million-5000.txt`)
+- `-c modules.massdns.max_resolvers`: Massdns resolvers (default: 500)
+{{</details>}}
 
 #### Amass [^amass]
 ```sh
@@ -320,3 +353,4 @@ curl -I -s -L https://www.maxrodrigo.com | grep -iE 'Content-Security|CSP'
 [^dnsrecon]: darkoperator. “GitHub - Darkoperator/Dnsrecon: DNS Enumeration Script.” GitHub, https://github.com/darkoperator/dnsrecon.
 [^sublist3r]: aboul3la. “GitHub - Aboul3la/Sublist3r: Fast Subdomains Enumeration Tool for Penetration Testers.” GitHub, https://github.com/aboul3la/Sublist3r.
 [^amass]: “GitHub - OWASP/Amass: In-Depth Attack Surface Mapping and Asset Discovery.” GitHub, https://github.com/OWASP/Amass.
+[^bbot]: “GitHub - blacklanternsecurity/bbot: OSINT automation for hackers.” GitHub, https://github.com/blacklanternsecurity/bbot.
