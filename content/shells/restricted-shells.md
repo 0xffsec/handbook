@@ -287,7 +287,7 @@ for example,
 the `echo` command.
 
 ```sh
-echo '#!/usr/bin/env bash' | tree script.sh
+echo '#!/usr/bin/env bash' | tee script.sh
 echo '# Your code' | tee -a script.sh
 ```
 ## Further Reading
