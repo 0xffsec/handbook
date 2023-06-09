@@ -120,6 +120,7 @@ offer similar advanced search operators:
 - [VirusTotal Passive DNS replication](https://www.virustotal.com/)[^vt-passive-dns]
 - [DNSDumpster](https://dnsdumpster.com/)
 - [Netcraft - Search DNS](https://searchdns.netcraft.com/)
+- [Columbus Project](https://columbus.elmasy.com/)
 
 ## ASN Enumeration
 
